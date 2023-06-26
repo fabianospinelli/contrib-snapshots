@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="toolbar_style" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<style type="text/css" wd_script_id="featureboxes_style" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ==">
+		.wd_featurebox_icon {
+			display: inline;
+		}
+		.wd_featurebox_icon img {
+			vertical-align: middle;
+		}
+		div.wd_featurebox_group div.wd_tabs_wrapper {
+			border: none;
+			border-bottom: 1px solid #E1E1E1;
+			padding: 0 0 5px 0;
+		}
+		div.wd_featurebox_group div.wd_featurebox {
+			border: none;
+			padding: 8px 0 0 0;
+		}
+		div.wd_featurebox_group li.wd_tab {
+			float: none;
+			color: #666666;
+		}
+		div.wd_featurebox_group li.wd_tab-active {
+			border: none;
+			background-color: transparent;
+			color: #000000;
+			font-weight: bold;
+		}
+		div.wd_featurebox_group li.wd_tab-inactive {
+			cursor: auto;
+		}
+	</style>
+<style type="text/css" wd_script_id="search_form_style" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ==">
+		.wd_search_form .wd_input_datepicker {
+			margin-right: 2px;
+		}
+		.wd_search_type_checkbox {
+			margin-left: 20px;
+		}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ=="></script>
+<script type="text/javascript" wd_script_id="search_form_script" nonce="ZmFmYWM5OTM1ZmEzYTQ4NGMzNzY2YTgwOWFlZTA3MDk1ZTc3Y2FhOQ==">
+			function wd_toggle_search_form(link, advanced) {
+				var $ = webDriver.jQuery;
+				var $container = $(link).closest(".wd_search_form_container");
+				var basic_form = $container.find(".wd_search_form_basic");
+				var basic_query = basic_form.find('input[name="query"]');
+				var advanced_form = $container.find(".wd_search_form_advanced");
+				var advanced_query = advanced_form.find('input[name="query"]');
+
+				if (advanced) {
+					advanced_query.val(basic_query.val());
+					advanced_form.show();
+					basic_form.hide();
+				} else {
+					basic_query.val(advanced_query.val());
+					basic_form.show();
+					advanced_form.hide();
+				}
+			}
+
+			function wd_toggle_search_type_checkboxes(radio) {
+				var $ = webDriver.jQuery;
+				var $radio = $(radio);
+				var all = $radio.val() == "All" ? $radio.is(":checked") : !$radio.is(":checked");
+				var $checkboxes = $radio.closest(".wd_form_field").find(".wd_search_type_checkbox");
+				$checkboxes.find('input[type="checkbox"]').prop("disabled", all);
+				$checkboxes.toggle(!all);
+			}
+
+			webDriver.jQuery(function ($) {
+				$('.wd_search_type_radio input[type="radio"]').each(function() {wd_toggle_search_type_checkboxes(this);});
+			});
+		</script>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SE Media Center | Resources</title>
+	
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Villkor och meddelanden för webbplatsen Tripadvisor" />
+ <meta name="twitter:description" content="&lt;p&gt;V&amp;auml;lkommen till Tripadvisors webbplatser och mobiltj&amp;auml;nster p&amp;aring;&amp;nbsp;&lt;a href=&quot;http://www.tripadvisor.se/&quot;&gt;www.tripadvisor.se&lt;/a&gt;&amp;nbsp;och till&amp;auml;mpliga landsdom&amp;auml;ner p&amp;aring; h&amp;ouml;gsta niv&amp;aring; (inklusive underdom&amp;auml;ner som &amp;auml;r kopplade till dem), relaterade programvaror (ibland kallade &amp;rdquo;appar&amp;rdquo;), data, sms, API:er, e-post, chatt- och telefonkorrespondens, knappar, widgetar och annonser (alla dessa objekt ska h&amp;auml;ri ben&amp;auml;mnas som &amp;rdquo;Tj&amp;auml;nsterna&amp;rdquo;;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;SE-terms-of-use&quot;&gt;Visa riktlinjer &amp;gt;&lt;/a&gt;&lt;/p&gt; " />
+ <meta property="og:site_name" content="MediaRoom" />
+ <meta property="og:url" content="https://tripadvisor.mediaroom.com/SE-terms-of-use" />
+ <meta property="og:title" content="Villkor och meddelanden för webbplatsen Tripadvisor" />
+ <meta property="og:description" content="&lt;p&gt;V&amp;auml;lkommen till Tripadvisors webbplatser och mobiltj&amp;auml;nster p&amp;aring;&amp;nbsp;&lt;a href=&quot;http://www.tripadvisor.se/&quot;&gt;www.tripadvisor.se&lt;/a&gt;&amp;nbsp;och till&amp;auml;mpliga landsdom&amp;auml;ner p&amp;aring; h&amp;ouml;gsta niv&amp;aring; (inklusive underdom&amp;auml;ner som &amp;auml;r kopplade till dem), relaterade programvaror (ibland kallade &amp;rdquo;appar&amp;rdquo;), data, sms, API:er, e-post, chatt- och telefonkorrespondens, knappar, widgetar och annonser (alla dessa objekt ska h&amp;auml;ri ben&amp;auml;mnas som &amp;rdquo;Tj&amp;auml;nsterna&amp;rdquo;;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;SE-terms-of-use&quot;&gt;Visa riktlinjer &amp;gt;&lt;/a&gt;&lt;/p&gt; " />
+	
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery.dropdown.min.css">
+	<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dropdown.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+	<link rel="alternate" href="https://tripadvisor.mediaroom.com/press-releases?pagetemplate=rss" type="application/rss+xml" title="MediaRoom">	<style>.flag{background-position: 0px -178px;}</style>
+
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://tripadvisor.mediaroom.com/SE-terms-of-use" />
+<!-- end spin_special_output(head_end) -->
+</head>
+
+	<body class="wd_pageid_34344 wd_item_page wd_item_32204 ">
+
+<div class="topbar">
+	<div class=" widthLimit">
+
+		<i class="fa fa-bars" aria-hidden="true"></i>
+
+		<a class="wd_logo_main" href="https://www.tripadvisor.se"><img src="images/Tripadvisor_Logo_circle-green_horizontal-lockup_registered_RGB.svg" alt="Reviews of Hotels, Flights and Vacation Rentals" class="mastheadLogoImage"></a>
+		<div class="headerRight">
+		<a href="https://www.tripadvisor.se" class="homelink">Gå tillbaka till Tripadvisor</a>
+		<a href="#" class="searchMenu fa fa-search" data-jq-dropdown="#searchMenu" data-horizontal-offset="8" data-vertical-offset="14"> </a>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="header"></div> -->
+
+<div class="heroimage">
+
+	<div class=" widthLimit">
+			<div class="herotext">Mediacenter</div>
+	</div>
+</div>
+<div class="mainnav widthLimit">
+	<ul>
+		<li class="mannav-about"><a target="_blank" href="US-about-us">Om Tripadvisor</a></li>
+		<li class="mannav-investor"><a href="http://ir.tripadvisor.com/" target="_blank">Investerarrelationer</a></li>
+		<li class="mannav-resources"><a href="index.php?s=34344">Resurser</a></li>
+		<li class="mannav-contact"><a href="index.php?s=34613">Kontakta oss</a></li>
+	</ul>
+</div>
+<div class="widthLimit"><!-- <img src="images/shadow-mainnav.png" width="1090" height="21"> --></div>
+
+<div class="contentArea widthLimit">
+
+	
+	
+	
+	<div class="leftNav pad-20">
+	<p class="clickdrop">Newsroom</p>
+	<div class="nav pad-20">
+<p><a href="US-press-releases" target="_self">Pressmeddelanden</a></p>
+<p><a href="https://www.purpose.tripadvisor.com/diversity" target="_blank">Equity, Diversity + Inclusion</a></p>
+<p><a href="https://www.purpose.tripadvisor.com/social-impact" target="_blank">Social Impact</a></p>
+<p><a href="https://www.tripadvisor.se/Trust" target="_blank">Trygghet och säkerhet</a></p>
+<p><a href="logo-guidelines" target="_self">Vårt varumärke</a></p>
+</div><!--/nav-->
+		</div><!--/leftNav-->
+
+		<div class="content" ><div class="mobile-language" id="mobile-resources-page-menu">
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=20292">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34300">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34304">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=20316">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34308">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34312">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34316">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34320">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34324">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34328">Venezuela</a></li>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=20288">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=20309">Italia</a></li>
+			<li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=20310">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=20328">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=20307">France</a></li>
+			<li class="flag_item active"><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34344">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34348">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34352">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34356">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34360">Ireland</a></li>
+			<li class="flag_item "><a id="flag_cz_fly" class="flag_link flag_cz" hreflang="cs" title="Czech Republic" href="index.php?s=34364">Česká republika</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34368">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34372">Ελλάδα</a></li>
+			<li class="flag_item "><a id="flag_fi_fly" class="flag_link flag_fi" hreflang="fi" title="Finland" href="index.php?s=34376">Suomi</a></li>
+			<li class="flag_item "><a id="flag_hu_fly" class="flag_link flag_hu" hreflang="hu" title="Hungary" href="index.php?s=34380">Magyarország</a></li>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34384">Norge</a></li>
+			<li class="flag_item "><a id="flag_pl_fly" class="flag_link flag_pl" hreflang="pl" title="Poland" href="index.php?s=34388">Polska</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34392">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=20314">Россия</a></li>
+			<li class="flag_item "><a id="flag_sk_fly" class="flag_link flag_sk" hreflang="sk" title="Slovakia" href="index.php?s=34396">Slovensko</a></li>
+			<li class="flag_item "><a id="flag_rs_fly" class="flag_link flag_rs" hreflang="sr" title="Serbia" href="index.php?s=34400">Srbija</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34404">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34408">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34412">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34416">Belgique</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34420">België</a></li>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=20318">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=20305">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34424">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=20315">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=20301">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34147">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=20296">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34428">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34143">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34148">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34432">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34151">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34436">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34440">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34444">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34448">香港</a></li>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34580">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34332">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34336">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34698">ישראל</a></li>
+		</ul>
+	</div><div id="wd_printable_content">
+<div class="wd_standard-detail">
+<h1 class="detail_header">Villkor och meddelanden för webbplatsen Tripadvisor</h1>
+<p><a href="#ANVÄNDA TJÄNSTERNA"><strong>ANV&Auml;NDA TJ&Auml;NSTERNA</strong></a></p>
+
+<p><strong><u><a href="#TILLÄGGSPRODUKTER">TILL&Auml;GGSPRODUKTER </a></u></strong></p>
+
+<p><strong><u><a href="#FÖRBJUDNA AKTIVITETER">F&Ouml;RBJUDNA AKTIVITETER</a></u></strong></p>
+
+<p><strong><u><a href="#SEKRETESSPOLICY OCH UTLÄMNANDEN">SEKRETESSPOLICY OCH UTL&Auml;MNANDEN</a></u></strong></p>
+
+<p><strong><u><a href="#OMDÖMEN, KOMMENTARER OCH ANVÄNDNING AV ANDRA INTERAKTIVA OMRÅDEN; BEVILJANDE AV LICENS">OMD&Ouml;MEN, KOMMENTARER OCH ANV&Auml;NDNING AV ANDRA INTERAKTIVA OMR&Aring;DEN; BEVILJANDE AV LICENS</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#Begränsa TripAdvisors licensrättigheter">Begr&auml;nsa Tripadvisors licensr&auml;ttigheter</a></u></strong></li>
+</ul>
+
+<p><strong><u><a href="#BOKNING MED TREDJEPARTSLEVERANTÖRER VIA TRIPADVISOR">BOKNING MED TREDJEPARTSLEVERANT&Ouml;RER VIA Tripadvisor</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#Användning av TripAdvisors bokningstjänster">Anv&auml;ndning av Tripadvisors bokningstj&auml;nster</a></u></strong><br />
+	&nbsp;</li>
+	<li><strong><u><a href="#Tredjepartsleverantörer.">Tredjepartsleverant&ouml;rer</a></u></strong><br />
+	&nbsp;</li>
+	<li><a href="#Bokning av semesterbostäder, restauranger och upplevelser med tredjepartsleverantörer på företagsfilialers webbplatser"><strong>Bokning av semesterbost&auml;der, restauranger och upplevelser med tredjepartsleverant&ouml;rer p&aring; f&ouml;retagsfilialers webbplatser</strong></a><br />
+	&nbsp;</li>
+</ul>
+
+<p><a href="#RESMÅL"><strong>RESM&Aring;L</strong></a><br />
+&nbsp;</p>
+
+<ul>
+	<li><a href="#Internationella resor"><strong>Internationella resor</strong></a></li>
+</ul>
+
+<p><strong><u><a href="#ANSVARSFRISKRIVNING">ANSVARSFRISKRIVNING</a></u></strong></p>
+
+<p><strong><u><a href="#SKADEERSÄTTNING">SKADEERS&Auml;TTNING</a></u></strong></p>
+
+<p><a href="#LÄNKAR TILL TREDJE PARTS WEBBPLATSER"><strong>L&Auml;NKAR TILL TREDJE PARTS WEBBPLATSER</strong></a></p>
+
+<p><strong><u><a href="#PROGRAMVARA SOM EN DEL AV TJÄNSTER; YTTERLIGARE MOBILA LICENSER">PROGRAMVARA SOM EN DEL AV TJ&Auml;NSTER; YTTERLIGARE MOBILA LICENSER</a></u></strong></p>
+
+<p><strong><u><a href="#UPPHOVSRÄTTS- OCH VARUMÄRKESMEDDELANDEN">UPPHOVSR&Auml;TTS- OCH VARUM&Auml;RKESMEDDELANDEN</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#Riktlinjer för anmälan om och borttagning av olagligt innehåll">Riktlinjer f&ouml;r anm&auml;lan om och borttagning av olagligt inneh&aring;ll</a></u></strong></li>
+</ul>
+
+<p><strong><u><a href="#ÄNDRINGAR AV TJÄNSTERNA; UPPSÄGNING">&Auml;NDRINGAR AV TJ&Auml;NSTERNA; UPPS&Auml;GNING</a></u></strong></p>
+
+<p><strong><u><a href="#JURISDIKTION OCH GÄLLANDE LAG">JURISDIKTION OCH G&Auml;LLANDE LAG</a></u></strong></p>
+
+<p><strong><u><a href="#VALUTAOMVANDLARE">VALUTAOMVANDLARE</a></u></strong></p>
+
+<p><strong><u><a href="#ALLMÄNNA BESTÄMMELSER">ALLM&Auml;NNA BEST&Auml;MMELSER</a></u></strong></p>
+
+<p><strong><u><a href="#TJÄNSTEHJÄLP">TJ&Auml;NSTEHJ&Auml;LP</a></u></strong></p>
+
+<p align="center">&nbsp;</p>
+
+<p>V&auml;lkommen till Tripadvisors webbplatser och mobiltj&auml;nster p&aring; <a href="http://www.tripadvisor.se/">www.Tripadvisor.se</a> och till&auml;mpliga landsdom&auml;ner p&aring; h&ouml;gsta niv&aring; (inklusive underdom&auml;ner som &auml;r kopplade till dem), relaterade programvaror (ibland kallade &rdquo;appar&rdquo;), data, sms, API:er, e-post, chatt- och telefonkorrespondens, knappar, widgetar och annonser (alla dessa objekt ska h&auml;ri ben&auml;mnas som &rdquo;Tj&auml;nsterna&rdquo;; mer generellt ska Tripadvisors webbplatser och mobiltj&auml;nster h&auml;danefter ben&auml;mnas som &rdquo;webbplatser&rdquo;). Tj&auml;nsterna erbjuds till dig f&ouml;rutsatt att du godk&auml;nner de regler, villkor och meddelanden som anges nedan (kallas gemensamt detta &rdquo;Avtal&rdquo;). Genom att ansluta till eller anv&auml;nda Tj&auml;nsterna samtycker du till att bindas av detta Avtal och bekr&auml;ftar att du har l&auml;st och f&ouml;rst&aring;tt villkoren i det. L&auml;s noga igenom detta Avtal, d&aring; det inneh&aring;ller information g&auml;llande dina r&auml;ttigheter enligt lag samt begr&auml;nsningar av dessa r&auml;ttigheter. Det inneh&aring;ller &auml;ven ett avsnitt om g&auml;llande lagar och domstolars beh&ouml;righet vid eventuell tvist. Om du inte godk&auml;nner alla dessa regler och villkor har du inte beh&ouml;righet till Tj&auml;nsterna. Om du har ett Tripadvisor-konto och vill s&auml;ga upp detta Avtal, kan du n&auml;r som helst g&ouml;ra det genom att avsluta ditt konto och inte l&auml;ngre ansluta till eller anv&auml;nda Tj&auml;nsterna (en beskrivning av hur du g&ouml;r det finns tillg&auml;nglig <a href="https://www.tripadvisorsupport.com/hc/sv/articles/200615117-How-do-I-close-my-member-account-"><strong>h&auml;r</strong></a>.</p>
+
+<p>All(a) information, text, l&auml;nkar, grafik, bilder, ljud, videoklipp, data, kod eller annat material eller arrangemang av material som du kan visa p&aring;, komma &aring;t eller p&aring; annat s&auml;tt interagera med genom Tj&auml;nsterna ska ben&auml;mnas som &rdquo;Inneh&aring;ll&rdquo;. Termerna &rdquo;vi&rdquo;, &rdquo;oss&rdquo;, &rdquo;v&aring;r&rdquo; och &rdquo;Tripadvisor&rdquo; h&auml;nvisar till Tripadvisor LLC, ett aktiebolag med bas i Delaware i USA (&rdquo;Tripadvisor&rdquo;). &rdquo;Tj&auml;nsterna&rdquo;, enligt definitionen ovan, avser de som tillhandah&aring;lls av Tripadvisor eller v&aring;ra f&ouml;retagsfilialer (vid h&auml;nvisning till Tripadvisor och s&aring;dana parter ska de gemensamt definieras som &rdquo;Tripadvisor-f&ouml;retag&rdquo;). F&ouml;r att undvika oklarheter &auml;gs och regleras alla webbplatserna av Tripadvisor.&nbsp; Vissa specifika Tj&auml;nster som g&ouml;rs tillg&auml;ngliga via webbplatserna kan dock &auml;gas och regleras av Tripadvisors f&ouml;retagsfilialer, till exempel Tj&auml;nster som m&ouml;jligg&ouml;r <a href="#OLE_LINK11"><strong>bokning av semesterbost&auml;der, restauranger och upplevelser med tredjepartsleverant&ouml;rer</strong></a> (se nedan).&nbsp;Som en del av v&aring;ra Tj&auml;nster kanske vi skickar meddelanden till dig om specialerbjudanden, produkter eller extra tj&auml;nster som &auml;r tillg&auml;ngliga fr&aring;n oss, v&aring;ra dotterbolag, eller v&aring;ra partner, som kan vara av intresse f&ouml;r dig. S&aring;dana meddelanden skickas vanligtvis via nyhetsbrev och marknadsf&ouml;ringsmeddelanden och &auml;r i syfte att l&auml;ra k&auml;nna dig och dina preferenser b&auml;ttre, b&aring;de vad g&auml;ller v&aring;ra egna och v&aring;ra dotterbolags Tj&auml;nster. I sin tur m&ouml;jligg&ouml;r detta anpassning av tj&auml;nsterna enligt dessa preferenser.</p>
+
+<p>Termen &rdquo;du&rdquo; avser den individ, det f&ouml;retag, den aff&auml;rsorganisation eller annan juridisk enhet som anv&auml;nder Tj&auml;nsterna och/eller bidrar med inneh&aring;ll till dem. Det Inneh&aring;ll som du bidrar med, skickar in, &ouml;verf&ouml;r och/eller l&auml;gger till i eller genom Tj&auml;nsterna ska ben&auml;mnas som &rdquo;ditt Inneh&aring;ll&rdquo;, &rdquo;Inneh&aring;ll tillh&ouml;rande dig&rdquo; och/eller &rdquo;Inneh&aring;ll du skickar in&rdquo;.</p>
+
+<p>Tj&auml;nsterna tillhandah&aring;lls enbart i f&ouml;ljande syfte:</p>
+
+<ol style="list-style-type:upper-alpha;">
+	<li>hj&auml;lpa kunder att samla reseinformation, publicera Inneh&aring;ll och s&ouml;ka och boka resetj&auml;nster och reservationer;</li>
+	<li>hj&auml;lpa rese-, turism- och restaurangf&ouml;retag att kommunicera med kunder och potentiella kunder, genom kostnadsfria tj&auml;nster och/eller betaltj&auml;nster som erbjuds av eller genom Tripadvisor-f&ouml;retagen.</li>
+</ol>
+
+<p>Vi kan i framtiden komma att &auml;ndra eller p&aring; annat s&auml;tt uppdatera detta Avtal i enlighet med reglerna och villkoren h&auml;ri. Du f&ouml;rst&aring;r och godk&auml;nner att fortsatt anv&auml;ndning av Tj&auml;nsterna efter en s&aring;dan &auml;ndring inneb&auml;r att du godk&auml;nner &auml;ndringarna eller uppdateringarna av Avtalet. L&auml;ngst ned i detta Avtal redog&ouml;r vi f&ouml;r de datum d&aring; Avtalet &auml;ndrades och alla uppdateringar tr&auml;der i kraft i samband med publicering. Vi meddelar registrerade anv&auml;ndare av v&aring;ra Tj&auml;nster (dessa registrerade anv&auml;ndare ben&auml;mns som &rdquo;Kontoinnehavare&rdquo;) om st&ouml;rre f&ouml;r&auml;ndringar i dessa regler och villkor genom att skicka ett meddelande till den e-postadress som &auml;r kopplad till Kontoinnehavarens profil eller genom att publicera ett meddelande p&aring; v&aring;ra webbplatser. Kom tillbaka till den h&auml;r sidan med j&auml;mna mellanrum f&ouml;r att granska den senaste versionen av detta Avtal.</p>
+
+<p><a id="ANVÄNDA TJÄNSTERNA" name="ANVÄNDA TJÄNSTERNA"><strong>ANV&Auml;NDA TJ&Auml;NSTERNA</strong></a></p>
+
+<p>Som ett villkor f&ouml;r din anv&auml;ndning av Tj&auml;nsterna intygar du (i) att all information som du uppger till Tripadvisor-f&ouml;retagen via Tj&auml;nsterna &auml;r sann, aktuell och fullst&auml;ndig, (ii) att du, om du &auml;r Kontoinnehavare, skyddar din kontoinformation och &ouml;vervakar och har fullst&auml;ndigt ansvar f&ouml;r all anv&auml;ndning av ditt konto av n&aring;gon annan &auml;n dig sj&auml;lv, (iii) att du &auml;r minst 13 &aring;r gammal eller &auml;ldre (i vissa jurisdiktioner kan lokala lagar stipulera ett h&ouml;gre &aring;lderskrav) f&ouml;r att kunna registrera ett konto, anv&auml;nda Tj&auml;nsterna och bidra till v&aring;ra webbplatser: (iv) att du har laglig r&auml;tt att ing&aring; det h&auml;r Avtalet och anv&auml;nda Tj&auml;nsterna, d&auml;ribland v&aring;ra webbplatser, i enlighet med alla regler och villkor h&auml;ri. Tripadvisor-f&ouml;retagen samlar inte medvetet in information fr&aring;n n&aring;gon under 13 &aring;r. Vi f&ouml;rbeh&aring;ller oss r&auml;tten att enligt eget gottfinnande neka n&aring;gon tillg&aring;ng till Tj&auml;nsterna, n&auml;r som helst och av vilken orsak som helst, bland annat brott mot detta Avtal. Genom att anv&auml;nda Tj&auml;nsterna, inklusive eventuella produkter eller tj&auml;nster som m&ouml;jligg&ouml;r delningen av Inneh&aring;ll till eller fr&aring;n tredjepartssidor, f&ouml;rst&aring;r du att du &auml;r ensamt ansvarig f&ouml;r all information du delar med Tripadvisor-f&ouml;retagen. Du f&aring;r enbart komma &aring;t Tj&auml;nsterna p&aring; det s&auml;tt som avsetts genom Tj&auml;nsternas tillhandah&aring;llna funktionalitet och enligt vad som till&aring;ts i detta Avtal.</p>
+
+<p>Kopiering, &ouml;verf&ouml;ring, reproduktion, replikation, publicering eller omdistribution av (a) inneh&aring;ll eller delar av det och/eller (b) tj&auml;nsterna mer generellt sett &auml;r str&auml;ngt f&ouml;rbjudet utan f&ouml;reg&aring;ende skriftligt tillst&aring;nd fr&aring;n Tripadvisor-f&ouml;retagen. Om du vill be om tillst&aring;nd ska du skicka din beg&auml;ran till:</p>
+
+<p>Director, Partnerships and Business Development</p>
+
+<p>Tripadvisor LLC</p>
+
+<p>400 1st Avenue</p>
+
+<p>Needham, MA 02494, USA</p>
+
+<p>F&ouml;r att kunna komma &aring;t vissa funktioner i Tj&auml;nsterna m&aring;ste du bli en Kontoinnehavare genom att skapa ett konto. N&auml;r du skapar ett konto m&aring;ste du uppge fullst&auml;ndig och korrekt information. Du &auml;r ensamt ansvarig f&ouml;r den aktivitet som sker p&aring; ditt konto, inklusive interaktion och kommunikation med andra, och du m&aring;ste skydda ditt konto. I detta syfte samtycker du, om du &auml;r en Kontoinnehavare, till att h&aring;lla dina kontaktuppgifter uppdaterade.&nbsp;&nbsp;</p>
+
+<p>Om du skapar ett Tripadvisor-konto f&ouml;r kommersiella &auml;ndam&aring;l och godk&auml;nner detta Avtal p&aring; uppdrag av ett f&ouml;retag, en organisation eller annan juridisk enhet, utf&auml;ster och garanterar du att du &auml;r auktoriserad att g&ouml;ra detta och har beh&ouml;righet att binda en s&aring;dan part till detta Avtal, i vilket fall &rdquo;du&rdquo; och &rdquo;din&rdquo; s&aring;som det anv&auml;nds i detta Avtal ska h&auml;nvisa till denna part och den individ som agerar p&aring; uppdrag av f&ouml;retaget och ska ben&auml;mnas som &rdquo;F&ouml;retagsrepresentant.&rdquo;</p>
+
+<p>Genom att anv&auml;nda Tj&auml;nsterna kan du st&ouml;ta p&aring; l&auml;nkar till sidor och appar fr&aring;n tredje part, eller m&ouml;jligheten att interagera med sidor och appar fr&aring;n tredje part. Detta kan omfatta m&ouml;jligheten att dela Inneh&aring;ll fr&aring;n Tj&auml;nsterna, inklusive ditt Inneh&aring;ll, med s&aring;dana sidor och appar fr&aring;n tredje part. Du b&ouml;r vara medveten om att sidor och appar fr&aring;n tredje part kan visa s&aring;dant delat Inneh&aring;ll offentligt. S&aring;dana tredje parter kan debitera en avgift f&ouml;r anv&auml;ndning av visst inneh&aring;ll eller vissa tj&auml;nster p&aring; eller genom sina webbplatser. Du b&ouml;r d&auml;rf&ouml;r g&ouml;ra vad du anser vara n&ouml;dv&auml;ndiga eller l&auml;mpliga unders&ouml;kningar innan du genomf&ouml;r transaktioner med en tredje part s&aring; att du &auml;r medveten om huruvida du kommer att debiteras. D&auml;r Tripadvisor-f&ouml;retagen anger information om avgifter f&ouml;r denna typ av inneh&aring;ll eller tj&auml;nster fr&aring;n tredje part anges denna information enbart i praktiskt och informerande syfte. All interaktion med sidor och appar fr&aring;n tredje part sker p&aring; egen risk. Du samtycker uttryckligen till och godk&auml;nner att Tripadvisor-f&ouml;retagen inte p&aring; n&aring;got s&auml;tt kan h&aring;llas ansvariga f&ouml;r s&aring;dana sidor och appar fr&aring;n tredje part.</p>
+
+<p>Visst Inneh&aring;ll du ser eller p&aring; annat s&auml;tt kommer &aring;t i eller via Tj&auml;nsterna anv&auml;nds f&ouml;r kommersiella &auml;ndam&aring;l. Du samtycker till och f&ouml;rst&aring;r att Tripadvisor-f&ouml;retagen kan visa annonser och kampanjer i Tj&auml;nsterna bredvid, n&auml;ra, intill eller p&aring; annat s&auml;tt i n&auml;rheten av ditt Inneh&aring;ll (inklusive, f&ouml;r videoklipp eller annat dynamiskt inneh&aring;ll, innan, under eller efter presentationen av det), samt andras Inneh&aring;ll.</p>
+
+<p><a id="TILLÄGGSPRODUKTER" name="TILLÄGGSPRODUKTER"><strong>TILL&Auml;GGSPRODUKTER </strong></a></p>
+
+<p>Tripadvisor-f&ouml;retagen kan, fr&aring;n tid till annan, best&auml;mma sig f&ouml;r att &auml;ndra, uppdatera eller avsluta vissa produkter och funktioner i Tj&auml;nsterna. Du samtycker till och f&ouml;rst&aring;r att Tripadvisor-f&ouml;retagen inte har n&aring;gon skyldighet att lagra eller beh&aring;lla ditt Inneh&aring;ll eller annan information du uppger, utom i den utstr&auml;ckning som kr&auml;vs enligt till&auml;mplig lag.</p>
+
+<p>Vi erbjuder &auml;ven andra tj&auml;nster som regleras av ytterligare villkor eller avtal. Om du anv&auml;nder andra s&aring;dana tj&auml;nster, g&ouml;rs de ytterligare villkoren tillg&auml;ngliga och blir del av detta Avtal, f&ouml;rutom om s&aring;dana ytterligare villkor uttryckligen exkluderar eller p&aring; annat s&auml;tt ers&auml;tter detta Avtal. Om du till exempel anv&auml;nder eller k&ouml;per s&aring;dana till&auml;ggstj&auml;nster f&ouml;r kommersiellt &auml;ndam&aring;l eller aff&auml;rs&auml;ndam&aring;l, m&aring;ste du godk&auml;nna de till&auml;mpliga ytterligare villkoren. I den utstr&auml;ckning &ouml;vriga villkor strider mot villkoren i detta Avtal ska de ytterligare villkoren g&auml;lla i den utstr&auml;ckning konflikten g&auml;ller n&auml;r det kommer till dessa s&auml;rskilda tj&auml;nster.</p>
+
+<p><a id="FÖRBJUDNA AKTIVITETER" name="FÖRBJUDNA AKTIVITETER"><strong>F&Ouml;RBJUDNA AKTIVITETER</strong></a></p>
+
+<p>Det Inneh&aring;llet och den information som &auml;r tillg&auml;nglig i och via Tj&auml;nsterna (bland annat meddelanden, data, information, text, musik, ljud, bilder, grafik, video, kartor, ikoner, programvara, kod eller annat material) och den infrastruktur som anv&auml;nds f&ouml;r att tillhandah&aring;lla s&aring;dant Inneh&aring;ll och s&aring;dan information tillh&ouml;r Tripadvisor-f&ouml;retagen eller &auml;r licensierad till Tripadvisor-f&ouml;retagen av tredjeparter. Vad g&auml;ller allt annat Inneh&aring;ll &auml;n ditt Inneh&aring;ll accepterar du att inte p&aring; annat s&auml;tt &auml;ndra, kopiera, distribuera, &ouml;verf&ouml;ra, visa, framf&ouml;ra, reproducera, publicera, licensiera, skapa h&auml;rledda verk fr&aring;n eller s&auml;lja n&aring;gon form av information, programvara, produkter eller tj&auml;nster som har h&auml;mtats fr&aring;n eller via Tj&auml;nsterna. Du samtycker vidare till att inte g&ouml;ra f&ouml;ljande:</p>
+
+<ul>
+	<li>(i) anv&auml;nda Tj&auml;nsterna eller Inneh&aring;ll f&ouml;r kommersiellt syfte, utanf&ouml;r omfattningen hos de kommersiella &auml;ndam&aring;l som uttryckligen till&aring;ts enligt detta Avtal och relaterade riktlinjer som gjorts tillg&auml;ngliga av Tripadvisor-f&ouml;retagen;</li>
+	<li>(ii) komma &aring;t, &ouml;vervaka, reproducera, distribuera, &ouml;verf&ouml;ra, s&auml;nda, visa, s&auml;lja, licensiera, kopiera eller p&aring; annat s&auml;tt utnyttja n&aring;got Inneh&aring;ll i Tj&auml;nsterna, bland annat anv&auml;ndarprofiler och bilder, med hj&auml;lp av n&aring;gon robot, spindel, scraper eller annan automatisk metod eller manuell process f&ouml;r n&aring;got syfte som inte omfattas av detta Avtal eller utan v&aring;rt uttryckliga skriftliga tillst&aring;nd;</li>
+	<li>(iii) bryta mot restriktionerna i n&aring;got robotf&ouml;rbud i Tj&auml;nsterna eller kringg&aring; andra &aring;tg&auml;rder som syftar till att f&ouml;rhindra eller begr&auml;nsa &aring;tkomst till Tj&auml;nsterna;</li>
+	<li>(iv) vidta n&aring;gra &aring;tg&auml;rder som l&auml;gger, eller enligt v&aring;r bed&ouml;mning kan l&auml;gga, en osk&auml;lig eller oproportionellt stor b&ouml;rda p&aring; v&aring;r infrastruktur;</li>
+	<li>(v) skapa djupa l&auml;nkar till n&aring;gon del av Tj&auml;nsterna i n&aring;got syfte utan v&aring;rt uttryckliga skriftliga tillst&aring;nd;</li>
+	<li>(vi) &rdquo;avbilda&rdquo;, &rdquo;spegla&rdquo; eller p&aring; annat s&auml;tt inf&ouml;rliva n&aring;gon del av Tj&auml;nsterna p&aring;/i en annan webbplats eller tj&auml;nst utan v&aring;rt f&ouml;reg&aring;ende skriftliga tillst&aring;nd;</li>
+	<li>(vii) f&ouml;rs&ouml;ka att &auml;ndra, &ouml;vers&auml;tta, anpassa, redigera, bryta ned, plocka is&auml;r eller anv&auml;nda omv&auml;nd ingenj&ouml;rskonst p&aring; n&aring;gon programvara som anv&auml;nds av Tripadvisor-f&ouml;retagen i anslutning till Tj&auml;nsterna;</li>
+	<li>(viii) kringg&aring;, inaktivera eller p&aring; annat s&auml;tt st&ouml;ra s&auml;kerhetsrelaterade funktioner i Tj&auml;nsterna eller funktioner som f&ouml;rhindrar eller begr&auml;nsar anv&auml;ndning eller kopiering av Inneh&aring;ll; eller</li>
+	<li>(ix) ladda ned n&aring;got Inneh&aring;ll s&aring;vida det inte uttryckligen g&ouml;rs tillg&auml;ngligt f&ouml;r nedladdning av Tripadvisor-f&ouml;retagen.</li>
+</ul>
+
+<p><a id="SEKRETESSPOLICY OCH UTLÄMNANDEN" name="SEKRETESSPOLICY OCH UTLÄMNANDEN"><strong>SEKRETESSPOLICY OCH UTL&Auml;MNANDEN</strong></a></p>
+
+<p>All personlig information som du publicerar i eller p&aring; annat s&auml;tt skickar in i samband med Tj&auml;nsterna kommer att anv&auml;ndas enligt v&aring;r Sekretesspolicy. Klicka <a href="https://tripadvisor.mediaroom.com/SE-privacy-policy">h&auml;r</a> f&ouml;r att l&auml;sa v&aring;r <a href="https://tripadvisor.mediaroom.com/SE-privacy-policy">Sekretesspolicy</a>.</p>
+
+<p><a id="OMDÖMEN, KOMMENTARER OCH ANVÄNDNING AV ANDRA INTERAKTIVA OMRÅDEN; BEVILJANDE AV LICENS" name="OMDÖMEN, KOMMENTARER OCH ANVÄNDNING AV ANDRA INTERAKTIVA OMRÅDEN; BEVILJANDE AV LICENS"><strong>OMD&Ouml;MEN, KOMMENTARER OCH ANV&Auml;NDNING AV ANDRA INTERAKTIVA OMR&Aring;DEN; BEVILJANDE AV LICENS</strong></a></p>
+
+<p>Vi uppskattar dina &aring;sikter. Du b&ouml;r vara medveten om att genom att tillhandah&aring;lla ditt Inneh&aring;ll i eller via Tj&auml;nsterna, vare sig det sker via e-post, publicering via Tripadvisors synkroniseringsprodukt, via andras tj&auml;nster och program eller p&aring; annat s&auml;tt, inklusive n&aring;gon del av ditt Inneh&aring;ll som &ouml;verf&ouml;rs till ditt Tripadvisor-konto genom n&aring;gon av Tripadvisor-f&ouml;retagens produkter eller tj&auml;nster, omd&ouml;men, fr&aring;gor, bilder eller videoklipp, kommentarer, f&ouml;rslag, id&eacute;er eller liknande i n&aring;got av ditt Inneh&aring;ll, ger du Tripadvisor-f&ouml;retagen en icke-exklusiv, royaltyfri, oupph&ouml;rlig, &ouml;verf&ouml;rbar, o&aring;terkallelig och helt underlicensierbar r&auml;tt att (a) verka som v&auml;rd f&ouml;r, anv&auml;nda, reproducera, &auml;ndra, k&ouml;ra, anpassa, &ouml;vers&auml;tta, distribuera, publicera, skapa h&auml;rledda verk fr&aring;n och offentligt visa och framf&ouml;ra s&aring;dant Inneh&aring;ll tillh&ouml;rande dig &ouml;ver hela v&auml;rlden i alla typer av befintliga eller framtida medier; (b) g&ouml;ra ditt Inneh&aring;ll tillg&auml;ngligt f&ouml;r resten av v&auml;rlden och l&aring;ta andra g&ouml;ra detsamma; (c) tillhandah&aring;lla, marknadsf&ouml;ra och f&ouml;rb&auml;ttra Tj&auml;nsterna och g&ouml;ra ditt Inneh&aring;ll som delas i Tj&auml;nsterna tillg&auml;ngligt f&ouml;r andra f&ouml;retag, organisationer eller individer f&ouml;r syndikering, s&auml;ndning, distribution, marknadsf&ouml;ring eller publicering s&aring;dant Inneh&aring;ll tillh&ouml;rande dig i andra medier och tj&auml;nster, enligt v&aring;r Sekretesspolicy och detta Avtal; och (d) anv&auml;nda det namn och/eller varum&auml;rke som du skickar in i samband med s&aring;dant Inneh&aring;ll tillh&ouml;rande dig. Du samtycker till att Tripadvisor kan v&auml;lja att ange k&auml;lla till ditt Inneh&aring;ll enligt eget gottfinnande. Du ger dessutom Tripadvisor-f&ouml;retagen r&auml;tt att vidta juridiska &aring;tg&auml;rder mot en fysisk eller juridisk person som bryter mot dina eller Tripadvisor-f&ouml;retagens r&auml;ttigheter i ditt Inneh&aring;ll genom ett brott mot detta Avtal. Du godk&auml;nner och samtycker till att ditt Inneh&aring;ll inte &auml;r konfidentiellt eller &auml;gander&auml;ttsligt. Du bekr&auml;ftar, utf&auml;ster och garanterar att du &auml;ger eller har de licenser, r&auml;ttigheter (inklusive upphovsr&auml;tt och andra &auml;gander&auml;tter), tillst&aring;nd och beh&ouml;righeter som kr&auml;vs f&ouml;r att publicera och p&aring; annat s&auml;tt anv&auml;nda (och f&ouml;r Tripadvisor-f&ouml;retagen att publicera och p&aring; annat s&auml;tt anv&auml;nda) ditt Inneh&aring;ll enligt vad som auktoriseras i detta Avtal.</p>
+
+<p>Om det fastst&auml;lls att du har moraliska r&auml;ttigheter (inklusive &auml;gande- eller sekretessr&auml;ttigheter) i ditt Inneh&aring;ll tillk&auml;nnager du h&auml;rmed att, i den utstr&auml;ckning som till&aring;ts enligt g&auml;llande lag, (a) du inte kr&auml;ver att n&aring;gon personligt identifierbar information anv&auml;nds i anslutning till Inneh&aring;llet eller n&aring;gra av dess h&auml;rledda verk, uppgraderingar eller uppdateringar; (b) du inte mots&auml;tter dig att Tripadvisor-f&ouml;retagen eller deras licensinnehavare, eftertr&auml;dare och ombud publicerar, anv&auml;nder, &auml;ndrar, raderar och utnyttjar ditt Inneh&aring;ll; (c) du f&ouml;r all framtid avs&auml;ger dig och samtycker till att inte g&ouml;ra anspr&aring;k p&aring; eller h&auml;vda n&aring;gra moraliska r&auml;ttigheter som f&ouml;rfattare i n&aring;gon del av ditt Inneh&aring;ll; och (d) att du f&ouml;r all framtid befriar Tripadvisor-f&ouml;retagen och dess licensinnehavare, eftertr&auml;dare och ombud fr&aring;n samtliga anspr&aring;k som du i annat fall skulle kunna framf&ouml;ra mot Tripadvisor-f&ouml;retagen i kraft av s&aring;dana moraliska r&auml;ttigheter.</p>
+
+<p>Observera att all feedback och andra f&ouml;rslag du tillhandah&aring;ller n&auml;r som helst kan anv&auml;ndas och att vi inte har n&aring;gon skyldighet att h&aring;lla dem konfidentiella.</p>
+
+<p>Tj&auml;nsterna kan omfatta diskussionsforum, anslagstavlor, omd&ouml;mestj&auml;nster, resefl&ouml;den eller andra forum d&auml;r du kan publicera ditt Inneh&aring;ll, t.ex. omd&ouml;men om reseupplevelser, meddelanden, material eller andra objekt (&rdquo;Interaktiva omr&aring;den&rdquo;). Om Tripadvisor tillhandah&aring;ller s&aring;dana Interaktiva omr&aring;den p&aring; webbplatserna &auml;r du ensamt ansvarig f&ouml;r din anv&auml;ndning av s&aring;dana Interaktiva omr&aring;den och du anv&auml;nder dem p&aring; egen risk. Tripadvisor-f&ouml;retagen garanterar inte n&aring;gon konfidentialitet med h&auml;nsyn till n&aring;got av ditt Inneh&aring;ll som du tillhandah&aring;ller i Tj&auml;nsterna eller i n&aring;got Interaktivt omr&aring;de.&nbsp; I den utstr&auml;ckning som en enhet som utg&ouml;r ett av Tripadvisor-f&ouml;retagen tillhandah&aring;ller n&aring;gon form av privat meddelandekanal mellan Kontoinnehavare, samtycker du till att denna/dessa enhet(er) kan &ouml;vervaka inneh&aring;llet i kommunikationen i syfte att bidra till att skydda v&aring;rt forum och Tj&auml;nsterna. Du f&ouml;rst&aring;r att Tripadvisor-f&ouml;retagen inte redigerar eller kontrollerar de anv&auml;ndarmeddelanden som publiceras eller distribueras via Tj&auml;nsterna, inklusive via chattrum, elektroniska anslagstavlor eller andra kommunikationsforum, och vi &auml;r inte p&aring; n&aring;got s&auml;tt ansvariga eller ansvarsskyldiga f&ouml;r s&aring;dana meddelanden.&nbsp; Tripadvisor redigerar eller kontrollerar i synnerhet inte anv&auml;ndares Inneh&aring;ll som visas p&aring; webbplatserna.&nbsp; Tripadvisor-f&ouml;retagen f&ouml;rbeh&aring;ller sig dock r&auml;tten att utan f&ouml;rvarning ta bort s&aring;dana meddelanden eller annat Inneh&aring;ll fr&aring;n Tj&auml;nsterna, d&auml;r de i god tro anser att s&aring;dant Inneh&aring;ll bryter mot detta Avtal eller p&aring; annat s&auml;tt anser att borttagningen &auml;r sk&auml;ligen n&ouml;dv&auml;ndig f&ouml;r att skydda r&auml;ttigheterna hos Tripadvisor-f&ouml;retagen och/eller andra anv&auml;ndare av Tj&auml;nsterna. Om du mots&auml;tter dig att ditt Inneh&aring;ll tas bort fr&aring;n webbplatserna kan du kontakta Tripadvisor via <a href="https://www.tripadvisorsupport.com/hc/sv"><strong>hj&auml;lpcentret</strong></a> f&ouml;r att g&ouml;ra inv&auml;ndningar.&nbsp; Genom att anv&auml;nda Interaktiva omr&aring;den samtycker du uttryckligen till att endast skicka in Inneh&aring;ll tillh&ouml;rande dig som f&ouml;ljer Tripadvisor riktlinjer f&ouml;r publicering, vilka g&auml;ller vid tidpunkten f&ouml;r inskickandet och som gjorts tillg&auml;ngliga f&ouml;r dig av Tripadvisor.&nbsp; Du samtycker uttryckligen till att inte publicera, ladda upp till, &ouml;verf&ouml;ra, distribuera, lagra, skapa eller p&aring; annat s&auml;tt publicera via Tj&auml;nsterna n&aring;got Inneh&aring;ll tillh&ouml;rande dig som</p>
+
+<ol style="list-style-type:lower-alpha;">
+	<li>&auml;r falskt, o&auml;kta, vilseledande, &auml;rekr&auml;nkande, neds&auml;ttande, obscent, pornografiskt, oanst&auml;ndigt, otuktigt, suggestivt, trakasserande eller som f&ouml;respr&aring;kar trakasserier av en annan person, hotande, kr&auml;nkande av sekretess eller publiceringsr&auml;ttigheter, sm&auml;dligt, provocerande, bedr&auml;gligt eller p&aring; annat s&auml;tt st&ouml;tande;</li>
+	<li>uppenbarligen &auml;r st&ouml;tande mot onlineforumet, till exempel som fr&auml;mjar rasism, bigotteri, hat eller fysisk skada av n&aring;got slag mot n&aring;gon grupp eller person;</li>
+	<li>kan utg&ouml;ra, uppmuntra, fr&auml;mja eller tillhandah&aring;lla instruktioner f&ouml;r en olaglig aktivitet, en brottslig handling, utg&ouml;ra grund f&ouml;r skadest&aring;ndsansvar, kr&auml;nka r&auml;ttigheterna f&ouml;r n&aring;gon part i n&aring;got land i v&auml;rlden eller som p&aring; annat s&auml;tt kan skapa ansvarsskyldighet eller bryta mot lokala, statliga, nationella eller internationella lagar, bland annat best&auml;mmelser fr&aring;n U.S. Securities and Exchange Commission (SEC) eller best&auml;mmelser f&ouml;r n&aring;gon typ av s&auml;kerhetsutbyte, bland annat New York Stock Exchange (NYSE), NASDAQ eller London Stock Exchange;</li>
+	<li>ger instruktioner om olaglig verksamhet som att tillverka eller k&ouml;pa olagliga vapen, kr&auml;nka n&aring;gons integritet eller tillhandah&aring;lla eller skapa datorvirus;</li>
+	<li>kan inkr&auml;kta p&aring; patent, aff&auml;rshemligheter, upphovsr&auml;tt eller andra immateriella r&auml;ttigheter eller &auml;garr&auml;ttigheter av n&aring;gon part. Det g&auml;ller s&auml;rskilt inneh&aring;ll som fr&auml;mjar olaglig eller obeh&ouml;rig kopiering av n&aring;gon annans upphovsr&auml;ttsskyddade verk, s&aring;som att tillhandah&aring;lla piratprogram eller l&auml;nkar till dem, tillhandah&aring;lla information till enheter som kringg&aring;r tillverkarinstallerade kopieringsskydd eller att tillhandah&aring;lla piratmusik eller l&auml;nkar till musikfiler f&ouml;r piratkopiering;</li>
+	<li>utg&ouml;r massmeddelanden eller &rdquo;spam&rdquo;, &rdquo;skr&auml;ppost&rdquo;, &rdquo;kedjebrev&rdquo; eller &rdquo;pyramidspel&rdquo;;</li>
+	<li>efterliknar en person eller ett f&ouml;retag eller p&aring; annat s&auml;tt felaktigt framst&auml;ller din koppling till en person eller ett f&ouml;retag, inklusive Tripadvisor-f&ouml;retagen;</li>
+	<li>utg&ouml;r information fr&aring;n n&aring;gon tredje part, bland annat adresser, telefonnummer, e-postadresser, personnummer och kreditkortsnummer.&nbsp; Observera att en individs efternamn kan publiceras p&aring; v&aring;ra webbplatser, men endast d&aring; den identifierade individen p&aring; f&ouml;rhand uttryckligen givit sin till&aring;telse till detta;</li>
+	<li>inneh&aring;ller begr&auml;nsade eller l&ouml;senordsskyddade sidor eller dolda sidor eller bilder (som inte l&auml;nkas till eller fr&aring;n en annan &aring;tkomlig sida);</li>
+	<li>inneh&aring;ller eller har som syfte att underl&auml;tta f&ouml;r virus, korrupta data eller andra skadliga, st&ouml;rande eller destruktiva filer;</li>
+	<li>inte &auml;r relaterat till &auml;mnet f&ouml;r de(t) Interaktiva omr&aring;de(n) d&auml;r s&aring;dant Inneh&aring;ll publiceras; eller</li>
+	<li>helt enligt Tripadvisors gottfinnande (a) bryter mot de tidigare underavsnitten h&auml;ri, (b) strider mot Tripadvisors relaterade riktlinjer som gjorts tillg&auml;ngliga f&ouml;r dig av Tripadvisor, (c) &auml;r st&ouml;tande, (d) begr&auml;nsar eller h&auml;mmar n&aring;gon annan person fr&aring;n att anv&auml;nda eller utnyttja de Interaktiva omr&aring;dena eller n&aring;gon annan aspekt av Tj&auml;nsterna, eller (e) kan uts&auml;tta n&aring;got av Tripadvisor-f&ouml;retagen eller deras anv&auml;ndare f&ouml;r skada eller ansvarsskyldighet av n&aring;got slag.</li>
+</ol>
+
+<p>Tripadvisor-f&ouml;retagen tar inget som helst ansvar f&ouml;r n&aring;got Inneh&aring;ll som publiceras, lagras, &ouml;verf&ouml;rs eller laddas upp till Tj&auml;nsterna av dig (vad g&auml;ller ditt Inneh&aring;ll) eller av n&aring;gon tredje part (vad g&auml;ller samtligt Inneh&aring;ll, mer generellt sett) eller f&ouml;r f&ouml;rlust eller skada av detta, och Tripadvisor-f&ouml;retagen &auml;r heller inte ansvariga f&ouml;r eventuella misstag, &auml;rekr&auml;nkningar, f&ouml;rtal, f&ouml;rol&auml;mpningar, utel&auml;mnanden, l&ouml;gner, obsceniteter, pornografi eller svordomar som du st&ouml;ter p&aring;. Som leverant&ouml;r av interaktiva tj&auml;nster &auml;r Tripadvisor inte ansvariga f&ouml;r n&aring;gra uttalanden, framst&auml;llningar eller annat Inneh&aring;ll fr&aring;n sina anv&auml;ndare (inklusive dig vad g&auml;ller ditt Inneh&aring;ll) p&aring; webbplatserna eller i andra forum. &Auml;ven om Tripadvisor inte &auml;r skyldiga att kontrollera, redigera eller &ouml;vervaka det inneh&aring;ll som publiceras eller distribueras i n&aring;got Interaktivt omr&aring;de f&ouml;rbeh&aring;ller Tripadvisor sig r&auml;tten, och har fullst&auml;ndig best&auml;mmander&auml;tt vad g&auml;ller, att utan f&ouml;reg&aring;ende meddelande radera, d&ouml;lja eller redigera Inneh&aring;ll som publiceras eller lagras i Tj&auml;nsterna n&auml;r som helst och av vilken anledning som helst, eller anlita en tredje part att g&ouml;ra det. Du har eget ansvar f&ouml;r att p&aring; egen bekostnad skapa s&auml;kerhetskopior av, samt ers&auml;tta, det Inneh&aring;ll du publicerar eller p&aring; annat s&auml;tt skickar till oss eller lagrar i Tj&auml;nsterna.</p>
+
+<p>All anv&auml;ndning av de Interaktiva omr&aring;dena eller andra aspekter av Tj&auml;nsterna som bryter mot det f&ouml;rut n&auml;mnda bryter mot villkoren i detta Avtal och kan bland annat leda till att du f&ouml;rlorar din r&auml;tt att anv&auml;nda de Interaktiva omr&aring;dena och/eller mer generellt sett Tj&auml;nsterna.</p>
+
+<p><a id="Begränsa TripAdvisors licensrättigheter" name="Begränsa TripAdvisors licensrättigheter"><strong><u>Begr&auml;nsa Tripadvisors licensr&auml;ttigheter</u></strong></a><strong>.</strong> Du kan v&auml;lja att fram&ouml;ver begr&auml;nsa Tripadvisor-f&ouml;retagens anv&auml;ndning av ditt Inneh&aring;ll enligt detta Avtal (enligt beskrivningen ovan) genom att v&auml;lja att ge Tripadvisor-f&ouml;retagen en mer begr&auml;nsad licens, enligt vad som beskrivs nedan (en s&aring;dan begr&auml;nsad licens ska h&auml;ri ben&auml;mnas som en &rdquo;Begr&auml;nsad licens&rdquo;).&nbsp; Du kan g&ouml;ra detta genom att v&auml;lja att bevilja en s&aring;dan Begr&auml;nsad licens <a href="https://www.tripadvisor.se/Settings-cs"><strong>h&auml;r</strong></a> (observera att f&ouml;r att g&ouml;ra detta m&aring;ste du vara inloggad p&aring; ditt konto). Om du g&ouml;r detta val ska de r&auml;ttigheter du ger Tripadvisor-f&ouml;retagen till ditt Inneh&aring;ll enligt de licensvillkor som anges ovan (kallade &rdquo;Standardlicensen&rdquo;) begr&auml;nsas p&aring; vissa avg&ouml;rande s&auml;tt, vilka beskrivs i stycke 1&ndash;6 direkt h&auml;r nedanf&ouml;r, s&aring; att Tripadvisor-f&ouml;retagen inte ska inneha en Standardlicens till n&aring;got av ditt Inneh&aring;ll f&ouml;rutom de textbaserade omd&ouml;men och tillh&ouml;rande totalbetyg du publicerar (f&ouml;r vilka Tripadvisor-f&ouml;retagen ska beviljas en standardlicens), utan beviljas en &rdquo;Begr&auml;nsad licens&rdquo; vad g&auml;ller ditt resterande Inneh&aring;ll enligt definitionen nedan:&nbsp;</p>
+
+<ol>
+	<li>N&auml;r du publicerar Inneh&aring;ll i Tj&auml;nsterna ska den licens du beviljar Tripadvisor-f&ouml;retag f&ouml;r Ditt inneh&aring;ll vara begr&auml;nsad till en icke-exklusiv, royaltyfri, &ouml;verf&ouml;rbar, underlicensierbar och global licens att verka som v&auml;rd f&ouml;r, anv&auml;nda, distribuera, &auml;ndra, k&ouml;ra, reproducera, offentligt visa eller framf&ouml;ra, &ouml;vers&auml;tta och skapa h&auml;rledda verk av ditt Inneh&aring;ll i syfte att visa detta i Tj&auml;nsterna, samt att anv&auml;nda ditt namn och/eller varum&auml;rke i samband med det Inneh&aring;llet. Enligt paragraf 6 nedan till&auml;mpas den Begr&auml;nsade licensen p&aring; allt ditt Inneh&aring;ll (&aring;terigen, f&ouml;rutom textbaserade omd&ouml;men och tillh&ouml;rande totalbetyg) som du eller n&aring;gon annan p&aring; dina v&auml;gnar (t.ex. en tredje part som bidrar till eller p&aring; annat s&auml;tt hanterar ditt konto) har gjort tillg&auml;ngligt i eller i samband med Tj&auml;nsterna.<br />
+	&nbsp;</li>
+	<li>Vad g&auml;ller enskilda objekt i ditt Inneh&aring;ll som &auml;r f&ouml;rem&aring;l f&ouml;r den Begr&auml;nsade licensen kan du s&auml;ga upp Tripadvisor-f&ouml;retagens r&auml;ttigheter till dessa h&auml;runder genom att ta bort s&aring;dana inl&auml;gg fr&aring;n Tj&auml;nsterna.&nbsp; P&aring; motsvarande s&auml;tt kan du s&auml;ga upp Tripadvisor-f&ouml;retagens r&auml;ttigheter till allt ditt Inneh&aring;ll som &auml;r f&ouml;rem&aring;l f&ouml;r den Begr&auml;nsade licensen genom att avsluta ditt konto (en beskrivning av hur du g&ouml;r det &auml;r tillg&auml;nglig <a href="https://www.tripadvisorsupport.com/hc/sv/articles/200615117-How-do-I-close-my-member-account-"><strong>h&auml;r</strong></a>).&nbsp; Ditt inneh&aring;ll, utan hinder av n&aring;got som talar emot detta, (a) ska f&ouml;rbli i Tj&auml;nsterna i den utstr&auml;ckning du har delat det med andra och de har kopierat eller lagrat det innan du raderade det eller ditt konto, (b) kan forts&auml;tta att visas i tj&auml;nsterna under en rimlig tidsperiod efter att du raderat det eller avslutat ditt konto medan vi arbetar med att ta bort det, och/eller (c) kan kvarh&aring;llas (men inte offentligt visas) av tekniska, bedr&auml;geribegr&auml;nsningsm&auml;ssiga, regelm&auml;ssiga eller juridiska anledningar i s&auml;kerhetskopierad form under en period.<br />
+	&nbsp;</li>
+	<li>Tripadvisor-f&ouml;retagen kommer inte att anv&auml;nda ditt Inneh&aring;ll i annonsering av tredje parters produkter och tj&auml;nster till andra utan ditt enskilda samtycke (inklusive sponsrat Inneh&aring;ll), &auml;ven om du samtycker till och f&ouml;rst&aring;r att Tripadvisor-f&ouml;retagen kan visa annonser och kampanjer i Tj&auml;nsterna, bredvid, n&auml;ra, intill eller p&aring; annat s&auml;tt i n&auml;rheten av ditt Inneh&aring;ll (inklusive, f&ouml;r videoklipp eller annat dynamiskt inneh&aring;ll, innan, under eller efter presentationen av det), samt andras Inneh&aring;ll.&nbsp; I alla fall d&auml;r ditt Inneh&aring;ll visas i Tj&auml;nsterna ska vi ange k&auml;llan genom att anv&auml;nda det namn och/eller varum&auml;rke som du skickar in i samband med ditt Inneh&aring;ll.&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;</li>
+	<li>Tripadvisor-f&ouml;retagen kommer inte att ge tredje parter r&auml;tten att publicera ditt Inneh&aring;ll ut&ouml;ver i Tj&auml;nsterna. Delningen av ditt Inneh&aring;ll i Tj&auml;nsterna (f&ouml;rutom v&aring;r funktion &rdquo;Resor&rdquo;, vilken kan g&ouml;ras privat) ska resultera i att ditt Inneh&aring;ll g&ouml;rs &rdquo;<em>offentligt</em>&rdquo; och vi m&ouml;jligg&ouml;r en funktion som till&aring;ter andra anv&auml;ndare att dela (genom inb&auml;ddning av det offentliga inl&auml;gget eller p&aring; annat s&auml;tt) s&aring;dant Inneh&aring;ll tillh&ouml;rande dig (f&ouml;rutom, som angetts, Resor du konfigurerar till att vara privata) till tredjepartstj&auml;nster och g&ouml;r det m&ouml;jligt f&ouml;r s&ouml;kmotorer att g&ouml;ra det offentliga Inneh&aring;ll som tillh&ouml;r dig s&ouml;kbart via sina tj&auml;nster.&nbsp;<br />
+	&nbsp;</li>
+	<li>F&ouml;rutom enligt vad som &auml;ndrats i paragraf 1&ndash;6 i detta avsnitt i detta Avtal ska dina och v&aring;ra r&auml;ttigheter och f&ouml;rpliktelser f&ouml;rbli f&ouml;rem&aring;l f&ouml;r de resterande villkoren i detta Avtal. Den licens som du beviljar Tripadvisor-f&ouml;retag enligt &auml;ndringarna i dessa paragrafer 1&ndash;6 ska ben&auml;mnas som en &rdquo;Begr&auml;nsad licens&rdquo;.<br />
+	&nbsp;</li>
+	<li>F&ouml;r tydlighetens skull &auml;r det Inneh&aring;ll du skickar in till Tj&auml;nsterna i samband med Tripadvisor-f&ouml;retagens andra tj&auml;nster eller program inte f&ouml;rem&aring;l f&ouml;r den Begr&auml;nsade licensen, utan regleras ist&auml;llet av de regler och villkor som &auml;r kopplade till Tripadvisors specifika tj&auml;nst eller program.</li>
+</ol>
+
+<p><a id="BOKNING MED TREDJEPARTSLEVERANTÖRER VIA TRIPADVISOR" name="BOKNING MED TREDJEPARTSLEVERANTÖRER VIA TRIPADVISOR"><strong>BOKNING MED TREDJEPARTSLEVERANT&Ouml;RER VIA Tripadvisor</strong></a></p>
+
+<p><a id="Användning av TripAdvisors bokningstjänster" name="Användning av TripAdvisors bokningstjänster"><strong>Anv&auml;ndning av Tripadvisors bokningstj&auml;nster.</strong></a> Tripadvisor-f&ouml;retagen erbjuder m&ouml;jligheten att s&ouml;ka efter, v&auml;lja och boka resor med tredjepartsleverant&ouml;rer utan att du beh&ouml;ver l&auml;mna Tj&auml;nsterna. Genom att boka resor via webbplatserna blir du en Kontoinnehavare om du inte redan &auml;r det.</p>
+
+<p>Genom att boka via webbplatserna bekr&auml;ftar du att du godk&auml;nner de metoder som beskrivs i v&aring;r <a href="https://tripadvisor.mediaroom.com/SE-privacy-policy">Sekretesspolicy</a> och i detta Avtal. Ut&ouml;ver detta garanterar du, antingen i din enskilda kapacitet eller som F&ouml;retagsrepresentant, att du &auml;r 18 &aring;r eller &auml;ldre, har juridisk beh&ouml;righet att ing&aring; detta Avtal och att anv&auml;nda Tj&auml;nsterna (inklusive Tripadvisor-f&ouml;retagens bokningstj&auml;nster) enligt detta Avtal och att all information du uppger &auml;r sann och korrekt. Du samtycker ocks&aring; till att du endast kommer att anv&auml;nda Tripadvisor-f&ouml;retagens bokningstj&auml;nster f&ouml;r legitima bokningar f&ouml;r dig eller andra som du har laglig r&auml;tt att representera. Falska och bedr&auml;gliga bokningar &auml;r f&ouml;rbjudna och anv&auml;ndare som f&ouml;rs&ouml;ker g&ouml;ra s&aring;dana bokningar kan f&aring; sitt konto nedst&auml;ngt.</p>
+
+<p>SOM ANV&Auml;NDARE AV TJ&Auml;NSTERNA, INKLUSIVE Tripadvisor-F&Ouml;RETAGENS BOKNINGSTJ&Auml;NSTER, F&Ouml;RST&Aring;R DU OCH SAMTYCKER DU TILL ATT: (1) Tripadvisor-F&Ouml;RETAGEN INTE KOMMER ATT HA N&Aring;GOT ANSVAR GENTEMOT DIG ELLER ANDRA G&Auml;LLANDE OBEH&Ouml;RIGA TRANSAKTIONER SOM G&Ouml;RS MED DITT L&Ouml;SENORD ELLER KONTO; (2) OBEH&Ouml;RIG ANV&Auml;NDNING AV DITT L&Ouml;SENORD ELLER KONTO KAN G&Ouml;RA ATT DU BLIR ANSVARIG GENTEMOT Tripadvisor, DESS F&Ouml;RETAGSFILIALER OCH/ELLER ANDRA.</p>
+
+<p>N&auml;r du g&ouml;r en bokning som m&ouml;jligg&ouml;rs av Tripadvisor-f&ouml;retagen samlas dina betalningsuppgifter in och &ouml;verf&ouml;rs till leverant&ouml;ren som slutf&ouml;r transaktionen, enligt beskrivningen i v&aring;r&nbsp;<a href="https://tripadvisor.mediaroom.com/SE-privacy-policy">Sekretesspolicy</a>. Observera att leverant&ouml;ren, inte Tripadvisor-f&ouml;retagen, ansvarar f&ouml;r behandlingen av din betalning och uppfyllandet av din bokning.</p>
+
+<p>Tripadvisor-f&ouml;retagen ingriper inte godtyckligt i bokningar, men f&ouml;rbeh&aring;ller sig r&auml;tten att &aring;terkalla bokningstj&auml;nsterna p&aring; grund av s&auml;rskilda f&ouml;rmildrande omst&auml;ndigheter, till exempel n&auml;r en bokning inte l&auml;ngre finns tillg&auml;nglig eller n&auml;r vi har rimliga sk&auml;l att tro att en bokning kan vara bedr&auml;glig. Tripadvisor-f&ouml;retagen f&ouml;rbeh&aring;ller sig &auml;ven r&auml;tten att vidta &aring;tg&auml;rder f&ouml;r att bekr&auml;fta din identitet s&aring; att din bokningsbeg&auml;ran kan behandlas.</p>
+
+<p>I det osannolika fall att en bokning &auml;r tillg&auml;nglig n&auml;r du g&ouml;r en best&auml;llning men blir otillg&auml;nglig innan du checkar in finns det inget annat att g&ouml;ra &auml;n att kontakta leverant&ouml;ren f&ouml;r alternativa l&ouml;sningar eller f&ouml;r att avboka.</p>
+
+<p><a id="Tredjepartsleverantörer." name="Tredjepartsleverantörer."><strong>Tredjepartsleverant&ouml;rer.</strong></a> Tripadvisor-f&ouml;retagen &auml;r inte resebyr&aring;er och tillhandah&aring;ller inte egna transporttj&auml;nster, boenden, restauranger, rundturer, aktiviteter eller upplevelser. &Auml;ven om Tripadvisor-f&ouml;retagen visar information om verksamheter som &auml;gs av tredjepartsleverant&ouml;rer och m&ouml;jligg&ouml;r bokningar med vissa leverant&ouml;rer p&aring; eller via Tripadvisor-f&ouml;retagens webbplatser, inneb&auml;r, antyder eller utg&ouml;r s&aring;dana handlingar inte Tripadvisor-f&ouml;retagens sponsring eller godk&auml;nnande av tredjepartsleverant&ouml;rer eller n&aring;got sorts samarbete mellan Tripadvisor-f&ouml;retagen och tredjepartsleverant&ouml;rer. &Auml;ven om Kontoinnehavare kan betygs&auml;tta och recensera vissa transporttj&auml;nster, boenden, restauranger, rundturer, aktiviteter eller upplevelser utifr&aring;n sina egna erfarenheter, st&aring;r inte Tripadvisor-f&ouml;retagen bakom eller rekommenderar en viss tredjepartsleverant&ouml;rs produkter eller tj&auml;nster, f&ouml;rutom att Tripadvisor tilldelar vissa f&ouml;retag utm&auml;rkelser som baseras p&aring; omd&ouml;men publicerade av Kontoinnehavare. Tripadvisor-f&ouml;retagen st&aring;r inte bakom n&aring;got Inneh&aring;ll som publiceras, skickas in eller p&aring; annat s&auml;tt tillhandah&aring;lls av n&aring;gon anv&auml;ndare eller f&ouml;retag eller n&aring;gon &aring;sikt, rekommendation eller r&aring;d som uttrycks d&auml;ri, och Tripadvisor-f&ouml;retagen fr&aring;ns&auml;ger sig uttryckligen allt ansvar i samband med s&aring;dant Inneh&aring;ll. Du samtycker till att Tripadvisor-f&ouml;retagen inte &auml;r ansvariga f&ouml;r korrektheten eller fullst&auml;ndigheten hos den information som de erh&aring;ller fr&aring;n tredjepartsleverant&ouml;rer och visar i Tj&auml;nsterna.</p>
+
+<p>Om du g&ouml;r en bokning med en tredjepartsleverant&ouml;r godk&auml;nner du, ut&ouml;ver detta Avtal, att du granskar och &auml;r bunden av den leverant&ouml;rens regler och villkor f&ouml;r k&ouml;p och anv&auml;ndning av webbplatsen, sekretesspolicy samt alla andra regler och policyer som g&auml;ller leverant&ouml;rens webbplats eller verksamhet. Din kommunikation med tredjepartsleverant&ouml;rer sker p&aring; egen risk. Tripadvisor-f&ouml;retagen ansvarar inte f&ouml;r n&aring;got g&auml;llande eventuella &aring;tg&auml;rder, underl&aring;telser, fel, ansvar, garantier, regel&ouml;vertr&auml;delser eller f&ouml;rsumlighet f&ouml;r personskador, d&ouml;dsfall, skada p&aring; egendom eller andra skador eller utgifter till f&ouml;ljd av din kommunikation med tredjepartsleverant&ouml;rer.</p>
+
+<p>Tj&auml;nsterna kan l&auml;nka dig till leverant&ouml;rers webbplatser eller andra webbplatser som Tripadvisor inte driver eller kontrollerar. Mer information finns i avsnittet &rdquo;L&auml;nkar till tredjepartswebbplatser&rdquo; h&auml;r nedan.</p>
+
+<p><a id="Bokning av semesterbostäder, restauranger och upplevelser med tredjepartsleverantörer på företagsfilialers webbplatser" name="Bokning av semesterbostäder, restauranger och upplevelser med tredjepartsleverantörer på företagsfilialers webbplatser"><strong>Bokning av semesterbost&auml;der, restauranger och upplevelser med tredjepartsleverant&ouml;rer p&aring; f&ouml;retagsfilialers webbplatser.</strong></a> N&aring;gra av Tripadvisors f&ouml;retagsfilialer fungerar som marknadsplatser som underl&auml;ttar resen&auml;rers m&ouml;jlighet att (1) ing&aring; hyresavtal om semesterbost&auml;der med boende&auml;gare och uthyrare (&rdquo;Semesterbost&auml;der&rdquo;), (2) boka restauranger (&rdquo;Restauranger&rdquo;) och/eller (3) boka rundturer, aktiviteter och sev&auml;rdheter (p&aring; olika s&auml;tt, &rdquo;Upplevelser&rdquo;) med tredjepartsleverant&ouml;rer av s&aring;dana Upplevelser (alla s&aring;dana leverant&ouml;rer av en semesterbostad och/eller Upplevelse ska ben&auml;mnas som en &rdquo;Annons&ouml;r&rdquo;). Dessa f&ouml;retagsfilialer till Tripadvisor syndikerar sina annonser till andra enheter inom Tripadvisor-f&ouml;retagens koncern och det &auml;r d&auml;rf&ouml;r du ser dem p&aring; Tripadvisor-f&ouml;retagens webbplatser.&nbsp; Som anv&auml;ndare m&aring;ste du ansvara f&ouml;r din anv&auml;ndning av Tj&auml;nsterna (inklusive, i synnerhet, Tripadvisor-f&ouml;retagens webbplatser) och alla transaktioner som r&ouml;r Semesterbost&auml;der, Restauranger eller Upplevelser som m&ouml;jligg&ouml;rs av Tripadvisor-f&ouml;retagens f&ouml;retagsfilialer. Vi &auml;ger, hanterar eller tecknar inte avtal f&ouml;r n&aring;gra Semesterbost&auml;der, Restauranger eller Upplevelser i Tj&auml;nsterna.</p>
+
+<p>Eftersom varken Tripadvisor eller dess f&ouml;retagsfilialer utg&ouml;r en del i transaktioner f&ouml;r Semesterbost&auml;der, bokningar av Restauranger eller Upplevelserelaterade transaktioner mellan resen&auml;rer och Annons&ouml;rer har alla anv&auml;ndare fullst&auml;ndigt ansvar f&ouml;r eventuella tvister eller konflikter g&auml;llande en faktisk eller potentiell transaktion mellan dig och en Annons&ouml;r. Det inbegriper kvalitet, skick, s&auml;kerhet eller lagenlighet f&ouml;r en listad Semesterbostad, Restaurang eller Upplevelse, korrektheten hos det listade Inneh&aring;llet, Annons&ouml;rens beh&ouml;righet att hyra ut en Semesterbostad samt din m&ouml;jlighet att betala f&ouml;r en Semesterbostad, en Restaurangm&aring;ltid eller -tj&auml;nst eller en Upplevelse.</p>
+
+<p>En av Tripadvisors f&ouml;retagsfilialer kan agera ombud f&ouml;r en Annons&ouml;r enbart i syfte att &ouml;verf&ouml;ra din betalning till Annons&ouml;ren. Du samtycker till att betala en Annons&ouml;r eller en Tripadvisor-f&ouml;retagsfilial som agerar som begr&auml;nsat betalningsinsamlingsombud f&ouml;r en Annons&ouml;rs r&auml;kning, eventuell(a) specificerad(e) avgift(er) som tas ut av Annons&ouml;ren f&ouml;r samtliga bokningar av Semesterbost&auml;der eller Upplevelser.</p>
+
+<p>Mer information om avgifter f&ouml;r Semesterbost&auml;der, s&auml;kerhetsdepositioner, avgifter f&ouml;r Upplevelser, betalningsbehandling, &aring;terbetalningar och liknande hittar du i v&aring;ra f&ouml;retagsfilialers regler och villkor (f&ouml;r Upplevelser bes&ouml;ker du <a href="https://www.viatorcom.se/support/termsAndConditions?viator-exp=73&amp;localeSwitch=1"><strong>Viator</strong></a>; f&ouml;r Restauranger bes&ouml;ker du <a href="https://www.thefork.se"><strong>The Fork</strong></a>; f&ouml;r Semesterbost&auml;der bes&ouml;ker du <a href="https://rentals.tripadvisor.com/sv_SE/termsandconditions/traveler"><strong>Tripadvisor-f&ouml;retagens Semesterbost&auml;der</strong><strong>.</strong></a> Genom att g&ouml;ra en bokning av en Semesterbostad, Restaurang eller Upplevelse som m&ouml;jligg&ouml;rs av en av v&aring;ra f&ouml;retagsfilialer m&aring;ste du bekr&auml;fta och samtycka till dess regler och villkor, samt dess Sekretesspolicy.</p>
+
+<p>Om&nbsp;du hamnar i en tvist med en Annons&ouml;r inom EU finns alternativa metoder f&ouml;r att l&ouml;sa tvisten online h&auml;r: <a href="http://ec.europa.eu/consumers/odr/">http://ec.europa.eu/consumers/odr/</a>.</p>
+
+<p><a id="RESMÅL" name="RESMÅL"><strong>RESM&Aring;L</strong></a></p>
+
+<p><a id="Internationella resor" name="Internationella resor"><strong>Internationella resor.</strong></a> N&auml;r du bokar internationella resor med tredjepartsleverant&ouml;rer eller planerar internationella resor med hj&auml;lp av Tj&auml;nsterna &auml;r du ansvarig f&ouml;r att se till att du uppfyller intr&auml;deskrav och att dina resedokument, till exempel pass och visum, &auml;r i ordning och att eventuella andra intr&auml;deskrav &auml;r uppfyllda.</p>
+
+<p>N&auml;r det g&auml;ller pass- och visumkrav m&aring;ste du r&aring;dfr&aring;ga den ber&ouml;rda ambassaden eller konsulatet. Eftersom kraven kan komma att &auml;ndras n&auml;r som helst b&ouml;r du kontrollera aktuell information f&ouml;re bokning och avresa. Tripadvisor-f&ouml;retagen tar inget ansvar f&ouml;r resen&auml;rer som nekas intr&auml;de p&aring; ett flyg eller i ett land p&aring; grund av att de inte medf&ouml;rt de resedokument som kr&auml;vs av ett flygbolag, myndighet eller land, inklusive l&auml;nder som de bara mellanlandar i.</p>
+
+<p>Det &auml;r &auml;ven ditt ansvar att se till att du r&aring;dfr&aring;gar din l&auml;kare om aktuella rekommendationer g&auml;llande vaccinationer innan du reser utrikes samt att du uppfyller alla h&auml;lsokrav och f&ouml;ljer alla medicinska r&aring;d i samband med resan.</p>
+
+<p>Trots att de flesta resor, inklusive resor till internationella resm&aring;l, sker utan incidenter kan resor till vissa resm&aring;l inneb&auml;ra st&ouml;rre risker &auml;n andra. Tripadvisor uppmanar resen&auml;rer att granska resef&ouml;rbud, varningar, meddelanden och r&aring;d som utf&auml;rdas av b&aring;de sina egna och resm&aring;lets myndigheter innan de bokar resa till internationella resm&aring;l. Information om f&ouml;rh&aring;llanden i olika l&auml;nder och de riskniv&aring;er som f&ouml;rknippas med resor till vissa internationella resm&aring;l tillhandah&aring;lls exempelvis av USA:s regering p&aring;<a href="http://www.state.gov/" target="_blank">www.stat.gov</a>,&nbsp;<a href="http://www.tsa.gov/" target="_blank">www.tsa.gov</a>,<a href="http://www.dot.gov/" target="_blank">www.dot.gov</a>,&nbsp;<a href="http://www.faa.gov/" target="_blank">www.faa.gov</a>,&nbsp;<a href="http://www.cdc.gov/" target="_blank">www.cdc.gov</a>,&nbsp;<a href="http://www.treas.gov/ofac" target="_blank">www.treas.gov/ofac</a> och<a href="http://www.customs.gov/" target="_blank">www.customs.gov</a>.</p>
+
+<p>GENOM ATT ERBJUDA RESOR TILL VISSA INTERNATIONELLA RESM&Aring;L GARANTERAR ELLER UTF&Auml;STER INTE Tripadvisor-F&Ouml;RETAGEN ATT RESOR TILL S&Aring;DANA RESM&Aring;L REKOMMENDERAS ELLER KAN SKE RISKFRITT OCH ANSVARAR D&Auml;RMED INTE F&Ouml;R SKADOR ELLER F&Ouml;RLUSTER I SAMBAND MED RESOR TILL S&Aring;DANA RESM&Aring;L.</p>
+
+<p><a id="ANSVARSFRISKRIVNING" name="ANSVARSFRISKRIVNING"><strong>ANSVARSFRISKRIVNING</strong></a></p>
+
+<p>L&Auml;S DETTA AVSNITT NOGA. DETTA AVSNITT BEGR&Auml;NSAR Tripadvisor-F&Ouml;RETAGENS ANSVAR GENTEMOT DIG F&Ouml;R PROBLEM SOM KAN UPPST&Aring; I ANSLUTNING TILL DIN ANV&Auml;NDNING AV TJ&Auml;NSTERNA. OM DU INTE F&Ouml;RST&Aring;R VILLKOREN I DET H&Auml;R AVSNITTET ELLER N&Aring;GON ANNANSTANS I DETTA AVTAL SKA DU BE EN JURIST ATT F&Ouml;RKLARA DEM F&Ouml;R DIG INNAN DU &Ouml;PPNAR ELLER ANV&Auml;NDER TJ&Auml;NSTERNA.</p>
+
+<p>DEN INFORMATION, PROGRAMVARA OCH DE PRODUKTER OCH TJ&Auml;NSTER SOM FINNS PUBLICERADE I, ELLER P&Aring; ANNAT S&Auml;TT TILLHANDAH&Aring;LLS VIA, TJ&Auml;NSTERNA KAN INNEH&Aring;LLA FELAKTIGHETER, INKLUSIVE TILLG&Auml;NGLIGHETS- OCH PRISFEL. Tripadvisor-F&Ouml;RETAGEN GARANTERAR INTE KORREKTHETEN HOS, OCH FRISKRIVER SIG FR&Aring;N ALLT ANSVAR F&Ouml;R, EVENTUELLA FELAKTIGHETER ELLER &Ouml;VRIGA ORIKTIGHETER RELATERADE TILL INFORMATIONEN OM OCH BESKRIVNINGEN AV DE BOENDE-, UPPLEVELSE-, FLYG-, KRYSSNINGS- OCH RESTAURANGPRODUKTER ELLER ANDRA RESEPRODUKTER SOM VISAS I TJ&Auml;NSTERNA (BLAND ANNAT PRISS&Auml;TTNINGEN AV, TILLG&Auml;NGLIGHETEN HOS, BILDERNA P&Aring; OCH ANNONSERINGEN AV BOENDE-, UPPLEVELSE-, FLYG-, KRYSSNINGS- OCH RESTAURANGPRODUKTERS ELLER ANDRA RESEPRODUKTERS BEKV&Auml;MLIGHETER, ALLM&Auml;NNA PRODUKTBESKRIVNINGAR, OMD&Ouml;MEN OCH BETYG OSV.). DESSUTOM F&Ouml;RBEH&Aring;LLER Tripadvisor-F&Ouml;RETAGEN SIG UTTRYCKLIGEN R&Auml;TTEN ATT KORRIGERA EVENTUELLA PRISFEL I TJ&Auml;NSTERNA OCH/ELLER V&Auml;NTANDE BOKNINGAR SOM GJORTS MED ETT FELAKTIGT PRIS.</p>
+
+<p>Tripadvisor L&Auml;MNAR INGA UTF&Auml;STELSER AV N&Aring;GOT SLAG AVSEENDE L&Auml;MPLIGHETEN HOS TJ&Auml;NSTERNA, INKLUSIVE DEN INFORMATION SOM &Auml;R TILLG&Auml;NGLIG P&Aring; DERAS WEBBPLATSER ELLER DELAR AV DESSA, I N&Aring;GOT SYFTE, OCH TILLHANDAH&Aring;LLANDET ELLER ERBJUDANDET AV PRODUKTER ELLER TJ&Auml;NSTER P&Aring; DERAS WEBBPLATSER ELLER P&Aring; ANNAT S&Auml;TT VIA TJ&Auml;NSTERNA INNEB&Auml;R INGA GODK&Auml;NNANDEN ELLER REKOMMENDATIONER AVSEENDE S&Aring;DANA PRODUKTER ELLER TJ&Auml;NSTER FR&Aring;N TripadvisorS SIDA, OAKTAT EVENTUELLA UTM&Auml;RKELSER SOM DELAS UT BASERAT P&Aring; ANV&Auml;NDAROMD&Ouml;MEN. ALL S&Aring;DAN INFORMATION, PROGRAMVARA, PRODUKTER OCH TJ&Auml;NSTER SOM TILLG&Auml;NGLIGG&Ouml;RS GENOM ELLER VIA TJ&Auml;NSTERNA ERBJUDS &rdquo;I BEFINTLIGT SKICK&rdquo; UTAN N&Aring;GON TYP AV GARANTI. Tripadvisor FRISKRIVER SIG FR&Aring;N ALLA GARANTIER, F&Ouml;RUTS&Auml;TTNINGAR ELLER ANDRA VILLKOR AV N&Aring;GOT SLAG OM ATT TJ&Auml;NSTERNA, DESS SERVRAR ELLER DATA (INKLUSIVE E-POST) SOM SKICKAS FR&Aring;N Tripadvisor &Auml;R FRIA FR&Aring;N VIRUS ELLER ANNAT SKADLIGT INNEH&Aring;LL. I DEN MAXIMALA UTSTR&Auml;CKNING SOM &Auml;R M&Ouml;JLIG ENLIGT G&Auml;LLANDE LAG FRISKRIVER SIG Tripadvisor H&Auml;RMED FR&Aring;N ALLT GARANTIANSVAR AVSEENDE INFORMATIONEN, PROGRAMVARAN, PRODUKTERNA OCH TJ&Auml;NSTERNA, INKLUSIVE GARANTI AVSEENDE PRODUKTENS S&Auml;LJBARHET, L&Auml;MPLIGHET F&Ouml;R ETT S&Auml;RSKILT &Auml;NDAM&Aring;L, &Auml;GANDER&Auml;TT, TYST INNEHAV SAMT GARANTI AVSEENDE FR&Aring;NVARO AV INTR&Aring;NG.</p>
+
+<p>Tripadvisor-F&Ouml;RETAGEN FRISKRIVER SIG OCKS&Aring; UTTRYCKLIGEN FR&Aring;N ALLA GARANTIER, FRAMST&Auml;LLNINGAR ELLER VILLKOR AV ANNAT SLAG VAD G&Auml;LLER KORREKTHET ELLER &Auml;GANDETYP AV DET INNEH&Aring;LL SOM &Auml;R TILLG&Auml;NGLIGT I OCH VIA TJ&Auml;NSTERNA.</p>
+
+<p>DE TREDJEPARTSLEVERANT&Ouml;RER SOM TILLHANDAH&Aring;LLER INFORMATION OM BOENDEN, FLYGRESOR, SEMESTERBOST&Auml;DER, UPPLEVELSER, RESTAURANGER, KRYSSNINGAR ELLER ANDRA TJ&Auml;NSTER I ELLER VIA TJ&Auml;NSTERNA &Auml;R OBEROENDE LEVERANT&Ouml;RER OCH INTE OMBUD ELLER ANST&Auml;LLDA HOS Tripadvisor-F&Ouml;RETAGEN. Tripadvisor-F&Ouml;RETAGEN ANSVARAR INTE F&Ouml;R S&Aring;DANA LEVERANT&Ouml;RERS EVENTUELLA &Aring;TG&Auml;RDER, FEL, UNDERL&Aring;TANDEN, ANSVAR, GARANTIER, REGEL&Ouml;VERTR&Auml;DELSER ELLER F&Ouml;RSUMLIGHET ELLER F&Ouml;R PERSONSKADOR, D&Ouml;DSFALL, SKADA P&Aring; EGENDOM ELLER ANDRA SKADOR ELLER UTGIFTER TILL F&Ouml;LJD AV S&Aring;DANA SKADOR. Tripadvisor ANSVARAR INTE F&Ouml;R, OCH G&Ouml;R INGA &Aring;TERBETALNINGAR VID, EVENTUELL F&Ouml;RSENING, AVBOKNING, &Ouml;VERBOKNING, STREJK, FORCE MAJEURE ELLER ANDRA ANLEDNINGAR UTANF&Ouml;R SIN DIREKTA KONTROLL, OCH ANSVARAR INTE F&Ouml;R YTTERLIGARE KOSTNADER, UNDERL&Aring;TANDEN, F&Ouml;RSENINGAR, OMDIRIGERINGAR ELLER &Aring;TG&Auml;RDER UTF&Ouml;RDA AV N&Aring;GON MYNDIGHET.</p>
+
+<p>I ENLIGHET MED OVANST&Aring;ENDE ANV&Auml;NDER DU TJ&Auml;NSTERNA P&Aring; EGEN RISK OCH Tripadvisor-F&Ouml;RETAGEN (ELLER DERAS BEFATTNINGSHAVARE, CHEFER OCH/ELLER ANST&Auml;LLDA) SKA UNDER INGA OMST&Auml;NDIGHETER H&Aring;LLAS ANSVARIGA F&Ouml;R N&Aring;GRA DIREKTA, INDIREKTA, STRAFFRELATERADE, OAVSIKTLIGA, S&Auml;RSKILDA ELLER P&Aring;F&Ouml;LJANDE F&Ouml;RLUSTER ELLER SKADOR ELLER N&Aring;GON F&Ouml;RLUST AV INKOMST, VINST, GOODWILL, DATA, AVTAL, ANV&Auml;NDNING AV PENGAR ELLER F&Ouml;RLUST ELLER SKADOR SOM UPPST&Aring;R AV ELLER P&Aring; N&Aring;GOT S&Auml;TT &Auml;R KOPPLADE TILL DRIFTSAVBROTT AV N&Aring;GOT SLAG SOM UPPST&Aring;R AV ELLER P&Aring; N&Aring;GOT S&Auml;TT &Auml;R KOPPLADE TILL DIN &Aring;TKOMST TILL, VISNING AV ELLER ANV&Auml;NDNING AV TJ&Auml;NSTERNA ELLER AV F&Ouml;RSENINGEN MED ELLER OF&Ouml;RM&Aring;GAN ATT KOMMA &Aring;T, VISA ELLER ANV&Auml;NDA TJ&Auml;NSTERNA, BLAND ANNAT DIN TILLIT TILL OMD&Ouml;MEN OCH &Aring;SIKTER FR&Aring;N RESEN&Auml;RER SOM VISAS I ELLER VIA TJ&Auml;NSTERNA; EVENTUELL(A) DATORVIRUS, BUGGAR, TROJANER, INFORMATION, PROGRAMVARA, L&Auml;NKADE WEBBPLATSER, PRODUKTER OCH TJ&Auml;NSTER SOM ERH&Aring;LLS VIA TJ&Auml;NSTERNA (BLAND ANNAT EVENTUELLA SYNKRONISERINGSPRODUKTER FR&Aring;N Tripadvisor-F&Ouml;RETAGEN); PERSONSKADA ELLER SKADA P&Aring; EGENDOM AV ALLA TYPER SOM UPPST&Aring;R SOM ETT RESULTAT AV DIN ANV&Auml;NDNING AV TJ&Auml;NSTERNAS SERVRAR OCH/ELLER SAMTLIG PERSONLIG INFORMATION OCH FINANSIELL INFORMATION SOM LAGRAS D&Auml;RP&Aring;; SAMTLIGA FEL ELLER UTEL&Auml;MNANDEN I N&Aring;GOT INNEH&Aring;LL ELLER F&Ouml;R N&Aring;GON F&Ouml;RLUST ELLER SKADA AV N&Aring;GOT SLAG SOM UPPST&Aring;TT TILL F&Ouml;LJD AV ANV&Auml;NDNINGEN AV N&Aring;GOT INNEH&Aring;LL; ELLER SOM P&Aring; ANNAT S&Auml;TT UPPST&Aring;R TILL F&Ouml;LJD AV ANSLUTNING TILL, VISNING ELLER ANV&Auml;NDNING AV TJ&Auml;NSTERNA OAVSETT OM TEORIN &Auml;R BASERAD P&Aring; F&Ouml;RSUMLIGHET, AVTALSBROTT, &Aring;TALBARA HANDLINGAR, ABSOLUT ANSVAR ELLER ANNAT, &Auml;VEN OM Tripadvisor ELLER DESS F&Ouml;RETAGSFILIALER HAR F&Aring;TT INFORMATION OM ATT S&Aring;DANA SKADOR KAN UPPST&Aring;.</p>
+
+<p>Om Tripadvisor-f&ouml;retagen bed&ouml;ms vara ansvariga f&ouml;r n&aring;gon f&ouml;rlust eller skada som uppst&aring;r av eller p&aring; n&aring;got s&auml;tt &auml;r kopplad till din anv&auml;ndning av Tj&auml;nsterna ska Tripadvisor-f&ouml;retagens ansvar under inga omst&auml;ndigheter sammanlagt &ouml;verstiga det st&ouml;rre av (a) de transaktionsavgifter som betalas till Tripadvisor-f&ouml;retagen f&ouml;r de(n) transaktion(er) i eller via Tj&auml;nsterna som givit upphov till anspr&aring;ket, eller (b) ett hundra dollar (100,00 USD).</p>
+
+<p>Ansvarsbegr&auml;nsningen avspeglar riskf&ouml;rdelningen mellan parterna. De begr&auml;nsningar som beskrivs i detta avsnitt g&auml;ller &auml;ven om eventuella begr&auml;nsade p&aring;f&ouml;ljder som anges i dessa villkor inte f&aring;tt avsedd effekt. Ansvarsbegr&auml;nsningarna i de h&auml;r villkoren utfaller till f&ouml;rdel f&ouml;r Tripadvisor-f&ouml;retagen.</p>
+
+<p>DESSA REGLER OCH VILLKOR OCH F&Ouml;REG&Aring;ENDE ANSVARSFRISKRIVNING P&Aring;VERKAR INTE DE OBLIGATORISKA JURIDISKA R&Auml;TTIGHETER SOM INTE KAN EXKLUDERAS ENLIGT G&Auml;LLANDE LAG, TILL EXEMPEL UNDER TILL&Auml;MPLIGA KONSUMENTSKYDDSLAGAR I VISSA L&Auml;NDER.</p>
+
+<p>OM LAGEN I DET LAND D&Auml;R DU BOR INTE TILL&Aring;TER N&Aring;GON S&Auml;RSKILD BEGR&Auml;NSNING AV ELLER UNDANTAG FR&Aring;N ANSVAR SOM ANGES I DENNA KLAUSUL G&Auml;LLER INTE DEN BEGR&Auml;NSNINGEN. ANSVARSFRISKRIVNINGEN G&Auml;LLER I &Ouml;VRIGT I DEN MAXIMALA UTSTR&Auml;CKNING SOM TILL&Aring;TS ENLIGT LOKAL LAG.</p>
+
+<p><a id="SKADEERSÄTTNING" name="SKADEERSÄTTNING"><strong>SKADEERS&Auml;TTNING</strong></a></p>
+
+<p>Du accepterar att skydda, f&ouml;rsvara och h&aring;lla Tripadvisor-f&ouml;retagen och dess befattningshavare, chefer, anst&auml;llda och agenter skadel&ouml;sa fr&aring;n samtliga former av anspr&aring;k, &aring;tg&auml;rder, krav, f&ouml;rluster, skador, b&ouml;ter, st&auml;mningar eller kostnader av andra slag, bland annat ombudsarvoden som framst&auml;lls av tredje part till f&ouml;ljd av</p>
+
+<ul>
+	<li>(i) att du &ouml;vertr&auml;der detta Avtal eller de dokument som n&auml;mns h&auml;ri;</li>
+	<li>(ii) att du bryter mot lagar eller tredje parts r&auml;ttigheter; eller</li>
+	<li>(iii) att du anv&auml;nder Tj&auml;nsterna, inklusive Tripadvisor-f&ouml;retagens webbplatser.</li>
+</ul>
+
+<p><a id="LÄNKAR TILL TREDJE PARTS WEBBPLATSER" name="LÄNKAR TILL TREDJE PARTS WEBBPLATSER"><strong>L&Auml;NKAR TILL TREDJE PARTS WEBBPLATSER</strong></a></p>
+
+<p>Tj&auml;nsterna kan inneh&aring;lla hyperl&auml;nkar till webbplatser som drivs av andra parter &auml;n Tripadvisor-f&ouml;retagen. Dessa hyperl&auml;nkar tillhandah&aring;lls bara som referens. Tripadvisor-f&ouml;retagen kontrollerar inte dessa webbplatser och ansvarar inte f&ouml;r inneh&aring;llet d&auml;rp&aring; eller sekretessen och andra f&ouml;rfaranden f&ouml;r dessa webbplatser. Det &auml;r &auml;ven upp till dig att vidta f&ouml;rsiktighets&aring;tg&auml;rder f&ouml;r att se till att de l&auml;nkar du klickar p&aring; eller programvara du laddar ned (fr&aring;n den h&auml;r webbplatsen eller en annan webbplats) &auml;r fria fr&aring;n s&aring;dant som virus, maskar, trojaner, skador och andra f&ouml;rem&aring;l av destruktivt slag. Tripadvisor-f&ouml;retagens inkluderande av hyperl&auml;nkar till s&aring;dana webbplatser inneb&auml;r inga godk&auml;nnanden av materialet p&aring; eller i s&aring;dana webbplatser eller appar fr&aring;n tredje part eller n&aring;gon form av koppling till de som driver dem.</p>
+
+<p>I vissa fall kan en webbplats eller app fr&aring;n tredje part be dig att l&auml;nka din Tripadvisor-kontoprofil till en profil p&aring; en annan webbplats fr&aring;n tredje part. Du ansvarar f&ouml;r att best&auml;mma om du v&auml;ljer att g&ouml;ra det, det &auml;r helt valfritt och beslutet att till&aring;ta att informationen l&auml;nkas kan n&auml;r som helst &aring;ngras (hos webbplatsen eller appen fr&aring;n tredje part). Om du v&auml;ljer att koppla ditt Tripadvisor-konto till en webbplats eller app fr&aring;n tredje part kommer webbplatsen eller appen fr&aring;n den tredje parten att kunna komma &aring;t information du har lagrat i ditt Tripadvisor-konto, inklusive information om andra anv&auml;ndare som du delar information med. Du b&ouml;r l&auml;sa reglerna och villkoren och sekretesspolicyn f&ouml;r de webbplatser och appar fr&aring;n tredje part som du bes&ouml;ker d&aring; de har regler och beh&ouml;righeter f&ouml;r hur de anv&auml;nder din information som kan skilja sig fr&aring;n Tj&auml;nsternas, inklusive v&aring;ra webbplatsers. Vi uppmuntrar dig att granska de h&auml;r webbplatserna och apparna fr&aring;n tredje part och anv&auml;nda dem p&aring; egen risk.</p>
+
+<p><a id="PROGRAMVARA SOM EN DEL AV TJÄNSTER; YTTERLIGARE MOBILA LICENSER" name="PROGRAMVARA SOM EN DEL AV TJÄNSTER; YTTERLIGARE MOBILA LICENSER"><strong>PROGRAMVARA SOM EN DEL AV TJ&Auml;NSTER; YTTERLIGARE MOBILA LICENSER</strong></a></p>
+
+<p>Programvara fr&aring;n Tj&auml;nsterna lyder under exportlagar i USA. Ingen programvara fr&aring;n Tj&auml;nsterna f&aring;r laddas ned eller p&aring; annat s&auml;tt exporteras eller omexporteras (a) till (eller till en medborgare eller inv&aring;nare i) Kuba, Irak, Sudan, Nordkorea, Iran, Syrien eller n&aring;got annat land f&ouml;r vilket USA har inf&ouml;rt handelsf&ouml;rbud, eller (b) till n&aring;gon p&aring; listorna U.S. Treasury Department list of Specially Designated Nationals eller U.S. Commerce Departments Table of Deny Orders. Genom att anv&auml;nda Tj&auml;nsterna intygar du att du inte befinner dig i, kontrolleras av, eller &auml;r medborgare eller boende i n&aring;got av l&auml;nderna p&aring; dessa listor.</p>
+
+<p>Som n&auml;mnts ovan inneh&aring;ller Tj&auml;nsterna programvara, som ibland kan ben&auml;mnas som &rdquo;appar&rdquo;.&nbsp; All programvara som finns tillg&auml;nglig f&ouml;r nedladdning fr&aring;n Tj&auml;nsterna (&rdquo;Programvara&quot;) &auml;r upphovsr&auml;ttsligt skyddade verk som tillh&ouml;r Tripadvisor eller en angiven part. Din anv&auml;ndning av denna Programvara styrs av villkoren i det eventuella licensavtalet f&ouml;r slutanv&auml;ndare, som medf&ouml;ljer, eller ing&aring;r i, Programvaran. Du f&aring;r inte installera eller anv&auml;nda n&aring;gon Programvara som &aring;tf&ouml;ljs av eller inkluderar ett licensavtal om du inte f&ouml;rst samtycker till villkoren i licensavtalet. F&ouml;r all Programvara som g&ouml;rs tillg&auml;nglig f&ouml;r nedladdning via Tj&auml;nsterna och som inte &aring;tf&ouml;ljs av ett licensavtal beviljar vi dig, anv&auml;ndaren, en begr&auml;nsad personlig, o&ouml;verl&aring;tlig licens f&ouml;r anv&auml;ndning av Programvaran f&ouml;r att bes&ouml;ka eller p&aring; annat s&auml;tt anv&auml;nda Tj&auml;nsterna i &ouml;verensst&auml;mmelse med reglerna och villkoren i detta Avtal (inklusive de policyer som refereras till h&auml;ri) och f&ouml;r inga andra &auml;ndam&aring;l.</p>
+
+<p>Observera att Programvaran, bland annat all HTML-, XML- eller Java-kod och alla Active X-kontroller som finns i Tj&auml;nsterna, &auml;gs eller licensieras av Tripadvisor och skyddas av upphovsr&auml;ttsliga lagar och internationella avtalsvillkor. All reproduktion eller omdistribution av Programvaran &auml;r uttryckligen f&ouml;rbjuden, och kan leda till h&aring;rda civil- och straffr&auml;ttsliga p&aring;f&ouml;ljder. De som &ouml;vertr&auml;der detta kommer att &aring;talas i st&ouml;rsta m&ouml;jliga utstr&auml;ckning.</p>
+
+<p>Delar av Tripadvisors mobilprogramvara kan anv&auml;nda upphovsr&auml;ttsskyddat material, vilket bekr&auml;ftas av Tripadvisor. Ut&ouml;ver detta finns det s&auml;rskilda villkor som g&auml;ller f&ouml;r anv&auml;ndning av vissa mobilapplikationer fr&aring;n Tripadvisor. P&aring; sidan&nbsp;<a href="https://tripadvisor.mediaroom.com/SE-mobile-licenses">Mobillicenser</a>&nbsp;finns information som g&auml;ller specifikt f&ouml;r Tripadvisors mobilapplikationer.</p>
+
+<p>UTAN BEGR&Auml;NSNING AV OVANST&Aring;ENDE &Auml;R ALL KOPIERING ELLER REPRODUKTION AV PROGRAMVARAN TILL EN ANNAN SERVER ELLER PLATS F&Ouml;R VIDARE REPRODUKTION ELLER DISTRIBUTION UTTRYCKLIGEN F&Ouml;RBJUDEN. OM PROGRAMVARAN ALLS GARANTERAS &Auml;R DET ENBART I ENLIGHET MED VILLKOREN I LICENSAVTALET ELLER DETTA AVTAL (ENLIGT VAD SOM &Auml;R TILL&Auml;MPLIGT).</p>
+
+<p><a id="UPPHOVSRÄTTS- OCH VARUMÄRKESMEDDELANDEN" name="UPPHOVSRÄTTS- OCH VARUMÄRKESMEDDELANDEN"><strong>UPPHOVSR&Auml;TTS- OCH VARUM&Auml;RKESMEDDELANDEN</strong></a></p>
+
+<p>Tripadvisor, ugglelogotypen, betygsbubblorna och alla andra produkt- eller tj&auml;nstenamn eller slogans som visas i Tj&auml;nsterna &auml;r registrerade varum&auml;rken och/eller varum&auml;rken baserade p&aring; sedvaner&auml;tten som tillh&ouml;r Tripadvisor och/eller dess leverant&ouml;rer eller licensgivare och f&aring;r inte kopieras, efterliknas eller anv&auml;ndas, i sin helhet eller delar d&auml;rav, utan f&ouml;reg&aring;ende skriftligt tillst&aring;nd fr&aring;n Tripadvisor eller varum&auml;rkesinnehavaren. Dessutom &auml;r utseendet och k&auml;nslan av Tj&auml;nsterna, d&auml;ribland v&aring;ra webbplatser samt alla sidrubriker, anpassad grafik, knappikoner och skript som r&ouml;r desamma, servicem&auml;rken, varum&auml;rken och/eller f&ouml;retagsprofilen som tillh&ouml;r Tripadvisor och f&aring;r inte kopieras, efterliknas eller anv&auml;ndas, i sin helhet eller delar d&auml;rav, utan f&ouml;reg&aring;ende skriftligt tillst&aring;nd fr&aring;n Tripadvisor. Alla andra varum&auml;rken, registrerade varum&auml;rken, produktnamn och f&ouml;retagsnamn eller logotyper som n&auml;mns i Tj&auml;nsterna tillh&ouml;r respektive &auml;gare. F&ouml;rutom i den utstr&auml;ckning som anges p&aring; andra st&auml;llen i detta Avtal utg&ouml;r h&auml;nvisningar till produkter, tj&auml;nster, processer eller annan information genom handelsnamn, varum&auml;rke, tillverkare, leverant&ouml;r eller annat inte, eller inneb&auml;r inga, godk&auml;nnanden, sponsring eller rekommendationer f&ouml;r detta av Tripadvisor.</p>
+
+<p>Alla r&auml;ttigheter f&ouml;rbeh&aring;lles. Tripadvisor ansvarar inte f&ouml;r inneh&aring;ll p&aring; webbplatser som drivs av andra parter &auml;n Tripadvisor.</p>
+
+<p><a id="Riktlinjer för anmälan om och borttagning av olagligt innehåll" name="Riktlinjer för anmälan om och borttagning av olagligt innehåll"><strong>Riktlinjer f&ouml;r anm&auml;lan om och borttagning av olagligt inneh&aring;ll</strong></a></p>
+
+<p>Tripadvisor verkar enligt principen om borttagning efter meddelande. Om du har klagom&aring;l eller inv&auml;ndningar mot Inneh&aring;ll, inklusive anv&auml;ndarkommentarer, som publiceras i Tj&auml;nsterna, eller om du anser att material eller inneh&aring;ll som publiceras i Tj&auml;nsterna g&ouml;r intr&aring;ng p&aring; upphovsr&auml;ttsskydd som du innehar, kontaktar du oss omedelbart genom att f&ouml;lja v&aring;r process f&ouml;r anm&auml;lan och borttagning. <a href="https://www.tripadvisor.se/pages/noticetakedown.html"><strong>Klicka h&auml;r f&ouml;r att se Upphovsr&auml;ttspolicyn och processen</strong></a>. N&auml;r du har f&ouml;ljt denna process svarar Tripadvisor p&aring; giltigt och korrekt underbyggda klagom&aring;l genom att vidta alla rimliga &aring;tg&auml;rder f&ouml;r att ta bort uppenbart olagligt inneh&aring;ll inom en rimlig tid.</p>
+
+<p><a id="ÄNDRINGAR AV TJÄNSTERNA; UPPSÄGNING" name="ÄNDRINGAR AV TJÄNSTERNA; UPPSÄGNING"><strong>&Auml;NDRINGAR AV TJ&Auml;NSTERNA; UPPS&Auml;GNING</strong></a></p>
+
+<p>Tripadvisor kan komma att &auml;ndra, ut&ouml;ka eller radera reglerna och villkoren i detta Avtal eller delar av dem enligt eget gottfinnande d&auml;r vi bed&ouml;mer att det &auml;r n&ouml;dv&auml;ndigt av juridiska, allm&auml;nt regelm&auml;ssiga eller tekniska sk&auml;l eller p&aring; grund av f&ouml;r&auml;ndringar i de Tj&auml;nster som tillhandah&aring;lls eller p&aring; grund av Tj&auml;nsternas uppl&auml;gg eller layout. D&auml;refter samtycker du uttryckligen till att vara bunden av reglerna och villkoren i detta Avtal i sin &auml;ndrade form.</p>
+
+<p>Tripadvisor-f&ouml;retagen kan n&auml;r som helst komma att &auml;ndra, g&ouml;ra uppeh&aring;ll i eller avbryta n&aring;gon del av Tj&auml;nsterna, inklusive tillg&auml;nglighet f&ouml;r Tj&auml;nsternas funktioner, databaser eller Inneh&aring;ll. Tripadvisor-f&ouml;retagen kan &auml;ven utan f&ouml;rvarning inf&ouml;ra gr&auml;nser eller p&aring; annat s&auml;tt begr&auml;nsa &aring;tkomsten till hela eller delar av Tj&auml;nsterna eller ansvar av tekniska eller s&auml;kerhetsm&auml;ssiga sk&auml;l, f&ouml;r att f&ouml;rhindra obeh&ouml;rig &aring;tkomst, f&ouml;rlust av eller f&ouml;rst&ouml;relse av data eller d&auml;r Tripadvisor och/eller dess f&ouml;retagsfilialer enligt eget gottfinnande anser att du bryter mot n&aring;gon best&auml;mmelse i detta Avtal eller n&aring;gon lag eller f&ouml;reskrift och d&auml;r Tripadvisor och/eller dess f&ouml;retagsfilialer beslutar att avbryta tillhandah&aring;llet av n&aring;gon aspekt av Tj&auml;nsterna.</p>
+
+<p>DIN FORTSATTA ANV&Auml;NDNING AV TJ&Auml;NSTERNA NU, ELLER EFTER ATT &Auml;NDRINGAR AV AVTALET HAR PUBLICERATS, UTG&Ouml;R DITT GODK&Auml;NNANDE AV S&Aring;DANA &Auml;NDRINGAR.</p>
+
+<p>Tripadvisor kan s&auml;ga upp detta Avtal med dig n&auml;r som helst, utan f&ouml;reg&aring;ende meddelande, d&aring; man i god tro anser att du har brutit mot detta Avtal eller p&aring; annat s&auml;tt anser att en upps&auml;gning &auml;r sk&auml;ligen n&ouml;dv&auml;ndig f&ouml;r att skydda r&auml;ttigheterna tillh&ouml;rande Tripadvisor-f&ouml;retagen och/eller andra anv&auml;ndare av Tj&auml;nsterna. Det inneb&auml;r att vi kan sluta tillhandah&aring;lla Tj&auml;nsterna till dig.</p>
+
+<p><a id="JURISDIKTION OCH GÄLLANDE LAG" name="JURISDIKTION OCH GÄLLANDE LAG"><strong>JURISDIKTION OCH G&Auml;LLANDE LAG</strong></a></p>
+
+<p>Den h&auml;r webbplatsen &auml;gs och regleras av Tripadvisor LLC, ett amerikanskt aktiebolag. Detta Avtal och eventuella tvister och anspr&aring;k (inklusive icke-kontraktsm&auml;ssiga tvister eller anspr&aring;k) som uppst&aring;r av eller i samband med det eller dess &auml;mne eller utformning ska regleras och tolkas enligt lagen i delstaten Massachusetts i USA. Du samtycker h&auml;rmed till den exklusiva r&auml;ttsliga beh&ouml;righeten f&ouml;r domstolarna i Massachusetts, USA, och stipulerar att det &auml;r r&auml;ttvist och l&auml;mpligt att alla tvister som h&auml;rr&ouml;r fr&aring;n eller uppst&aring;r i samband med din eller en tredje parts anv&auml;ndning av Tj&auml;nsterna, b&aring;de kontraktsm&auml;ssiga och icke-kontraktsm&auml;ssiga, hanteras av dessa domstolar. Du godk&auml;nner att eventuella krav du har gentemot Tripadvisor LLC som h&auml;rr&ouml;r fr&aring;n eller uppst&aring;r i samband med anv&auml;ndningen av Tj&auml;nsterna m&aring;ste hanteras och l&ouml;sas av en beh&ouml;rig domstol med &auml;mneskompetens och som finns i delstaten Massachusetts. Anv&auml;ndningen av Tj&auml;nsterna &auml;r ej godk&auml;nd i jurisdiktioner som inte till&aring;ter alla best&auml;mmelser i dessa regler och villkor, bland annat denna punkt. Inget i denna klausul begr&auml;nsar Tripadvisor LLC:s r&auml;tt att vidta r&auml;ttsliga &aring;tg&auml;rder mot dig vid n&aring;gon annan beh&ouml;rig domstol eller andra beh&ouml;riga domstolar. Ovanst&aring;ende ska inte g&auml;lla i den utstr&auml;ckning att till&auml;mplig lag i ditt vistelseland kr&auml;ver till&auml;mpning av en annan lag och/eller jurisdiktion &ndash; i synnerhet om du anv&auml;nder Tj&auml;nsterna som konsument &ndash; och detta inte kan exkluderas genom ett avtal och inte styras av F&ouml;renta nationernas konvention ang&aring;ende avtal om internationella k&ouml;p av varor, om det annars &auml;r till&auml;mpligt.&nbsp; Om du anv&auml;nder Tj&auml;nsterna som konsument och inte som f&ouml;retag eller F&ouml;retagsrepresentant kan du vara ber&auml;ttigad att g&ouml;ra anspr&aring;k mot Tripadvisor i domstolarna i ditt vistelseland. Denna klausul ska i &ouml;vrigt till&auml;mpas i den maximala utstr&auml;ckning som till&aring;ts i ditt land eller vistelseland.</p>
+
+<p><a id="VALUTAOMVANDLARE" name="VALUTAOMVANDLARE"><strong>VALUTAOMVANDLARE</strong></a></p>
+
+<p>Valutakurser baseras p&aring; olika allm&auml;nt tillg&auml;ngliga k&auml;llor och ska endast betraktas som riktlinjer. Valutakurserna kontrolleras inte och de faktiska kurserna kan variera. Valutakurserna kanske inte uppdateras dagligen. Den angivna informationen tros vara korrekt, men Tripadvisor-f&ouml;retagen l&auml;mnar inga garantier f&ouml;r s&aring;dan korrekthet. N&auml;r du anv&auml;nder informationen i n&aring;got ekonomiskt syfte rekommenderar vi dig att konsultera en kvalificerad yrkesman f&ouml;r att kontrollera att v&auml;xelkurserna &auml;r riktiga. Vi godk&auml;nner inte anv&auml;ndningen av denna information f&ouml;r n&aring;got annat syfte &auml;n personligt bruk och det &auml;r uttryckligen f&ouml;rbjudet att vidares&auml;lja, omdistribuera och anv&auml;nda denna information i kommersiella syften.</p>
+
+<p><a id="ALLMÄNNA BESTÄMMELSER" name="ALLMÄNNA BESTÄMMELSER"><strong>ALLM&Auml;NNA BEST&Auml;MMELSER</strong></a></p>
+
+<p>Vi f&ouml;rbeh&aring;ller oss r&auml;tten att &aring;terta samtliga anv&auml;ndarnamn, kontonamn, alias, referenser eller annan anv&auml;ndaridentifierare av valfri anledning utan ansvar gentemot dig.</p>
+
+<p>Du &auml;r inf&ouml;rst&aring;dd med att detta Avtal och din anv&auml;ndning av Tj&auml;nsterna kan p&aring; intet s&auml;tt betraktas som ett uppr&auml;ttande av ett samarbetsavtal, partnerskap eller anst&auml;llnings- eller agenturf&ouml;rh&aring;llande mellan dig och Tripadvisor eller dess f&ouml;retagsfilialer.</p>
+
+<p>V&aring;ra &aring;taganden enligt detta Avtal regleras av g&auml;llande lagstiftning och juridiska processer. Ingenting i detta Avtal upph&auml;ver v&aring;r r&auml;tt att uppfylla juridiska krav och best&auml;mmelser fr&aring;n statliga myndigheter och r&auml;ttsv&auml;sendet avseende din anv&auml;ndning av Tj&auml;nsterna och information som har skickats till eller samlats in av oss med h&auml;nsyn till s&aring;dan anv&auml;ndning. I den utstr&auml;ckning som det &auml;r till&aring;tet enligt g&auml;llande lag samtycker du till att v&auml;cka talan eller l&auml;gga fram anspr&aring;k till f&ouml;ljd av eller i samband med din &aring;tkomst eller anv&auml;ndning av Tj&auml;nsterna inom tv&aring; (2) &aring;r efter den dag d&aring; detta anspr&aring;k eller denna talan uppstod eller ackumulerades, annars kommer detta anspr&aring;k eller denna talan o&aring;terkalleligt att f&ouml;rfalla.</p>
+
+<p>Om n&aring;gon del av detta Avtal skulle vara ogiltig eller overkst&auml;llbar enligt till&auml;mplig lagstiftning, bland annat ovan angivna garanti- och ansvarsbegr&auml;nsningar, ska den ogiltiga eller overkst&auml;llbara best&auml;mmelsen ers&auml;ttas med en best&auml;mmelse som s&aring; n&auml;ra som m&ouml;jligt &ouml;verensst&auml;mmer med den ursprungliga best&auml;mmelsens syfte och &aring;terstoden av detta Avtal ska forts&auml;tta g&auml;lla med full verkan.</p>
+
+<p>Detta Avtal (och &ouml;vriga regler och villkor som refereras till h&auml;ri) utg&ouml;r hela avtalet mellan dig och Tripadvisor betr&auml;ffande din anv&auml;ndning av Tj&auml;nsterna och ers&auml;tter alla tidigare eller samtida elektroniska, muntliga eller skriftliga avtal och erbjudanden mellan dig och Tripadvisor vad betr&auml;ffar Tj&auml;nsterna. Ett tryckt exemplar av detta Avtal och eventuella meddelanden som f&ouml;rmedlats i elektronisk form utg&ouml;r en godtagbar och giltig handling vid r&auml;ttsliga eller administrativa processer som har sitt ursprung i eller ber&ouml;r Avtalet, i samma utstr&auml;ckning och under samma villkor som andra aff&auml;rsdokument som ursprungligen framst&auml;llts och handhafts i skriftlig form.</p>
+
+<p>F&ouml;ljande avsnitt ska forts&auml;tta att g&auml;lla vid samtliga typer av upps&auml;gning av detta Avtal:</p>
+
+<ul>
+	<li><a href="#OLE_LINK3">Till&auml;ggsprodukter</a></li>
+	<li><a href="#OLE_LINK4">F&ouml;rbjudna aktiviteter</a></li>
+	<li><a href="#OLE_LINK6">Omd&ouml;men, kommentarer och anv&auml;ndning av andra Interaktiva omr&aring;den; Beviljande av licens</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK7">Begr&auml;nsa Tripadvisors licensr&auml;ttigheter</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK12">Resm&aring;l</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK13">Internationella resor</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK14">Ansvarsfriskrivning</a></li>
+	<li><a href="#OLE_LINK15">Skadeers&auml;ttning</a></li>
+	<li><a href="#OLE_LINK17">Programvara som en del av tj&auml;nster; Ytterligare mobila licenser</a></li>
+	<li><a href="#OLE_LINK18">Upphovsr&auml;tts- och varum&auml;rkesmeddelanden</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK19">Riktlinjer f&ouml;r anm&auml;lan om och borttagning av olagligt inneh&aring;ll</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK20">&Auml;ndringar av tj&auml;nsterna; Upps&auml;gning</a></li>
+	<li><a href="#OLE_LINK21">Jurisdiktion och g&auml;llande lag</a></li>
+	<li><a href="#OLE_LINK23">Allm&auml;nna best&auml;mmelser</a></li>
+	<li><a href="#OLE_LINK24">Tj&auml;nstehj&auml;lp</a></li>
+</ul>
+
+<p>Reglerna och villkoren i detta Avtal &auml;r tillg&auml;ngliga p&aring; det spr&aring;k som anv&auml;nds p&aring; Tripadvisors webbplatser och/eller appar p&aring;/i vilka Tj&auml;nsterna kan kommas &aring;t.</p>
+
+<p>Webbplatserna och/eller apparna p&aring;/i vilka Tj&auml;nsterna kan kommas &aring;t kanske inte alltid uppdateras periodvis eller regelbundet och d&auml;rmed kr&auml;ver ingen lag att de registreras under utgivaransvar.</p>
+
+<p>Fiktiva namn p&aring; f&ouml;retag, produkter, personer, karakt&auml;rer och/eller data som n&auml;mns i eller via Tj&auml;nsterna &auml;r inte avsedda att representera n&aring;gon verklig person, n&aring;got verkligt f&ouml;retag, n&aring;gon verklig produkt eller h&auml;ndelse.</p>
+
+<p>Ingenting i detta Avtal ska anses tilldela n&aring;gon tredje part r&auml;ttigheter eller f&ouml;rm&aring;ner, undantaget att Tripadvisor-f&ouml;retagens f&ouml;retagsfilialer ska anses vara tredjepartsf&ouml;rm&aring;nstagare av detta Avtal.</p>
+
+<p>Du f&ouml;rbjuds att &ouml;verf&ouml;ra n&aring;gra av dina r&auml;ttigheter eller skyldigheter enligt detta Avtal till n&aring;gon annan utan v&aring;rt samtycke.</p>
+
+<p>Alla r&auml;ttigheter som inte uttryckligen beviljas h&auml;ri f&ouml;rbeh&aring;lls.</p>
+
+<p><a id="TJÄNSTEHJÄLP" name="TJÄNSTEHJÄLP"><strong>TJ&Auml;NSTEHJ&Auml;LP</strong></a></p>
+
+<p>Om du beh&ouml;ver svar p&aring; dina fr&aring;gor eller beh&ouml;ver f&aring; reda p&aring; hur du kan kontakta oss bes&ouml;ker du v&aring;rt <a href="https://www.tripadvisorsupport.com/hc/sv">hj&auml;lpcenter</a>. Du kan ocks&aring; skriva till oss p&aring;:</p>
+
+<p style="margin-left:21.0pt;">Tripadvisor LLC<br />
+400 1st Avenue<br />
+Needham, MA 02494, USA</p>
+
+<p>Observera att Tripadvisor LLC inte accepterar r&auml;ttsliga meddelanden eller delgivning p&aring; n&aring;got annat s&auml;tt &auml;n via papperskopior som levereras till den direkt ovanst&aring;ende adressen.&nbsp; F&ouml;r att undvika oklarheter och utan begr&auml;nsning, accepterar vi d&auml;rf&ouml;r inte meddelanden eller delgivning som g&ouml;rs till n&aring;gon av v&aring;ra f&ouml;retagsfilialer eller dotterbolag.</p>
+
+<p>&copy; 2022 Tripadvisor LLC. Alla r&auml;ttigheter f&ouml;rbeh&aring;lles.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p>Senast uppdaterad 15 december 2022.</p>
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34344%26item%3D32204" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34344%26item%3D32204" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34344%26item%3D32204" target="_blank" title="Twitter Share" style="background-color:#1DA1F2;">
+                    <span class="fa fa-twitter"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=SE%20Media%20Center%20%7C%20Resources&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-facebooklike"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34344%26item%3D32204&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=105&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:105px; height:20px;" allowTransparency="true" title="Facebook Like"></iframe></li></ul></div>
+</div>
+</div>	</div><!--/content-->
+
+</div><!--/contentArea-->
+
+<div style="clear:both;">&nbsp;</div>
+<div class="footer">
+	<div class="widthLimit">
+	<div class="mobile-language">
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=34281">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34297">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34301">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=34289">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34305">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34309">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34313">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34317">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34321">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34325">Venezuela</a></li>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=34282">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=34286">Italia</a></li>
+			<li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=34287">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=34449">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=34285">France</a></li>
+			<li class="flag_item active"><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34341">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34345">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34349">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34353">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34357">Ireland</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34365">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34369">Ελλάδα</a></li>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34381">Norge</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34389">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=34288">Россия</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34401">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34405">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34409">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34413">Belgique</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34417">België</a></li>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=34291">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=34292">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34423">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=34290">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=34283">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34294">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=34284">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34425">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34293">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34295">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34429">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34296">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34433">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34437">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34441">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34445">香港</a></li>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34578">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34329">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34333">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34337">ישראל</a></li>
+		</ul>
+	</div>
+
+	<div class="footerLogo-wrapper"><img src="images/Tripadvisor_lockup_horizontal_registered.png" alt="" title="" border="0" style="max-width: 200px;"></div>
+	<div class="flagMenu-wrapper">
+		<div class="flagMenu-input">
+			<a href="#" class="flagMenu" data-jq-dropdown="#flagMenu" data-horizontal-offset="10" data-vertical-offset="-500"> 
+			<div class="flag"></div> Sverige 
+			<i class="fa fa-chevron-down"></i></a>
+		</div>
+	</div>
+	<div class="wd_featureboxes_footer wd_featureboxes-vertical">
+<div id="wd_featurebox-standard_3533" class="wd_featurebox_container wd_featurebox-standard"><div class="wd_featurebox_title"></div><div class="wd_featurebox"><div><a href="https://www.tripadvisor.se/SiteIndex" target="_blank">Webbplats&ouml;versikt</a>&nbsp;|&nbsp;<a href="http://info.evidon.com/pub_info/720?v=1&amp;nt=0" target="_blank">Godk&auml;nn cookies</a>&nbsp;|&nbsp;<span data-modal="help_center" data-options="autoReposition closeOnDocClick closeOnEscape" data-url="/uvpages/helpCenterOverlay.html" data-windowshade=""><a href="https://www.tripadvisorsupport.com/hc/sv" target="_blank">Hj&auml;lpcenter&nbsp;</a><img alt="" height="10" id="lazyload_-554911185_0" src="https://static.tacdn.com/img2/icons/bell.png" style="border:0px;vertical-align:text-top;" width="14" /></span></div>
+
+<div>
+<div>&copy; 2023 Tripadvisor LLC Med ensamr&auml;tt. Tripadvisors&nbsp;<a href="SE-terms-of-use" target="_blank">anv&auml;ndarvillkor</a>,&nbsp;<a href="SE-privacy-policy" target="_blank">sekretesspolicy</a>&nbsp;och&nbsp;<a href="https://www.tripadvisor.se/CookiePolicy" target="_blank">Sekretess- Och Cookiepolicy</a>.</div>
+
+<div>&nbsp;</div>
+
+<div id="PDISCLAIMER">
+<p>Tripadvisor LLC &auml;r inte en bokningsbyr&aring; eller researrang&ouml;r och det kostar ingenting att anv&auml;nda v&aring;r webbplats. V&aring;ra partner (flygbolag, reseleverant&ouml;rer och bokningsagenter) som publicerar flygpriser, rundturer och paketresor p&aring; Tripadvisor m&aring;ste enligt lag inkludera alla avgifter och till&auml;ggsavgifter i sina angivna priser. Exempelvis s&auml;kerhetsavgiften som inf&ouml;rdes efter den 11 september, internationella avg&aring;ngs- och ankomstavgifter, skatter, samt diverse avgifter och extradebiteringar f&ouml;r &ouml;vrig service och handl&auml;ggning. N&auml;r du bokar med n&aring;gon av v&aring;ra partner ska du vara noga med att se efter p&aring; deras webbplats att alla relevanta avgifter som kr&auml;vs av USA:s transportdepartement redovisas. Flygpriser anges vanligtvis per person i USD om inget annat anges.</p>
+
+<p>F&ouml;r att det ska vara s&aring; bekv&auml;mt som m&ouml;jligt f&ouml;r dig ber&auml;knar Tripadvisor LLC ett genomsnittligt pris f&ouml;r varje hotell, baserat p&aring; de priser som vi f&aring;tt av v&aring;ra bokningspartner f&ouml;r tillg&auml;ngliga rum. F&ouml;r rundturer och attraktioner &auml;r det pris som visas vanligtvis det l&auml;gsta tillg&auml;ngliga priset per person f&ouml;r vuxna. Tripadvisor LLC garanterar inga angivna priser f&ouml;r n&aring;gra paketresor eller erbjudanden som finns med p&aring; v&aring;r webbplats. Dessutom uppdateras de genomsnittliga hotellpriserna varje natt och visas i din valuta enligt g&auml;llande omr&auml;kningskurser. Kontrollera med bokningswebbplatsen s&aring; att du f&aring;r exakt summa och valuta eftersom de konverterade priserna &auml;r uppskattningar.</p>
+
+<p>Tripadvisor LCC garanterar inte heller att de priser som annonseras p&aring; v&aring;r webbplats finns tillg&auml;ngliga. De angivna priserna kan kr&auml;va att man stannar en viss tid, g&auml;lla endast vissa datum, vara f&ouml;rknippade med vissa villkor eller restriktioner.</p>
+</div>
+
+<div>Tripadvisor LLC ansvarar inte f&ouml;r inneh&aring;llet p&aring; externa webbplatser. Skatter och avgifter ing&aring;r inte i erbjudandet.</div>
+</div>
+</div></div></div>
+	</div>
+</div><!--/footer-->
+
+
+<div id="searchMenu" class="jq-dropdown jq-dropdown-tip jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+	<div class="wd_search_form_container"><form name="basic_search" method="get" action="https://tripadvisor.mediaroom.com/index.php?s=20322" class="wd_search_form wd_search_form_basic"><input type="hidden" name="s" value="search_results" /><input type="text" name="query" value="" size="32" placeholder="Keywords..." title="Keywords..." /> <input type="submit" name="submit" value="Search"></form>
+</div>	</div>
+</div><!--/searchMenu-->
+<div id="flagMenuResources" class="jq-dropdown jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+		<div class="pad-20">
+<ul id="FLAGS_FLY">
+    <li class="america col region">
+    <div class="flag_heading">The Americas</div>
+    <ul>
+        <li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=20292">United States</a></li>
+        <li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34300">Canada (English)</a></li>
+        <li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34304">Canada (Français)</a></li>
+        <li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=20316">Brasil</a></li>
+        <li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34308">México</a></li>
+        <li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34312">Argentina</a></li>
+        <li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34316">Chile</a></li>
+        <li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34320">Colombia</a></li>
+        <li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34324">Perú</a></li>
+        <li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34328">Venezuela</a></li>
+    </ul>
+    </li>
+    <li class="europe col region">
+    <div class="flag_heading">Europe</div>
+    <ul>
+        <li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=20288">United Kingdom</a></li>
+        <li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=20309">Italia</a></li>
+        <li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=20310">España</a></li>
+        <li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=20328">Deutschland</a></li>
+        <li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=20307">France</a></li>
+        <li class="flag_item active"><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34344">Sverige</a></li>
+        <li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34348">Nederland</a></li>
+        <li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34352">Türkiye</a></li>
+        <li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34356">Danmark</a></li>
+        <li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34360">Ireland</a></li>
+        <li class="flag_item "><a id="flag_cz_fly" class="flag_link flag_cz" hreflang="cs" title="Czech Republic" href="index.php?s=34364">Česká republika</a></li>
+        <li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34368">Österreich</a></li>
+        <li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34372">Ελλάδα</a></li>
+        <li class="flag_item "><a id="flag_fi_fly" class="flag_link flag_fi" hreflang="fi" title="Finland" href="index.php?s=34376">Suomi</a></li>
+    </ul>
+    </li>
+    <li class="europe col1 region">
+    <div class="flag_heading empty">&nbsp;</div>
+    <ul>
+        <li class="flag_item "><a id="flag_hu_fly" class="flag_link flag_hu" hreflang="hu" title="Hungary" href="index.php?s=34380">Magyarország</a></li>
+        <li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34384">Norge</a></li>
+        <li class="flag_item "><a id="flag_pl_fly" class="flag_link flag_pl" hreflang="pl" title="Poland" href="index.php?s=34388">Polska</a></li>
+        <li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34392">Portugal</a></li>
+        <li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=20314">Россия</a></li>
+        <li class="flag_item "><a id="flag_sk_fly" class="flag_link flag_sk" hreflang="sk" title="Slovakia" href="index.php?s=34396">Slovensko</a></li>
+        <li class="flag_item "><a id="flag_rs_fly" class="flag_link flag_rs" hreflang="sr" title="Serbia" href="index.php?s=34400">Srbija</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34404">Schweiz</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34408">Suisse</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34412">Svizzera</a></li>
+        <li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34416">Belgique</a></li>
+        <li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34420">België</a></li>
+    </ul>
+    </li>
+    <li class="apac col region">
+    <div class="flag_heading">Asia Pacific</div>
+    <ul>
+        <li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=20318">日本</a></li>
+        <li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=20305">中国</a></li>
+        <li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34424">中文国际版</a></li>
+        <li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=20315">India</a></li>
+        <li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=20301">Australia</a></li>
+        <li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34147">Malaysia</a></li>
+        <li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=20296">New Zealand</a></li>
+        <li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34428">Philippines</a></li>
+        <li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34143">Singapore</a></li>
+        <li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34148">Indonesia</a></li>
+        <li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34432">대한민국</a></li>
+        <li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34151">ไทย</a></li>
+        <li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34436">Việt Nam</a></li>
+        <li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34440">台灣</a></li>
+        <li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34444">Hong Kong</a></li>
+        <li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34448">香港</a></li>
+    </ul>
+    </li>
+    <li class="africa col region">
+    <div class="flag_heading">Africa &amp; the Middle East</div>
+    <ul>
+        <li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34580">العربية‬</a></li>
+        <li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34332">مصر</a></li>
+        <li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34336">South Africa</a></li>
+        <li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34698">ישראל</a></li>
+    </ul>
+    </li>
+</ul>
+</div>
+</div>
+</div>
+<div id="flagMenu" class="jq-dropdown jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+		<div class="pad-20">
+		<ul id="FLAGS_FLY">
+		<li class="america col region">
+		<div class="flag_heading">The Americas</div>
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=34281">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34297">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34301">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=34289">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34305">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34309">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34313">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34317">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34321">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34325">Venezuela</a></li>
+		</ul>
+		</li>
+		<li class="europe col region">
+		<div class="flag_heading">Europe</div>
+		<ul>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=34282">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=34286">Italia</a></li>
+			<li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=34287">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=34449">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=34285">France</a></li>
+			<li class="flag_item active"><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34341">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34345">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34349">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34353">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34357">Ireland</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34365">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34369">Ελλάδα</a></li>
+		</ul>
+		</li>
+		<li class="europe col1 region">
+		<div class="flag_heading empty">&nbsp;</div>
+		<ul>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34381">Norge</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34389">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=34288">Россия</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34401">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34405">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34409">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34413">Belgique</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34417">België</a></li>
+		</ul>
+		</li>
+		<li class="apac col region">
+		<div class="flag_heading">Asia Pacific</div>
+		<ul>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=34291">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=34292">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34423">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=34290">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=34283">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34294">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=34284">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34425">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34293">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34295">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34429">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34296">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34433">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34437">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34441">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34445">香港</a></li>
+		</ul>
+		</li>
+		<li class="africa col region">
+		<div class="flag_heading">Africa &amp; the Middle East</div>
+		<ul>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34578">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34329">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34333">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34337">ישראל</a></li>
+		</ul>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div><!--/flagMenu-->
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.wd_featureboxes_middle .wd_featurebox p.more').each(function(){
+		$(this).parent().parent().prepend(this);
+	});
+	$('.wd_newsfeed_releases-teaser .item').each(function(){
+		$(this).children('.wd_date').insertAfter($(this).children('.wd_title'));
+	});
+	$('.clickdrop').click(function(){
+		$('.nav.pad-20').slideToggle();
+	});
+	$('i.fa.fa-bars').click(function(){
+		$('.mainnav').slideToggle();
+	});
+	$('.flagMenu-input').not('#wd_mobile_contacts_flag_toggle').not("#wd_mobile_resources_flag_toggle").click(function(){
+		$('.footer .mobile-language').toggleClass('active');
+	});
+
+	//Removing Img from table in Featurebox left
+
+	$('.wd_featureboxes_left .wd_featurebox').prepend($('.wd_featureboxes_left .wd_featurebox').find('table img'));
+	$('.wd_featureboxes_left .wd_featurebox table').remove();
+});
+</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var flagMenuWrapper = '<div class="flagMenu-wrapper">' +
+				'<div class="flagMenu-input" id="wd_mobile_resources_flag_toggle">' +
+					'<a href="#" class="flagMenu" data-jq-dropdown="#flagMenuResources" data-horizontal-offset="10" data-vertical-offset="-500">' +
+					'<div class="flag"></div> Sverige' +
+					'<i class="fa fa-chevron-down"></i></a>' +
+				'</div>' +
+			'</div>';
+			$(flagMenuWrapper).prependTo('.content');
+			$('#wd_mobile_resources_flag_toggle').click(function(){
+				$('#mobile-resources-page-menu').toggleClass('active');
+			});
+		});
+</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//$('.flagMenu-wrapper').clone().prependTo('.content');
+			//$('.content .flagMenu-wrapper .flagMenu-input').attr('id','wd_mobile_flag_toggle');
+			//$('.mobile-language').clone().insertAfter($('.content .flagMenu-wrapper'));
+			
+		});
+	</script>
+
+
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "Standard", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "Resources", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4086]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4086&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){var js = "window['__CF$cv$params']={r:'7dd468e13b560e45',m:'CfpMs_2gLqzk4a1XO95En6x3xGQpQQE.xgc.Qm4W64k-1687771598-0-ARzy+wb3rzVhxMt4tStOr3XTWCRtBs8LArk5kWINlvXI'};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

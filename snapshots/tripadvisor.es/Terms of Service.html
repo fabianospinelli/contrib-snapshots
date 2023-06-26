@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="toolbar_style" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<style type="text/css" wd_script_id="featureboxes_style" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw==">
+		.wd_featurebox_icon {
+			display: inline;
+		}
+		.wd_featurebox_icon img {
+			vertical-align: middle;
+		}
+		div.wd_featurebox_group div.wd_tabs_wrapper {
+			border: none;
+			border-bottom: 1px solid #E1E1E1;
+			padding: 0 0 5px 0;
+		}
+		div.wd_featurebox_group div.wd_featurebox {
+			border: none;
+			padding: 8px 0 0 0;
+		}
+		div.wd_featurebox_group li.wd_tab {
+			float: none;
+			color: #666666;
+		}
+		div.wd_featurebox_group li.wd_tab-active {
+			border: none;
+			background-color: transparent;
+			color: #000000;
+			font-weight: bold;
+		}
+		div.wd_featurebox_group li.wd_tab-inactive {
+			cursor: auto;
+		}
+	</style>
+<style type="text/css" wd_script_id="search_form_style" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw==">
+		.wd_search_form .wd_input_datepicker {
+			margin-right: 2px;
+		}
+		.wd_search_type_checkbox {
+			margin-left: 20px;
+		}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw=="></script>
+<script type="text/javascript" wd_script_id="search_form_script" nonce="MTdjMjEzZTQ1YmNjZTVhMzUxMTJmOWViMDJhMjhkNzQ0MTU3ZTI3Nw==">
+			function wd_toggle_search_form(link, advanced) {
+				var $ = webDriver.jQuery;
+				var $container = $(link).closest(".wd_search_form_container");
+				var basic_form = $container.find(".wd_search_form_basic");
+				var basic_query = basic_form.find('input[name="query"]');
+				var advanced_form = $container.find(".wd_search_form_advanced");
+				var advanced_query = advanced_form.find('input[name="query"]');
+
+				if (advanced) {
+					advanced_query.val(basic_query.val());
+					advanced_form.show();
+					basic_form.hide();
+				} else {
+					basic_query.val(advanced_query.val());
+					basic_form.show();
+					advanced_form.hide();
+				}
+			}
+
+			function wd_toggle_search_type_checkboxes(radio) {
+				var $ = webDriver.jQuery;
+				var $radio = $(radio);
+				var all = $radio.val() == "All" ? $radio.is(":checked") : !$radio.is(":checked");
+				var $checkboxes = $radio.closest(".wd_form_field").find(".wd_search_type_checkbox");
+				$checkboxes.find('input[type="checkbox"]').prop("disabled", all);
+				$checkboxes.toggle(!all);
+			}
+
+			webDriver.jQuery(function ($) {
+				$('.wd_search_type_radio input[type="radio"]').each(function() {wd_toggle_search_type_checkboxes(this);});
+			});
+		</script>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ES Press Center | Resources</title>
+	
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Avisos, términos y condiciones del sitio web de Tripadvisor" />
+ <meta name="twitter:description" content="&lt;p&gt;&lt;span style=&quot;text-align: -webkit-center;&quot;&gt;Le damos la bienvenida a los sitios web y propiedades para m&amp;oacute;viles de Tripadvisor (en adelante, &amp;ldquo;Sitios web&amp;rdquo;) que se encuentran en&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://www.tripadvisor.es/&quot; style=&quot;text-align: -webkit-center;&quot;&gt;www.tripadvisor.es&lt;/a&gt;&lt;span style=&quot;text-align: -webkit-center;&quot;&gt;&amp;nbsp;y en los correspondientes dominios de pa&amp;iacute;s de nivel superior (incluidos los subdominios asociados), aplicaciones de software relacionadas (en ocasiones, &amp;ldquo;aplicaciones&amp;rdquo;), datos, mensajes SMS, API, correos electr&amp;oacute;nicos, comunicaciones por chat y tel&amp;eacute;fono, botones, widgets y anuncios (en conjunto, los &amp;ldquo;Servicios&amp;rdquo;).&lt;/span&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;ES-terms-of-use&quot;&gt;Ver pol&amp;iacute;tica &amp;gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; " />
+ <meta property="og:site_name" content="MediaRoom" />
+ <meta property="og:url" content="https://tripadvisor.mediaroom.com/ES-terms-of-use" />
+ <meta property="og:title" content="Avisos, términos y condiciones del sitio web de Tripadvisor" />
+ <meta property="og:description" content="&lt;p&gt;&lt;span style=&quot;text-align: -webkit-center;&quot;&gt;Le damos la bienvenida a los sitios web y propiedades para m&amp;oacute;viles de Tripadvisor (en adelante, &amp;ldquo;Sitios web&amp;rdquo;) que se encuentran en&amp;nbsp;&lt;/span&gt;&lt;a href=&quot;http://www.tripadvisor.es/&quot; style=&quot;text-align: -webkit-center;&quot;&gt;www.tripadvisor.es&lt;/a&gt;&lt;span style=&quot;text-align: -webkit-center;&quot;&gt;&amp;nbsp;y en los correspondientes dominios de pa&amp;iacute;s de nivel superior (incluidos los subdominios asociados), aplicaciones de software relacionadas (en ocasiones, &amp;ldquo;aplicaciones&amp;rdquo;), datos, mensajes SMS, API, correos electr&amp;oacute;nicos, comunicaciones por chat y tel&amp;eacute;fono, botones, widgets y anuncios (en conjunto, los &amp;ldquo;Servicios&amp;rdquo;).&lt;/span&gt;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;ES-terms-of-use&quot;&gt;Ver pol&amp;iacute;tica &amp;gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; &lt;p&gt;&amp;nbsp;&lt;/p&gt; " />
+	
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery.dropdown.min.css">
+	<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dropdown.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+	<link rel="alternate" href="https://tripadvisor.mediaroom.com/press-releases?pagetemplate=rss" type="application/rss+xml" title="MediaRoom">	<style>.flag{background-position: 0px -114px;}</style>
+
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://tripadvisor.mediaroom.com/ES-terms-of-use" />
+<!-- end spin_special_output(head_end) -->
+</head>
+
+	<body class="wd_pageid_20310 wd_item_page wd_item_32187 ">
+
+<div class="topbar">
+	<div class=" widthLimit">
+
+		<i class="fa fa-bars" aria-hidden="true"></i>
+
+		<a class="wd_logo_main" href="https://www.tripadvisor.es/"><img src="images/Tripadvisor_Logo_circle-green_horizontal-lockup_registered_RGB.svg" alt="Reviews of Hotels, Flights and Vacation Rentals" class="mastheadLogoImage"></a>
+		<div class="headerRight">
+		<a href="https://www.tripadvisor.es/" class="homelink">Volver a Tripadvisor</a>
+		<a href="#" class="searchMenu fa fa-search" data-jq-dropdown="#searchMenu" data-horizontal-offset="8" data-vertical-offset="14"> </a>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="header"></div> -->
+
+<div class="heroimage">
+
+	<div class=" widthLimit">
+			<div class="herotext">Sala de Prensa</div>
+	</div>
+</div>
+<div class="mainnav widthLimit">
+	<ul>
+		<li class="mannav-about"><a target="_blank" href="US-about-us">Acerca de Tripadvisor</a></li>
+		<li class="mannav-investor"><a href="http://ir.tripadvisor.com/" target="_blank">Relaciones con inversores</a></li>
+		<li class="mannav-resources"><a href="index.php?s=20310">Recursos</a></li>
+		<li class="mannav-contact"><a href="index.php?s=34590">Contacto</a></li>
+	</ul>
+</div>
+<div class="widthLimit"><!-- <img src="images/shadow-mainnav.png" width="1090" height="21"> --></div>
+
+<div class="contentArea widthLimit">
+
+	
+	
+	
+	<div class="leftNav pad-20">
+	<p class="clickdrop">Newsroom</p>
+	<div class="nav pad-20">
+<p><a href="ES-press-releases" target="_self">Notas de prensa</a></p>
+<p><a href="https://www.purpose.tripadvisor.com/diversity" target="_blank">Equity, Diversity + Inclusion</a></p>
+<p><a href="https://www.purpose.tripadvisor.com/social-impact" target="_blank">Social Impact</a></p>
+<p><a href="https://www.tripadvisor.es/Trust" target="_blank">Confianza y seguridad</a></p>
+<p><a href="logo-guidelines" target="_self">Nuestras Marcas</a></p>
+</div><!--/nav-->
+		</div><!--/leftNav-->
+
+		<div class="content" ><div class="mobile-language" id="mobile-resources-page-menu">
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=20292">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34300">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34304">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=20316">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34308">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34312">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34316">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34320">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34324">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34328">Venezuela</a></li>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=20288">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=20309">Italia</a></li>
+			<li class="flag_item active"><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=20310">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=20328">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=20307">France</a></li>
+			<li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34344">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34348">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34352">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34356">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34360">Ireland</a></li>
+			<li class="flag_item "><a id="flag_cz_fly" class="flag_link flag_cz" hreflang="cs" title="Czech Republic" href="index.php?s=34364">Česká republika</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34368">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34372">Ελλάδα</a></li>
+			<li class="flag_item "><a id="flag_fi_fly" class="flag_link flag_fi" hreflang="fi" title="Finland" href="index.php?s=34376">Suomi</a></li>
+			<li class="flag_item "><a id="flag_hu_fly" class="flag_link flag_hu" hreflang="hu" title="Hungary" href="index.php?s=34380">Magyarország</a></li>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34384">Norge</a></li>
+			<li class="flag_item "><a id="flag_pl_fly" class="flag_link flag_pl" hreflang="pl" title="Poland" href="index.php?s=34388">Polska</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34392">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=20314">Россия</a></li>
+			<li class="flag_item "><a id="flag_sk_fly" class="flag_link flag_sk" hreflang="sk" title="Slovakia" href="index.php?s=34396">Slovensko</a></li>
+			<li class="flag_item "><a id="flag_rs_fly" class="flag_link flag_rs" hreflang="sr" title="Serbia" href="index.php?s=34400">Srbija</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34404">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34408">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34412">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34416">Belgique</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34420">België</a></li>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=20318">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=20305">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34424">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=20315">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=20301">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34147">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=20296">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34428">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34143">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34148">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34432">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34151">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34436">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34440">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34444">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34448">香港</a></li>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34580">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34332">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34336">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34698">ישראל</a></li>
+		</ul>
+	</div><div id="wd_printable_content">
+<div class="wd_standard-detail">
+<h1 class="detail_header">Avisos, términos y condiciones del sitio web de Tripadvisor</h1>
+<p><a href="#OLE_LINK2"><strong>USO DE LOS SERVICIOS</strong></a></p>
+
+<p><strong><u><a href="#OLE_LINK3">PRODUCTOS ADICIONALES </a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK4">ACTIVIDADES PROHIBIDAS</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK5">POL&Iacute;TICA DE PRIVACIDAD Y DIVULGACI&Oacute;N DE INFORMACI&Oacute;N</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK6">OPINIONES, COMENTARIOS Y USO DE OTRAS &Aacute;REAS INTERACTIVAS; CONCESI&Oacute;N DE LICENCIAS</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#OLE_LINK7">Restricci&oacute;n de los derechos de licencia de Tripadvisor</a></u></strong></li>
+</ul>
+
+<p><strong><u><a href="#OLE_LINK8">RESERVAR CON TERCEROS PROVEEDORES A TRAV&Eacute;S DE Tripadvisor</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#OLE_LINK9">Uso de los servicios de reserva de Tripadvisor</a></u></strong><br />
+	&nbsp;</li>
+	<li><strong><u><a href="#OLE_LINK10">Terceros proveedores</a></u></strong><br />
+	&nbsp;</li>
+	<li><strong><u><a href="#OLE_LINK11">Reservar Alquileres vacacionales, reservar Experiencias y reservar en Restaurantes con terceros proveedores que figuran en sitios web filiales corporativos</a></u></strong><br />
+	&nbsp;</li>
+</ul>
+
+<p><a href="#OLE_LINK12"><strong>DESTINOS TUR&Iacute;STICOS</strong></a><br />
+&nbsp;</p>
+
+<ul>
+	<li><a href="#OLE_LINK13"><strong>Viajes internacionales</strong></a></li>
+</ul>
+
+<p><strong><u><a href="#OLE_LINK14">RENUNCIA DE RESPONSABILIDAD</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK15">INDEMNIZACI&Oacute;N</a></u></strong></p>
+
+<p><a href="#OLE_LINK16"><strong>ENLACES A SITIOS WEB DE TERCEROS</strong></a></p>
+
+<p><strong><u><a href="#OLE_LINK17">SOFTWARE COMO PARTE DE LOS SERVICIOS; LICENCIAS DE M&Oacute;VILES ADICIONALES</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK18">AVISOS SOBRE DERECHOS DE AUTOR Y MARCAS COMERCIALES</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#OLE_LINK19">Pol&iacute;tica de notificaci&oacute;n y retirada de contenido ilegal</a></u></strong></li>
+</ul>
+
+<p><strong><u><a href="#OLE_LINK20">MODIFICACIONES DE LOS SERVICIOS; RESCISI&Oacute;N</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK21">JURISDICCI&Oacute;N Y LEGISLACI&Oacute;N VIGENTE</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK22">CONVERSOR DE DIVISAS</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK23">DISPOSICIONES GENERALES</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK24">SERVICIO DE AYUDA</a></u></strong></p>
+
+<p>&nbsp;</p>
+
+<p>Le damos la bienvenida a los sitios web y propiedades para m&oacute;viles de Tripadvisor (en adelante, &ldquo;Sitios web&rdquo;) que se encuentran en <a href="http://www.tripadvisor.es/">www.Tripadvisor.es</a> y en los correspondientes dominios de pa&iacute;s de nivel superior (incluidos los subdominios asociados), aplicaciones de software relacionadas (en ocasiones, &ldquo;aplicaciones&rdquo;), datos, mensajes SMS, API, correos electr&oacute;nicos, comunicaciones por chat y tel&eacute;fono, botones, widgets y anuncios (en conjunto, los &ldquo;Servicios&rdquo;). Los Servicios se le ofrecen con la condici&oacute;n de que acepte los t&eacute;rminos, las condiciones y los avisos que se exponen a continuaci&oacute;n (en conjunto, el &ldquo;Acuerdo&rdquo;). Al acceder a los Servicios o al usarlos, se entiende que ha le&iacute;do y entendido las condiciones de este Acuerdo y que se compromete a cumplirlas. Lea detenidamente el presente Acuerdo, ya que contiene informaci&oacute;n relativa a sus derechos legales y las limitaciones sobre estos, as&iacute; como una secci&oacute;n sobre la legislaci&oacute;n aplicable y la jurisdicci&oacute;n de las disputas. Si no acepta la totalidad de los presentes t&eacute;rminos y condiciones, no estar&aacute; autorizado a utilizar los Servicios. Si tiene una cuenta de Tripadvisor y desea rescindir el presente Acuerdo, puede hacerlo en cualquier momento; basta con cerrar la cuenta y dejar de usar o de acceder a los Servicios. En <a href="https://www.tripadvisorsupport.com/hc/es/articles/200615117--C%C3%B3mo-cierro-mi-cuenta-" title="To terminate your account, sign into your account.  Click on your profile, then select &quot;Account Info&quot;.  Select &quot;Close Your Account&quot;. Choose your reason. Click in the box and enter your password, after that click the blue &quot;Close My Account&quot; button. "><strong>esta p&aacute;gina</strong></a> le explicamos c&oacute;mo debe hacerlo.</p>
+
+<p>La informaci&oacute;n, el texto, los enlaces, los gr&aacute;ficos, las fotos, los audios, los v&iacute;deos, los datos, el c&oacute;digo u otros materiales o modificaciones de estos que pueda ver, a los que pueda acceder o con los que pueda interactuar a trav&eacute;s de los Servicios se denominar&aacute; &ldquo;Contenido&rdquo;. Los t&eacute;rminos &ldquo;nosotros&rdquo;, &ldquo;nuestro&rdquo; y todos sus derivados, as&iacute; como &ldquo;Tripadvisor&rdquo;, hacen referencia a Tripadvisor LLC, una empresa con responsabilidad limitada ubicada en Delaware, Estados Unidos (&ldquo;Tripadvisor&rdquo;). Tal y como aparecen definidos anteriormente, los &ldquo;Servicios&rdquo; son aquellos que proporciona Tripadvisor o nuestras empresas afiliadas corporativas (en conjunto &ldquo;Empresas de Tripadvisor&rdquo;). Para evitar cualquier tipo de duda, Tripadvisor es la propietaria de los Sitios web y es tambi&eacute;n quien los controla. Sin embargo, hay ciertos Servicios que se ofrecen a trav&eacute;s de los Sitios web que pueden ser propiedad de las empresas afiliadas corporativas de Tripadvisor y estar bajo su control como, por ejemplo, Servicios con los que se pueden <a href="#OLE_LINK11"><strong>reservar Alquileres vacacionales, Experiencias y hacer reservas en Restaurantes con terceros proveedores</strong></a> (consulte la informaci&oacute;n que aparece a continuaci&oacute;n).&nbsp;Como parte de nuestros Servicios, puede que le enviemos notificaciones sobre ofertas especiales, productos o servicios adicionales disponibles, ya sean nuestros, de nuestros afiliados o de nuestros socios, que puedan resultarle interesantes. Dichas notificaciones se enviar&aacute;n normalmente a trav&eacute;s de boletines de noticias y comunicaciones comerciales con el fin de conocerle mejor y saber cu&aacute;les son sus preferencias en relaci&oacute;n con nuestros Servicios y los de nuestros afiliados. A su vez, esto posibilita la personalizaci&oacute;n de los Servicios de acuerdo con esas preferencias.</p>
+
+<p>El t&eacute;rmino &ldquo;usted&rdquo; hace referencia a la persona, empresa, organizaci&oacute;n empresarial u otra entidad jur&iacute;dica que utilice los Servicios o aporte Contenido a estos. El Contenido que aporte, env&iacute;e, transfiera o publique en los Servicios o a trav&eacute;s de estos se denomina &ldquo;su Contenido&rdquo;, &ldquo;Contenido de su propiedad&rdquo;, &ldquo;el Contenido que env&iacute;e&rdquo; u otras variaciones.</p>
+
+<p>Los Servicios se proporcionan &uacute;nicamente para estos fines:</p>
+
+<ol style="list-style-type:upper-alpha;">
+	<li>Ayudar a los clientes a reunir informaci&oacute;n sobre viajes, publicar Contenido, buscar reservas de viajes, y buscar y reservar servicios de viajes.</li>
+	<li>Ayudar a las empresas de viajes, turismo y alojamiento a conectar con sus clientes y con posibles clientes a trav&eacute;s de servicios gratuitos o de pago que ofrezcan las Empresas de Tripadvisor o se proporcionen a trav&eacute;s de estas.</li>
+</ol>
+
+<p>De acuerdo con los t&eacute;rminos y condiciones que se especifican en este Acuerdo, es posible que cambiemos o modifiquemos de alg&uacute;n modo su contenido. En caso de que, una vez realizados los cambios, usted acceda a los Servicios o los utilice de forma continuada, se entender&aacute; que acepta el Acuerdo modificado. Al final de este Acuerdo indicaremos la fecha en la que se han realizado las &uacute;ltimas revisiones del contenido, las cuales tendr&aacute;n efecto inmediatamente despu&eacute;s de su publicaci&oacute;n. Notificaremos a los usuarios registrados de nuestros Servicios (en adelante, &ldquo;Titulares de cuentas&rdquo;) los cambios sustanciales que se incluyan en estos t&eacute;rminos y condiciones mediante el env&iacute;o de un aviso a la direcci&oacute;n de correo electr&oacute;nico asociada al perfil del Titular de la cuenta o la publicaci&oacute;n de un aviso en nuestros Sitios web. Consulte esta p&aacute;gina peri&oacute;dicamente para conocer la &uacute;ltima versi&oacute;n del Acuerdo.</p>
+
+<p><a id="USO DE LOS SERVICIOS" name="USO DE LOS SERVICIOS"><strong>USO DE LOS SERVICIOS</strong></a></p>
+
+<p>A modo de condici&oacute;n para utilizar los Servicios, usted garantiza que: (i) la informaci&oacute;n que suministre a trav&eacute;s de los Servicios a las Empresas de Tripadvisor es veraz, precisa, actual y completa, (ii) si es Titular de una cuenta, proteger&aacute; la informaci&oacute;n de esta, y supervisar&aacute; y se responsabilizar&aacute; del uso que otras personas hagan de ella, (iii) tiene, como m&iacute;nimo, 13&nbsp;a&ntilde;os (en algunas jurisdicciones, la legislaci&oacute;n local puede exigir una edad superior), edad que le permite registrar una cuenta, usar los Servicios y hacer aportaciones a nuestros Sitios web, y (iv) dispone de autoridad legal para formalizar el presente Acuerdo y para utilizar los Servicios, incluidos nuestros Sitios web, de acuerdo con los t&eacute;rminos y condiciones especificados en este documento. Las Empresas de Tripadvisor no recopilan conscientemente la informaci&oacute;n de ninguna persona que sea menor de 13&nbsp;a&ntilde;os. Nos reservamos el derecho, a nuestra entera discreci&oacute;n, de denegar a cualquier persona el acceso a los Servicios, en cualquier momento y por cualquier motivo, incluido, entre otros, el incumplimiento del presente Acuerdo. Al usar los Servicios, incluidos los productos o servicios que permiten compartir Contenido con los sitios de terceros, acepta que usted es el &uacute;nico responsable de la informaci&oacute;n que comparta con las Empresas de Tripadvisor. Puede acceder a los Servicios &uacute;nicamente con la finalidad para la que se han concebido y seg&uacute;n lo permitido en este Acuerdo.</p>
+
+<p>Copiar, transmitir, reproducir, replicar, publicar o redistribuir (a) Contenido o parte de este o (b) los Servicios en general est&aacute; terminantemente prohibido sin el consentimiento previo por escrito de las Empresas de Tripadvisor. Para solicitar tal consentimiento, env&iacute;e su petici&oacute;n a la siguiente direcci&oacute;n:</p>
+
+<p>Director, Partnerships and Business Development</p>
+
+<p>Tripadvisor, LLC</p>
+
+<p>400 1st Avenue</p>
+
+<p>Needham, MA 02494, USA</p>
+
+<p>Para poder acceder a ciertas funciones de los Servicios, deber&aacute; crear una cuenta y convertirse en su Titular. Al crearla, la informaci&oacute;n que proporcione deber&aacute; ser completa y exacta. Usted es el &uacute;nico responsable de la actividad que se produzca en ella como, por ejemplo, interacciones y comunicaciones que establezca con otras personas. Adem&aacute;s, deber&aacute; protegerla en todo momento y mantener actualizados sus datos de contacto.</p>
+
+<p>Si crea una cuenta de Tripadvisor con fines comerciales, y acepta el presente Acuerdo en nombre de una empresa, organizaci&oacute;n u otra entidad jur&iacute;dica, manifiesta y garantiza que tiene la autorizaci&oacute;n para ello y tambi&eacute;n para que dicha entidad cumpla con las disposiciones del presente Acuerdo. En ese caso, los t&eacute;rminos &ldquo;usted&rdquo; y &ldquo;su&rdquo; que se utilicen en este documento har&aacute;n referencia a dicha entidad, y la persona que act&uacute;e en nombre de dicha empresa ser&aacute; el &ldquo;Representante legal de la empresa&rdquo;.</p>
+
+<p>Al usar los Servicios, es posible que encuentre enlaces a sitios y aplicaciones de terceros o que pueda interactuar con ellos, por ejemplo, compartiendo Contenido desde los Servicios, incluido el suyo, con dichos sitios y aplicaciones de terceros. Tenga en cuenta que los sitios y aplicaciones de terceros pueden publicar el Contenido que comparta. Es posible que estos terceros cobren una tarifa por el uso de determinados servicios o contenidos que proporcionen en sus sitios web o a trav&eacute;s de estos. Por lo tanto, deber&aacute; realizar todas las comprobaciones que considere necesarias o apropiadas antes de llevar a cabo cualquier tipo de transacci&oacute;n con un tercero para determinar si incurrir&aacute; en un cargo. Las tarifas o los cargos relativos a dicho contenido o servicios de terceros que puedan indicar las Empresas de Tripadvisor son meramente informativos. Las interacciones que realice con sitios y aplicaciones de terceros quedan bajo su responsabilidad. Por el presente documento, reconoce y acepta expresamente que las Empresas de Tripadvisor no son responsables en modo alguno de dichos sitios o aplicaciones de terceros.</p>
+
+<p>Parte del Contenido que se muestra en los Servicios o a trav&eacute;s de estos se utiliza para fines comerciales. Asimismo, acepta y reconoce que las Empresas de Tripadvisor pueden incluir publicidad y promociones en los Servicios, al lado o cerca de su Contenido o el de otras personas, o pr&oacute;ximo a este de alg&uacute;n otro modo. Por ejemplo, en el caso de v&iacute;deos u otro contenido din&aacute;mico, la publicidad o las promociones podr&iacute;an aparecer antes, durante o despu&eacute;s de su presentaci&oacute;n.</p>
+
+<p><a id="PRODUCTOS ADICIONALES" name="PRODUCTOS ADICIONALES"><strong>PRODUCTOS ADICIONALES </strong></a></p>
+
+<p>Si las Empresas de Tripadvisor lo estiman oportuno, pueden modificar, actualizar o dejar de ofrecer determinados productos y funciones de los Servicios. En virtud del presente Acuerdo, reconoce y acepta que las Empresas de Tripadvisor no tienen obligaci&oacute;n alguna de almacenar o mantener su Contenido u otra informaci&oacute;n que proporcione, salvo que as&iacute; lo exija la legislaci&oacute;n aplicable.</p>
+
+<p>Ofrecemos otros servicios que tambi&eacute;n pueden estar regidos por t&eacute;rminos o acuerdos adicionales. Si utiliza tales servicios, tendr&aacute; a su disposici&oacute;n las condiciones adicionales, las cuales pasar&aacute;n a formar parte de este Acuerdo salvo en los casos en que lo excluyan de forma expresa o lo sustituyan de alg&uacute;n otro modo. Por ejemplo, si usa o compra tales servicios adicionales con fines comerciales o empresariales, deber&aacute; aceptar las correspondientes condiciones adicionales. En la medida en que otras condiciones entren en conflicto con los t&eacute;rminos y condiciones de este Acuerdo, prevalecer&aacute;n las condiciones adicionales en lo relativo al conflicto con dichos servicios.</p>
+
+<p><a id="ACTIVIDADES PROHIBIDAS" name="ACTIVIDADES PROHIBIDAS"><strong>ACTIVIDADES PROHIBIDAS</strong></a></p>
+
+<p>El Contenido y la informaci&oacute;n disponibles en los Servicios o a trav&eacute;s de estos (por ejemplo, mensajes, datos, informaci&oacute;n, texto, m&uacute;sica, sonido, fotos, gr&aacute;ficos, v&iacute;deo, mapas, iconos, software, c&oacute;digo u otros materiales), as&iacute; como la infraestructura que se utiliza para proporcionarlos, son propiedad de las Empresas de Tripadvisor o bien estas cuentan con la correspondiente licencia otorgada por los propietarios terceros. Con respecto al Contenido que no sea suyo, acepta no modificar, copiar, distribuir, transmitir, mostrar, representar, reproducir, publicar, otorgar licencias, crear trabajos derivados, transferir, vender ni revender ning&uacute;n tipo de informaci&oacute;n, software, producto o servicio obtenido de los Servicios o a trav&eacute;s de estos. Asimismo, en virtud de este Acuerdo, acepta lo siguiente:</p>
+
+<ul>
+	<li>(i) No usar los Servicios ni el Contenido para fines comerciales que extralimiten el &aacute;mbito de aquellos permitidos expresamente en este Acuerdo y directrices asociadas que las Empresas de Tripadvisor hayan publicado.</li>
+	<li>(ii) No acceder, controlar, reproducir, distribuir, transmitir, retransmitir, mostrar, vender, otorgar licencia, copiar o aprovechar de alg&uacute;n otro modo el Contenido de los Servicios (incluidos, entre otros, perfiles y fotos de usuarios), mediante el uso de robots, rastreadores, raspadores u otros medios automatizados o procesos manuales de otra clase para cualquier finalidad que no est&eacute; estipulada en este Acuerdo o que no cuente con nuestro consentimiento expl&iacute;cito por escrito.</li>
+	<li>(iii) No infringir las restricciones que se incluyan en los apartados de exclusi&oacute;n del uso de robots en los Servicios ni eludir o sortear otras medidas que se utilicen para evitar o limitar el acceso a los Servicios.</li>
+	<li>(iv) No tomar ninguna medida que imponga, o pueda imponer, a nuestra discreci&oacute;n, una carga excesiva o desproporcionada sobre nuestra infraestructura.</li>
+	<li>(v) No establecer enlaces profundos con ninguna parte de los Servicios para ning&uacute;n fin sin nuestro permiso expl&iacute;cito por escrito.</li>
+	<li>(vi) No insertar, replicar ni incorporar en modo alguno ninguna parte de los Servicios en otros sitios web o servicio sin nuestra autorizaci&oacute;n previa por escrito.</li>
+	<li>(vii) No intentar modificar, traducir, adaptar, editar, descompilar, desmontar o aplicar ingenier&iacute;a inversa a ning&uacute;n programa de software que utilicen las Empresas de Tripadvisor en relaci&oacute;n con los Servicios.</li>
+	<li>(viii) No eludir, desactivar ni interferir en modo alguno con las funciones relativas a la seguridad de los Servicios ni aquellas que previenen o restringen el uso o la copia de Contenido.</li>
+	<li>(ix) No descargar Contenido a menos que las Empresas de Tripadvisor indiquen expl&iacute;citamente que es descargable.</li>
+</ul>
+
+<p><a id="POLÍTICA DE PRIVACIDAD Y DIVULGACIÓN DE INFORMACIÓN" name="POLÍTICA DE PRIVACIDAD Y DIVULGACIÓN DE INFORMACIÓN"><strong>POL&Iacute;TICA DE PRIVACIDAD Y DIVULGACI&Oacute;N DE INFORMACI&Oacute;N</strong></a></p>
+
+<p>La informaci&oacute;n personal que publique en los Servicios o que env&iacute;e en relaci&oacute;n con estos se usar&aacute; de acuerdo con lo estipulado en nuestra pol&iacute;tica de privacidad. Haga clic <a href="https://tripadvisor.mediaroom.com/ES-privacy-policy">en este enlace</a>&nbsp;para leer nuestra <a href="https://tripadvisor.mediaroom.com/ES-privacy-policy">pol&iacute;tica de privacidad</a>.</p>
+
+<p><a id="OPINIONES, COMENTARIOS Y USO DE OTRAS ÁREAS INTERACTIVAS; CONCESIÓN DE LICENCIAS" name="OPINIONES, COMENTARIOS Y USO DE OTRAS ÁREAS INTERACTIVAS; CONCESIÓN DE LICENCIAS"><strong>OPINIONES, COMENTARIOS Y USO DE OTRAS &Aacute;REAS INTERACTIVAS; CONCESI&Oacute;N DE LICENCIAS</strong></a></p>
+
+<p>Sus comentarios siempre son bienvenidos. Tenga en cuenta que, al proporcionar su Contenido en los Servicios o a trav&eacute;s de estos, ya sea envi&aacute;ndolo por correo electr&oacute;nico, public&aacute;ndolo en alg&uacute;n producto de sincronizaci&oacute;n de Tripadvisor o a trav&eacute;s de los servicios y aplicaciones de un tercero, o al incluir Contenido suyo, o parte de este, que se transmite a su cuenta de Tripadvisor en virtud de alg&uacute;n producto, servicio, opini&oacute;n, pregunta, foto, v&iacute;deo, comentario, sugerencia, idea de las Empresas de Tripadvisor o similar incluido en su Contenido, otorga a dichas empresas una licencia no exclusiva, libre de derechos de autor, perpetua, transferible, irrevocable y susceptible de someterse a otras licencias para (a) alojar, usar, reproducir, modificar, ejecutar, adaptar, traducir, distribuir, publicar, crear obras derivadas, y mostrar y representar p&uacute;blicamente su Contenido ante el mundo en cualquier formato y por cualquier medio conocido o que se conciba en el futuro; (b) ofrecer su Contenido al resto del mundo y que otros hagan lo mismo; (c) proporcionar, promocionar y mejorar los Servicios, as&iacute; como poner a disposici&oacute;n de otras empresas, organizaciones o personas el Contenido de su propiedad que haya compartido en los Servicios para sindicarlo, retransmitirlo, distribuirlo, promocionarlo o publicarlo en otros medios y servicios, en virtud de nuestra pol&iacute;tica de privacidad y de este Acuerdo, y para (d) usar el nombre o la marca comercial que env&iacute;e asociado a su Contenido. Por el presente documento, acepta que Tripadvisor decida, a su entera discreci&oacute;n, si va a reconocerle como autor de su Contenido. Tambi&eacute;n otorga a las Empresas de Tripadvisor el derecho de perseguir ante la ley a cualquier persona o entidad que infrinja sus derechos o los de dichas empresas en el Contenido por incumplimiento del presente Acuerdo. Reconoce y acepta que su Contenido no es confidencial ni de su propiedad. Afirma, manifiesta y garantiza que es el propietario de su Contenido o de que cuenta con las licencias, derechos (incluidos el copyright y cualesquiera otros derechos de propiedad intelectual), consentimientos y permisos necesarios para publicarlo y usarlo de cualquier otra forma (tanto usted como las Empresas de Tripadvisor), tal y como se autoriza en virtud de este Acuerdo.</p>
+
+<p>Si se determina que conserva derechos morales (incluidos los derechos al reconocimiento de la autor&iacute;a o integridad) sobre el Contenido, en la medida en que lo permita la legislaci&oacute;n vigente, manifiesta lo siguiente: (a) no exige el uso de informaci&oacute;n personal que le identifique en relaci&oacute;n con el Contenido, con las obras derivadas de este ni con las actualizaciones o mejoras asociadas; (b) no opone objeci&oacute;n alguna a que las Empresas de Tripadvisor, sus licenciatarios, sucesores y cesionarios publiquen, utilicen, modifiquen, eliminen o aprovechen el Contenido; (c) renuncia para siempre a todos los derechos morales de autor sobre el Contenido en su totalidad o en parte y se compromete a no reclamar ni reivindicar ninguno de tales derechos, y (d) exime para siempre a las Empresas de Tripadvisor, sus licenciatarios, sucesores y cesionarios ante cualesquiera reclamaciones que usted pudiera reivindicar contra las Empresas de Tripadvisor en virtud de tales derechos morales.</p>
+
+<p>Los comentarios o las sugerencias que proporcione podr&aacute;n usarse en cualquier momento y sin obligaci&oacute;n por nuestra parte de mantenerlos confidenciales.</p>
+
+<p>Los Servicios pueden contener foros de debate, tablones de anuncios, servicios de opiniones, muros de viajes y otros foros en los cuales puede publicar su Contenido, como opiniones sobre sus experiencias de viajes, mensajes, materiales u otros elementos (las &ldquo;&Aacute;reas interactivas&rdquo;). Si Tripadvisor proporciona tales &Aacute;reas interactivas en los Sitios web, usted ser&aacute; el &uacute;nico responsable del uso que haga de ellas y las utilizar&aacute; bajo su propio riesgo. Las Empresas de Tripadvisor no garantizan confidencialidad alguna con respecto al Contenido que proporcione en los Servicios ni en las &Aacute;reas interactivas. En la medida en que algunas de las entidades que forman las Empresas de Tripadvisor proporcionen alg&uacute;n canal de comunicaci&oacute;n privada entre los Titulares de cuentas, acepta que dichas entidades pueden supervisar la esencia de tales comunicaciones con el fin de preservar nuestra comunidad y los Servicios. Por el presente documento, reconoce que las Empresas de Tripadvisor no editan ni controlan los mensajes de los usuarios que se publican o distribuyen a trav&eacute;s de los Servicios, incluidos los salones de chat, los tablones de anuncios y otros foros de comunicaci&oacute;n, y no ser&aacute; responsable ni asumir&aacute; ninguna obligaci&oacute;n sobre dichos mensajes. En concreto, Tripadvisor no edita ni controla el Contenido de los usuarios que aparece en los Sitios web. No obstante, las Empresas de Tripadvisor se reservan el derecho a retirar sin previo aviso tales mensajes u otro Contenido de los Servicios si creen de buena fe que el Contenido incumple el presente Acuerdo o consideran por cualquier otro motivo que es razonablemente necesario retirarlos para preservar los derechos de las Empresas de Tripadvisor o de otros usuarios de los Servicios. En caso de que no est&eacute; de acuerdo con la retirada de su Contenido de los Sitios web, ind&iacute;quelo en el <a href="https://www.tripadvisorsupport.com/hc/es/"><strong>Centro de ayuda</strong></a> de Tripadvisor. Al usar las &Aacute;reas interactivas, acepta expl&iacute;citamente enviar solo Contenido de su propiedad que cumpla con las directrices que Tripadvisor haya publicado, vigentes en el momento del env&iacute;o. Asimismo, acepta expl&iacute;citamente no publicar, cargar, transmitir, distribuir, almacenar, crear ni publicar de ning&uacute;n otro modo a trav&eacute;s de los Servicios Contenido de su propiedad que cumpla alguno de estos criterios:</p>
+
+<ol style="list-style-type:lower-alpha;">
+	<li>Es falso, ilegal, enga&ntilde;oso, injurioso, difamatorio, obsceno, pornogr&aacute;fico, indecente, lascivo, sugerente, acosador (o fomenta el acoso hacia otra persona), intimidatorio, invasor de los derechos de privacidad o publicidad, abusivo, provocador, fraudulento o censurable por cualquier otra raz&oacute;n.</li>
+	<li>Es claramente ofensivo para la comunidad online, como el contenido que promueve el racismo, la intolerancia, el odio o el da&ntilde;o f&iacute;sico de cualquier tipo contra cualquier grupo o persona.</li>
+	<li>Constituye, fomenta, promueve o proporciona las instrucciones para llevar a cabo una actividad ilegal o un delito criminal, que d&eacute; lugar a responsabilidad civil, que infrinja los derechos de cualquier tercero en cualquier pa&iacute;s del mundo, o que de cualquier otro modo cree responsabilidad o incumpla alguna ley local, estatal, nacional o internacional, incluidas, entre otras, las regulaciones de la Comisi&oacute;n del Mercado de Valores (SEC) de EE.&nbsp;UU. o cualquier norma de cualquier mercado de valores (incluidas, entre otras, la Bolsa de Valores de Nueva York [NYSE], la NASDAQ o la Bolsa de Valores de Londres).</li>
+	<li>Proporciona instrucciones para realizar actividades ilegales, como la fabricaci&oacute;n o la compra de armas ilegales, la violaci&oacute;n de la privacidad de las personas y el suministro o la creaci&oacute;n de virus inform&aacute;ticos.</li>
+	<li>Puede infringir cualquier patente, marca, secreto comercial, derecho de autor u otro derecho de propiedad o intelectual de las partes. En particular, fomenta la copia no autorizada o ilegal de la obra protegida por copyright de otra persona, como el suministro de programas inform&aacute;ticos pirateados o sus enlaces, el suministro de informaci&oacute;n para eludir los dispositivos protegidos contra copia e instalados por el fabricante, o el suministro de m&uacute;sica pirateada o enlaces a los archivos de m&uacute;sica pirateada.</li>
+	<li>Es correo masivo o &ldquo;spam&rdquo;, &ldquo;correo basura&rdquo;, forma parte de &ldquo;cadenas de mensajes&rdquo; o de &ldquo;sistemas piramidales&rdquo;.</li>
+	<li>Suplanta la identidad de otra persona o entidad, o tergiversa de cualquier otro modo su afiliaci&oacute;n con dicha persona o entidad, incluidas las Empresas de Tripadvisor.</li>
+	<li>Es informaci&oacute;n privada de terceros, como direcciones postales, n&uacute;meros de tel&eacute;fono, direcciones de correo electr&oacute;nico, n&uacute;meros de la seguridad social o n&uacute;meros de tarjetas de cr&eacute;dito. En nuestros Sitios web se puede publicar el apellido de una persona, siempre y cuando esta haya dado su permiso expl&iacute;citamente.</li>
+	<li>Incluye p&aacute;ginas restringidas o de acceso exclusivamente mediante contrase&ntilde;a, o p&aacute;ginas o im&aacute;genes ocultas (que no est&eacute;n enlazadas a otra p&aacute;gina accesible).</li>
+	<li>Incluye o tiene como objetivo proporcionar virus, datos corruptos y otros archivos da&ntilde;inos, disruptivos o destructivos.</li>
+	<li>No guarda relaci&oacute;n con el tema de las &Aacute;reas interactivas en las que se publica.</li>
+	<li>Seg&uacute;n el exclusivo criterio de Tripadvisor, (a) infringe cualquiera de los anteriores subapartados, (b) infringe las directrices relacionadas que Tripadvisor ofrece, (b) es censurable, (c) restringe o inhibe la capacidad de otra persona para usar o disfrutar de las &Aacute;reas interactivas o cualquier otro aspecto de los Servicios o (d) puede exponer a las Empresas de Tripadvisor o sus usuarios a cualquier tipo de da&ntilde;o o responsabilidad.</li>
+</ol>
+
+<p>Las Empresas de Tripadvisor no se hacen responsables ni asumen ninguna obligaci&oacute;n sobre ning&uacute;n Contenido publicado, almacenado, transmitido o cargado a los Servicios por usted (si el Contenido es suyo) o por terceros (en el caso de Contenido en general), ni sobre ning&uacute;n tipo de p&eacute;rdida o da&ntilde;o de dicho Contenido. Las Empresas de Tripadvisor tampoco son responsables de ning&uacute;n tipo de error, difamaci&oacute;n, calumnia, injuria, omisi&oacute;n, falsedad, obscenidad, pornograf&iacute;a o blasfemia que pueda detectar. Tripadvisor, como proveedor de servicios interactivos, no es responsable de las afirmaciones, manifestaciones o Contenido que facilitan sus usuarios (incluido usted con respecto a su Contenido) en los Sitios web ni en ning&uacute;n otro foro. A pesar de que Tripadvisor no tiene la obligaci&oacute;n de examinar, editar o supervisar el Contenido que se publica o distribuye a trav&eacute;s de las &Aacute;reas interactivas, se reserva el derecho, a su total discreci&oacute;n, de eliminar, examinar, traducir o editar sin previo aviso cualquier Contenido publicado o almacenado en los Servicios en cualquier momento y por cualquier motivo, o de solicitar a terceros que realicen tales acciones en su nombre. Usted es el &uacute;nico responsable de crear copias de seguridad del Contenido que publique o almacene en los Servicios, y de reponerlo, bajo su cuenta y riesgo.</p>
+
+<p>Cualquier uso de las &Aacute;reas interactivas o de otras secciones de los Servicios que infrinja lo descrito anteriormente infringe tambi&eacute;n las condiciones del presente Acuerdo y puede dar lugar, entre otras consecuencias, a la rescisi&oacute;n o suspensi&oacute;n de sus derechos para utilizar las &Aacute;reas interactivas o los Servicios en general.</p>
+
+<p><a id="Restricción de los derechos de licencia de TripAdvisor" name="Restricción de los derechos de licencia de TripAdvisor"><strong><u>Restricci&oacute;n de los derechos de licencia de Tripadvisor</u></strong></a><strong>.</strong> En adelante, puede limitar el uso que las Empresas de Tripadvisor hagan de su Contenido en virtud del presente Acuerdo (tal y como se describe anteriormente) otorg&aacute;ndoles una licencia m&aacute;s acotada, seg&uacute;n se describe m&aacute;s adelante (en este documento, &ldquo;Licencia restringida&rdquo;). Si decide conceder dicha Licencia restringida, deber&aacute; seleccionarla en <a href="https://www.tripadvisor.es/Settings-cs"><strong>esta p&aacute;gina</strong></a> (debe iniciar sesi&oacute;n en su cuenta). En ese caso, los derechos que conceda a las Empresas de Tripadvisor sobre su Contenido de conformidad con las condiciones de licencia que se han estipulado anteriormente (&ldquo;Licencia est&aacute;ndar&rdquo;) estar&aacute;n acotados por ciertas limitaciones importantes que se describen en los p&aacute;rrafos del 1 al 6 a continuaci&oacute;n, como que las Empresas de Tripadvisor no ostentar&aacute;n una Licencia est&aacute;ndar sobre su Contenido salvo para las opiniones en formato texto y las puntuaciones de burbujas relacionadas que publique (y para las que las Empresas de Tripadvisor seguir&aacute;n ostentando una Licencia est&aacute;ndar), sino una &ldquo;Licencia restringida&rdquo; sobre el resto de su Contenido, seg&uacute;n se define a continuaci&oacute;n:</p>
+
+<ol>
+	<li>Al publicar su Contenido en los Servicios, la licencia que concede a las Empresas de Tripadvisor sobre este es una licencia internacional, no exclusiva, libre de derechos de autor, transferible y susceptible de someterse a otras licencias para alojar, usar, distribuir, modificar, ejecutar, reproducir, mostrar o representar p&uacute;blicamente, traducir y crear obras derivadas de su Contenido con el fin de mostrarlo en los Servicios, as&iacute; como usar su nombre o marca comercial en relaci&oacute;n con dicho Contenido. De conformidad con el p&aacute;rrafo 6 que se incluye a continuaci&oacute;n, la Licencia restringida afecta a todo el Contenido de su propiedad (excepto a las opiniones en formato texto y las puntuaciones de burbujas relacionadas, tal y como se especifica anteriormente) que usted u otra persona en su nombre (por ejemplo, un tercero que colabore en su cuenta o que la gestione de alg&uacute;n modo) publiquen en los Servicios o a trav&eacute;s de estos.<br />
+	&nbsp;</li>
+	<li>Si decide rescindir los derechos de licencia de las Empresas de Tripadvisor que se otorgan por el presente documento a alguno de los elementos de su Contenido sujeto a la Licencia restringida, deber&aacute; eliminar la publicaci&oacute;n en cuesti&oacute;n de los Servicios. En la misma medida, si decide rescindir los derechos de licencia que tienen las Empresas de Tripadvisor sobre todo su Contenido sujeto a la Licencia restringida, deber&aacute; cancelar la cuenta; encontrar&aacute; las instrucciones en <a href="https://www.tripadvisorsupport.com/hc/es/articles/200615117--C%C3%B3mo-cierro-mi-cuenta-"><strong>esta p&aacute;gina</strong></a>. Pese a las disposiciones que puedan especificar lo contrario, su Contenido (a) permanecer&aacute; en los Servicios en tanto que lo haya compartido con otras personas y estas lo hayan copiado o almacenado antes de que usted lo haya eliminado o haya cancelado su cuenta, (b) puede seguir mostr&aacute;ndose en los Servicios durante un periodo de tiempo razonable hasta que lo retiremos, despu&eacute;s de que lo haya eliminado o haya cancelado su cuenta o (c) puede quedar retenido (aunque no se podr&aacute; mostrar p&uacute;blicamente) en un sistema de copia de seguridad durante un tiempo por motivos t&eacute;cnicos, normativos, legales o de moderaci&oacute;n de enga&ntilde;os.<br />
+	&nbsp;</li>
+	<li>Las Empresas de Tripadvisor no usar&aacute;n su Contenido en anuncios de productos y servicios de terceros que se muestren a otras personas sin un consentimiento aparte (incluido el Contenido patrocinado), aunque acepta y reconoce que dichas empresas pueden incluir publicidad y promociones en los Servicios, al lado o cerca de su Contenido o el de otras personas, o pr&oacute;ximo a este de alg&uacute;n otro modo. Por ejemplo, en el caso de v&iacute;deos u otro contenido din&aacute;mico, la publicidad o las promociones podr&iacute;an aparecer antes, durante o despu&eacute;s de su presentaci&oacute;n. Cada vez que su Contenido aparezca en los Servicios, lo identificaremos mediante el nombre o la marca comercial asociado a su Contenido que nos env&iacute;e.<br />
+	&nbsp;</li>
+	<li>Las Empresas de Tripadvisor no conceder&aacute;n a ning&uacute;n tercero el derecho de publicar su Contenido en lugares distintos a los Servicios. Sin embargo, si comparte su Contenido en los Servicios (excepto en la funci&oacute;n Viajes, donde el Contenido se puede mostrar de forma privada) este se mostrar&aacute; p&uacute;blicamente y activaremos una funci&oacute;n que permite a los dem&aacute;s usuarios compartirlo, insertando la publicaci&oacute;n o por cualquier otro medio (salvo en la funci&oacute;n Viajes que, tal y como hemos mencionado, el Contenido se puede mostrar de forma privada) en servicios de terceros. Adem&aacute;s, permitiremos que los motores de b&uacute;squeda puedan realizar b&uacute;squedas.<br />
+	&nbsp;</li>
+	<li>Salvo las disposiciones que se modifiquen en los p&aacute;rrafos del 1 al 6 de esta secci&oacute;n de este Acuerdo, tanto sus derechos y obligaciones como los nuestros estar&aacute;n sujetos al resto de las condiciones de este Acuerdo. La licencia que otorgue a las Empresas de Tripadvisor modificada por los mencionados p&aacute;rrafos del 1 al 6 se denominar&aacute; &ldquo;Licencia restringida&rdquo;.<br />
+	&nbsp;</li>
+	<li>Con el fin de disipar cualquier tipo de duda, el Contenido que env&iacute;e a los Servicios relacionado con otros servicios o programas de las Empresas de Tripadvisor no est&aacute; sujeto a la Licencia restringida, sino que se regir&aacute; por los t&eacute;rminos y condiciones del servicio o programa de Tripadvisor en cuesti&oacute;n.</li>
+</ol>
+
+<p><a id="RESERVAR CON TERCEROS PROVEEDORES A TRAVÉS DE TRIPADVISOR" name="RESERVAR CON TERCEROS PROVEEDORES A TRAVÉS DE TRIPADVISOR"><strong>RESERVAR CON TERCEROS PROVEEDORES A TRAV&Eacute;S DE Tripadvisor</strong></a></p>
+
+<p><a id="Uso de los Servicios de reserva de TripAdvisor" name="Uso de los Servicios de reserva de TripAdvisor"><strong>Uso de los Servicios de reserva de Tripadvisor.</strong></a>&nbsp;Las Empresas de Tripadvisor le permiten buscar, seleccionar y reservar viajes con terceros proveedores sin salir de los Servicios. Al reservar viajes a trav&eacute;s de los Sitios web, se convertir&aacute; en Titular de una cuenta, si todav&iacute;a no lo es.</p>
+
+<p>Al realizar reservas a trav&eacute;s de dichos sitios, confirma que acepta las pr&aacute;cticas descritas en nuestra&nbsp;<a href="https://tripadvisor.mediaroom.com/ES-privacy-policy">pol&iacute;tica de privacidad</a>&nbsp;y en el presente Acuerdo. Asimismo, garantiza, ya sea a t&iacute;tulo personal o como Representante legal de una empresa, que tiene 18 a&ntilde;os como m&iacute;nimo, posee la autoridad legal para formalizar el presente Acuerdo y usar los Servicios (incluidos los servicios de reserva de las Empresas de Tripadvisor) con arreglo a lo dispuesto en este Acuerdo, y que toda la informaci&oacute;n que proporciona es veraz y precisa. Adem&aacute;s, acepta que usar&aacute; los servicios de reserva de las Empresas de Tripadvisor solo para hacer reservas leg&iacute;timas para usted o para otras personas, siempre y cuando disponga de la autoridad legal para ello. Queda prohibida cualquier reserva fraudulenta o falsa, y se podr&aacute; cancelar la cuenta de aquellos usuarios que intenten realizar una reserva de este tipo.</p>
+
+<p>EN CALIDAD DE USUARIO DE LOS SERVICIOS, INCLUIDOS LOS SERVICIOS DE RESERVA DE LAS EMPRESAS DE Tripadvisor, RECONOCE Y ACEPTA QUE (1) LAS EMPRESAS DE Tripadvisor NO TENDR&Aacute;N RESPONSABILIDAD ALGUNA ANTE USTED NI ANTE NING&Uacute;N TERCERO POR LAS TRANSACCIONES NO AUTORIZADAS REALIZADAS MEDIANTE LA CONTRASE&Ntilde;A O LA CUENTA DE USTED Y (2) EL USO NO AUTORIZADO DE SU CONTRASE&Ntilde;A O CUENTA PODR&Iacute;A ACARREARLE RESPONSABILIDADES ANTE Tripadvisor, SUS EMPRESAS FILIALES CORPORATIVAS U OTROS TERCEROS.</p>
+
+<p>Cuando realice una reserva facilitada por las Empresas de Tripadvisor, recopilaremos su informaci&oacute;n de pago y la transmitiremos al proveedor para poder llevar a cabo la transacci&oacute;n, tal y como se describe en nuestra&nbsp;<a href="https://tripadvisor.mediaroom.com/ES-privacy-policy">pol&iacute;tica de privacidad</a>. Tenga en cuenta que es el proveedor, no las Empresas de Tripadvisor, el responsable de procesar su pago y formalizar la reserva.</p>
+
+<p>Las Empresas de Tripadvisor no interferir&aacute;n en las reservas arbitrariamente, pero se reservan el derecho de retirar los servicios de reserva debido a determinadas circunstancias atenuantes, por ejemplo, cuando una reserva ya no est&eacute; disponible o cuando tengamos motivos razonables para sospechar que una solicitud de reserva podr&iacute;a ser fraudulenta. Las Empresas de Tripadvisor tambi&eacute;n se reservan el derecho de tomar medidas para verificar su identidad a fin de procesar su petici&oacute;n de reserva.</p>
+
+<p>En el caso poco probable de que una reserva est&eacute; disponible al hacer el pedido, pero deje de estarlo antes del registro, su &uacute;nico recurso ser&aacute; ponerse en contacto con el proveedor para encontrar una soluci&oacute;n alternativa o cancelar la reserva.</p>
+
+<p><a id="Terceros proveedores" name="Terceros proveedores"><strong>Terceros proveedores.</strong></a>&nbsp;Las Empresas de Tripadvisor no son agencias de viajes ni tienen o proporcionan servicios de transporte, alojamientos, restaurantes, visitas, actividades o experiencias. A pesar de que las Empresas de Tripadvisor muestran informaci&oacute;n acerca de las propiedades que poseen los terceros proveedores y facilitan reservas con determinados proveedores en los Sitios web de las Empresas de Tripadvisor o a trav&eacute;s de estos, tales acciones no implican, sugieren ni constituyen en modo alguno el consentimiento ni la aprobaci&oacute;n de terceros proveedores por parte de las Empresas de Tripadvisor, ni ning&uacute;n tipo de afiliaci&oacute;n entre ambos. Aunque los Titulares de cuentas puedan puntuar y opinar sobre determinados servicios de transporte, alojamientos, restaurantes, visitas, actividades o experiencias en funci&oacute;n de su propia experiencia, las Empresas de Tripadvisor no suscriben ni recomiendan los productos o servicios de los terceros proveedores, excepto cuando Tripadvisor otorga a ciertas empresas premios basados en las opiniones publicadas por Titulares de cuentas. Las Empresas de Tripadvisor no suscriben el Contenido que publican, env&iacute;an o proporcionan de alg&uacute;n otro modo usuarios o empresas, ni tampoco las opiniones, recomendaciones o consejos que se puedan verter en &eacute;l, por lo que renuncian expl&iacute;citamente a toda responsabilidad relacionada con &eacute;l. Acepta, adem&aacute;s, que las Empresas de Tripadvisor no son responsables de la precisi&oacute;n ni de la integridad de la informaci&oacute;n que obtienen de terceros proveedores y muestran en los Servicios.</p>
+
+<p>Si realiza una reserva con un tercer proveedor, aparte del presente Acuerdo, acepta leer y comprometerse a cumplir los t&eacute;rminos y condiciones de compra y de uso del sitio web del proveedor, la pol&iacute;tica de privacidad y cualquier otra norma o pol&iacute;tica relacionada con la propiedad o el sitio del proveedor. Las interacciones que establezca con los terceros proveedores son por cuenta y riesgo propio. Las Empresas de Tripadvisor no tendr&aacute;n ninguna responsabilidad con respecto a los actos, las omisiones, los errores, las manifestaciones, las garant&iacute;as, los incumplimientos o las negligencias de los terceros proveedores, ni por ning&uacute;n tipo de lesi&oacute;n personal, muerte, da&ntilde;os a la propiedad u otros da&ntilde;os o gastos derivados de las interacciones entre usted y terceros proveedores.</p>
+
+<p>Es posible que los Servicios enlacen con los sitios de los proveedores o a otros sitios web que Tripadvisor no gestiona ni controla. Para obtener m&aacute;s informaci&oacute;n al respecto, consulte la secci&oacute;n &ldquo;Enlaces a sitios web de terceros&rdquo; m&aacute;s adelante.</p>
+
+<p><a id="Reservar Alquileres vacacionales, reservar Experiencias y reservar en Restaurantes con terceros proveedores que figuran en sitios web filiales corporativos" name="Reservar Alquileres vacacionales, reservar Experiencias y reservar en Restaurantes con terceros proveedores que figuran en sitios web filiales corporativos"><strong>Reservar Alquileres vacacionales, reservar Experiencias y reservar en Restaurantes con terceros proveedores que figuran en sitios web filiales corporativos.</strong></a>&nbsp;Algunas de las empresas afiliadas corporativas de Tripadvisor hacen las funciones de mercado para facilitar que los viajeros puedan (1) formalizar acuerdos de alquileres vacacionales con due&ntilde;os y gestores de propiedades (&ldquo;Alquileres vacacionales&rdquo;), (2) hacer reservas en restaurantes (&ldquo;Restaurantes&rdquo;) o (3) hacer reservas de tours, actividades y atracciones (en conjunto, &ldquo;Experiencias&rdquo;) con terceros proveedores de tales Experiencias; en adelante, cada uno de los proveedores de dichos Alquileres vacacionales o Experiencias se denominar&aacute; &ldquo;Anunciante&rdquo;. Dado que estas empresas filiales corporativas de Tripadvisor sindican sus anuncios a otras entidades del grupo de Empresas de Tripadvisor, la publicidad aparece en los Sitios web de estas &uacute;ltimas. Como usuario, usted es responsable del uso que haga de los Servicios (incluidos, en particular, los Sitios web de las Empresas de Tripadvisor) y de todas las transacciones asociadas a Alquileres vacacionales, Restaurantes o Experiencias proporcionadas por las empresas afiliadas corporativas de Tripadvisor. No somos propietarios de ning&uacute;n Alquiler vacacional, Restaurante ni Experiencia que figura en los Servicios, y tampoco los gestionamos ni formalizamos los correspondientes acuerdos.</p>
+
+<p>Debido a que Tripadvisor y sus empresas afiliadas corporativas no forman parte de las transacciones de Alquileres vacacionales, reservas en Restaurantes o de Experiencias entre los viajeros y los Anunciantes, cualquier litigio o conflicto que implique una transacci&oacute;n potencial o real entre usted y un Anunciante (incluidos la calidad, el acondicionamiento, la seguridad o la legalidad del Alquiler vacacional, Restaurante o Experiencia; la precisi&oacute;n del Contenido del anuncio; la capacidad del Anunciante de alquilar una propiedad de Alquiler vacacional, proporcionarle una reserva, comida u otro servicio en un Restaurante o una Experiencia; o su capacidad para pagar una propiedad de Alquiler vacacional, una comida o servicio en un Restaurante o una Experiencia) es responsabilidad exclusiva de cada usuario.</p>
+
+<p>Una de las empresas afiliadas corporativas de Tripadvisor puede actuar como agente de responsabilidad limitada del Anunciante con el &uacute;nico prop&oacute;sito de transmitir su pago al Anunciante. Acepta pagar al Anunciante, o a una empresa afiliada corporativa de Tripadvisor que act&uacute;e como agente recaudador de pago limitado en nombre de un Anunciante, los pagos especificados que cobre el Anunciante por la reserva de un Alquiler vacacional o Experiencia.</p>
+
+<p>Para obtener m&aacute;s informaci&oacute;n sobre los cargos por Alquileres vacacionales, dep&oacute;sitos de seguridad, cargos por Experiencias, procesamiento de los pagos, reembolsos y cuestiones similares, consulte los t&eacute;rminos y condiciones de nuestras empresas afiliadas (en el caso de Experiencias, visite <a href="https://es.viator.com/support/termsAndConditions"><strong>Viator</strong></a>; en el caso de Restaurantes, visite <a href="https://www.eltenedor.es"><strong>ElTenedor</strong></a>; y, en el de Alquileres vacacionales, la p&aacute;gina de&nbsp;<a href="https://rentals.tripadvisor.com/es_ES/termsandconditions/traveler"><strong>Alquileres vacacionales de las Empresas de Tripadvisor</strong><strong>.</strong></a> Al realizar una reserva de Alquiler vacacional, Restaurante o Experiencia proporcionada por una de nuestras empresas afiliadas corporativas, deber&aacute; reconocer y aceptar los correspondientes t&eacute;rminos y condiciones y la pol&iacute;tica de privacidad.</p>
+
+<p>Si surge una disputa con un Anunciante de la Uni&oacute;n Europea, consulte algunos de los m&eacute;todos alternativos para resolverla en la siguiente p&aacute;gina de Internet:&nbsp;<a href="http://ec.europa.eu/consumers/odr/">http://ec.europa.eu/consumers/odr/</a>.</p>
+
+<p><a id="DESTINOS TURÍSTICOS" name="DESTINOS TURÍSTICOS"><strong>DESTINOS TUR&Iacute;STICOS</strong></a></p>
+
+<p><a id="Viajes internacionales" name="Viajes internacionales"><strong>Viajes internacionales.</strong></a>&nbsp;Cuando realiza reservas para un viaje internacional con terceros proveedores o planifica viajes internacionales a trav&eacute;s de los Servicios, usted es el responsable de asegurarse de que cumple todos los requisitos de entrada de extranjeros y de que sus documentos de viaje, incluidos pasaportes y visados, est&aacute;n en regla.</p>
+
+<p>En cuanto a los requisitos de pasaporte y visado, p&oacute;ngase en contacto con la embajada o el consulado pertinentes para obtener informaci&oacute;n. Puesto que los requisitos pueden cambiar en cualquier momento, aseg&uacute;rese de consultar la informaci&oacute;n actualizada antes de realizar la reserva o salir de viaje. Las Empresas de Tripadvisor no asumen responsabilidad alguna ante los viajeros a los que se les deniegue la entrada a un vuelo o a cualquier pa&iacute;s por no llevar los documentos de viaje que les requiera la compa&ntilde;&iacute;a a&eacute;rea, autoridad o pa&iacute;s en cuesti&oacute;n, incluidos los pa&iacute;ses por los que el viajero tan solo tenga que pasar de camino hacia su destino.</p>
+
+<p>Tambi&eacute;n es su responsabilidad consultar con un m&eacute;dico las recomendaciones actuales sobre vacunas antes de realizar un viaje internacional, as&iacute; como asegurarse de que cumple todos los requisitos sanitarios de acceso y seguir todas las prescripciones m&eacute;dicas en relaci&oacute;n con su viaje.</p>
+
+<p>Aunque la mayor&iacute;a de los viajes, incluidos los que se realizan a destinos internacionales, transcurren sin incidentes, los viajes a determinados destinos pueden conllevar un riesgo superior comparado con otros. Tripadvisor insta a los viajeros a examinar y revisar las prohibiciones, las advertencias, los avisos y los anuncios sobre viajes que emitan sus Gobiernos y los Gobiernos de los pa&iacute;ses de destino antes de realizar reservas de viajes a destinos internacionales. Por ejemplo, el Gobierno norteamericano ofrece informaci&oacute;n sobre la situaci&oacute;n en diversos pa&iacute;ses y los niveles de riesgo en ciertos destinos internacionales&nbsp;<a href="http://www.state.gov/" target="_blank">www.state.gov</a>,&nbsp;<a href="http://www.tsa.gov/" target="_blank">www.tsa.gov</a>,<a href="http://www.dot.gov/" target="_blank">www.dot.gov</a>,&nbsp;<a href="http://www.faa.gov/" target="_blank">www.faa.gov</a>,&nbsp;<a href="http://www.cdc.gov/" target="_blank">www.cdc.gov</a>,&nbsp;<a href="http://www.treas.gov/ofac" target="_blank">www.treas.gov/ofac</a>&nbsp;y&nbsp;<a href="http://www.customs.gov/" target="_blank">www.customs.gov</a>.</p>
+
+<p>AL PROPORCIONAR INFORMACI&Oacute;N RELEVANTE PARA VIAJAR A DETERMINADOS DESTINOS INTERNACIONALES, LAS EMPRESAS DE Tripadvisor NO MANIFIESTAN NI GARANTIZAN QUE VIAJAR A TALES LUGARES SEA ACONSEJABLE O QUE NO CONLLEVE RIESGOS, Y NO SE RESPONSABILIZA DE LOS DA&Ntilde;OS O LAS P&Eacute;RDIDAS QUE PUEDAN DERIVARSE DEL VIAJE A DICHOS DESTINOS.</p>
+
+<p><a id="RENUNCIA DE RESPONSABILIDAD" name="RENUNCIA DE RESPONSABILIDAD"><strong>RENUNCIA DE RESPONSABILIDAD</strong></a></p>
+
+<p>LEA DETENIDAMENTE ESTA SECCI&Oacute;N. LAS DISPOSICIONES DE ESTA SECCI&Oacute;N LIMITAN LA RESPONSABILIDAD DE LAS EMPRESAS DE Tripadvisor ANTE USTED POR LOS PROBLEMAS QUE PUEDAN SURGIR EN RELACI&Oacute;N CON EL USO QUE HAGA DE LOS SERVICIOS. SI NO COMPRENDE LAS CONDICIONES QUE SE ESTIPULAN EN ESTA SECCI&Oacute;N O EN CUALQUIER OTRA PARTE DEL PRESENTE ACUERDO, CONSULTE CON UN ABOGADO PARA ACLARAR CUALQUIER DUDA ANTES DE ACCEDER A LOS SERVICIOS O USARLOS.</p>
+
+<p>LA INFORMACI&Oacute;N, EL SOFTWARE, LOS PRODUCTOS Y LOS SERVICIOS PUBLICADOS EN LOS SERVICIOS O QUE SE PROPORCIONEN A TRAV&Eacute;S DE ESTOS PUEDEN CONTENER IMPRECISIONES O ERRORES, INCLUIDOS ERRORES DE DISPONIBILIDAD DE RESERVAS Y DE PRECIOS. LAS EMPRESAS DE Tripadvisor NO GARANTIZAN LA PRECISI&Oacute;N DE LA INFORMACI&Oacute;N NI DE LAS DESCRIPCIONES DE LOS ALOJAMIENTOS, EXPERIENCIAS, VUELOS, CRUCEROS, RESTAURANTES O CUALQUIER OTRO PRODUCTO DE VIAJE QUE APAREZCA EN LOS SERVICIOS (LO QUE INCLUYE, SIN QUE SIRVA DE LIMITACI&Oacute;N, LOS PRECIOS, DISPONIBILIDAD, FOTOGRAF&Iacute;AS, ANUNCIOS DE ALOJAMIENTO, EXPERIENCIAS, VUELOS, CRUCEROS, RESTAURANTES U OTRAS CARACTER&Iacute;STICAS DE LOS PRODUCTOS DE VIAJE, DESCRIPCIONES GENERALES DE LOS PRODUCTOS, OPINIONES, PUNTUACIONES, ETC.). TAMPOCO ASUMEN NINGUNA RESPONSABILIDAD POR LOS ERRORES E IMPRECISIONES EN DICHA INFORMACI&Oacute;N Y EN LAS DESCRIPCIONES DE TALES PRODUCTOS Y SERVICIOS. ADEM&Aacute;S, LAS EMPRESAS DE Tripadvisor SE RESERVAN EXPL&Iacute;CITAMENTE EL DERECHO A CORREGIR CUALQUIER ERROR DE DISPONIBILIDAD Y DE PRECIOS EN LOS SERVICIOS O EN LAS RESERVAS PENDIENTES REALIZADAS CON UN PRECIO INCORRECTO.</p>
+
+<p>Tripadvisor NO GARANTIZA LA IDONEIDAD DE LOS SERVICIOS, INCLUIDA LA INFORMACI&Oacute;N QUE SE ENCUENTRA EN SUS SITIOS WEB NI EN NINGUNA DE SUS PARTES, PARA NING&Uacute;N FIN, Y LA INCLUSI&Oacute;N O LA OFERTA DE CUALQUIERA DE LOS PRODUCTOS O SERVICIOS EN SUS SITIOS WEB O EN CUALQUIER OTRO LUGAR PROPORCIONADO A TRAV&Eacute;S DE LOS SERVICIOS NO CONSTITUYE NING&Uacute;N TIPO DE REFRENDO O RECOMENDACI&Oacute;N DE TALES PRODUCTOS O SERVICIOS POR PARTE DE Tripadvisor, SIN PERJUICIO DE LOS PREMIOS QUE SE PUEDAN CONCEDER POR LAS OPINIONES DE LOS USUARIOS. TODA ESTA INFORMACI&Oacute;N, EL SOFTWARE, LOS PRODUCTOS Y LAS OFERTAS DE SERVICIOS QUE SE PROPORCIONAN EN LOS SERVICIOS O A TRAV&Eacute;S DE ESTOS SE SUMINISTRAN &ldquo;TAL CUAL&rdquo;, SIN GARANT&Iacute;A DE NING&Uacute;N TIPO. Tripadvisor DENIEGA TODAS LAS GARANT&Iacute;AS Y LAS CONDICIONES, AS&Iacute; COMO OTROS T&Eacute;RMINOS DE CUALQUIER TIPO, CON RESPECTO A QUE LOS SERVICIOS, SUS SERVIDORES O CUALQUIER DATO (INCLUIDOS CORREOS ELECTR&Oacute;NICOS) ENVIADO DESDE Tripadvisor EST&Eacute;N LIBRES DE VIRUS O DE OTROS COMPONENTES DA&Ntilde;INOS. EN LA M&Aacute;XIMA MEDIDA PERMITIDA POR LA LEGISLACI&Oacute;N APLICABLE, POR EL PRESENTE DOCUMENTO, Tripadvisor DENIEGA TODAS LAS GARANT&Iacute;AS Y CONDICIONES CON RESPECTO A LA INFORMACI&Oacute;N, EL SOFTWARE, LOS PRODUCTOS Y LOS SERVICIOS, INCLUIDAS TODAS LAS GARANT&Iacute;AS Y CONDICIONES IMPL&Iacute;CITAS, O LOS T&Eacute;RMINOS DE CUALQUIER TIPO, EN LO REFERENTE A LA COMERCIABILIDAD, LA ADECUACI&Oacute;N PARA UN FIN PARTICULAR, LA TITULARIDAD, LA POSESI&Oacute;N PAC&Iacute;FICA Y LA NO INFRACCI&Oacute;N.</p>
+
+<p>LAS EMPRESAS DE Tripadvisor TAMBI&Eacute;N DENIEGAN EXPL&Iacute;CITAMENTE CUALQUIER GARANT&Iacute;A Y MANIFESTACI&Oacute;N, AS&Iacute; COMO OTROS T&Eacute;RMINOS DE CUALQUIER TIPO, EN LO REFERENTE A LA PRECISI&Oacute;N O AL CAR&Aacute;CTER PRIVADO DEL CONTENIDO DISPONIBLE EN LOS SERVICIOS Y A TRAV&Eacute;S DE ESTOS.</p>
+
+<p>LOS TERCEROS PROVEEDORES QUE PROPORCIONAN INFORMACI&Oacute;N SOBRE ALOJAMIENTOS, VUELOS, ALQUILERES, EXPERIENCIAS, RESTAURANTES O CRUCEROS, VIAJES U OTROS SERVICIOS EN LOS SERVICIOS O A TRAV&Eacute;S DE ESTOS SON CONTRATISTAS INDEPENDIENTES, NO AGENTES NI EMPLEADOS DE LAS EMPRESAS DE Tripadvisor. LAS EMPRESAS DE Tripadvisor NO ASUMEN NINGUNA RESPONSABILIDAD POR LOS ACTOS, LOS ERRORES, LAS OMISIONES, LAS MANIFESTACIONES, LAS GARANT&Iacute;AS, LOS INCUMPLIMIENTOS O LAS NEGLIGENCIAS DE TALES PROVEEDORES, NI POR NING&Uacute;N TIPO DE LESI&Oacute;N PERSONAL, MUERTE, DA&Ntilde;O A LA PROPIEDAD, U OTROS DA&Ntilde;OS O GASTOS DERIVADOS DE ELLOS. Tripadvisor NO SER&Aacute; RESPONSABLE NI REALIZAR&Aacute; REEMBOLSOS EN EL CASO DE SUFRIR ALG&Uacute;N TIPO DE DEMORA, CANCELACI&Oacute;N, EXCESO DE RESERVAS, HUELGA, FUERZA MAYOR U OTRAS CAUSAS AJENAS A SU CONTROL DIRECTO, Y TAMPOCO SER&Aacute; RESPONSABLE DE NING&Uacute;N TIPO DE GASTO ADICIONAL, OMISI&Oacute;N, RETRASO, CAMBIO DE ITINERARIO O ACTUACI&Oacute;N DE CUALQUIER GOBIERNO O AUTORIDAD.</p>
+
+<p>EN VIRTUD DE LO ESPECIFICADO ANTERIORMENTE, USTED UTILIZA LOS SERVICIOS POR SU CUENTA Y RIESGO Y LAS EMPRESAS DE Tripadvisor (O SUS EJECUTIVOS, DIRECTIVOS Y EMPLEADOS) NO SER&Aacute;N RESPONSABLES EN NING&Uacute;N CASO POR NING&Uacute;N TIPO DE P&Eacute;RDIDAS O DA&Ntilde;OS, YA SEAN DIRECTOS, INDIRECTOS, PUNITIVOS, INCIDENTALES, ESPECIALES O DERIVADOS, NI POR NINGUNA P&Eacute;RDIDA DE INGRESOS, BENEFICIOS, FONDOS DE COMERCIO, DATOS, CONTRATOS O USO DE DINERO, NI TAMPOCO POR LAS P&Eacute;RDIDAS O LOS DA&Ntilde;OS DERIVADOS DE LOS SIGUIENTES HECHOS O RELACIONADOS CON ELLOS: INTERRUPCIONES DEL NEGOCIO DE CUALQUIER TIPO; EL ACCESO, LA VISUALIZACI&Oacute;N O EL USO DE LOS SERVICIOS; LA DEMORA O LA INCAPACIDAD PARA ACCEDER O UTILIZAR LOS SERVICIOS (LO QUE INCLUYE, ENTRE OTROS ASPECTOS, SU CONFIANZA EN LOS COMENTARIOS Y LAS OPINIONES QUE APARECEN EN LOS SERVICIOS O A TRAV&Eacute;S DE ELLOS); CUALQUIER VIRUS INFORM&Aacute;TICO, ERROR, TROYANOS, INFORMACI&Oacute;N, SOFTWARE, SITIOS ENLAZADOS, PRODUCTOS Y SERVICIOS OBTENIDOS A TRAV&Eacute;S DE LOS SERVICIOS (INCLUIDOS, ENTRE OTROS, CUALQUIER PRODUCTO DE SINCRONIZACI&Oacute;N DE LAS EMPRESAS DE Tripadvisor); LESIONES PERSONALES O DA&Ntilde;OS A LA PROPIEDAD DE CUALQUIER NATURALEZA, RESULTANTES DEL USO QUE USTED HAGA DE LOS SERVIDORES DE LOS SERVICIOS O TODA LA INFORMACI&Oacute;N PERSONAL O FINANCIERA QUE ESTOS ALMACENEN; LOS ERRORES U OMISIONES EN EL CONTENIDO O LAS P&Eacute;RDIDAS O DA&Ntilde;OS DE CUALQUIER TIPO QUE SE INCURRAN COMO RESULTADO DEL USO DEL CONTENIDO O DERIVADOS, DE ALG&Uacute;N OTRO MODO, DEL ACCESO, LA VISUALIZACI&Oacute;N O EL USO DE LOS SERVICIOS. LO ANTERIOR SER&Aacute; DE APLICACI&Oacute;N A LAS P&Eacute;RDIDAS O LOS DA&Ntilde;OS CON INDEPENDENCIA DE SU FUNDAMENTO, YA SEA NEGLIGENCIA, CONTRATO, AGRAVIO O RESPONSABILIDAD ESTRICTA O DE OTRA &Iacute;NDOLE, INCLUSO EN EL CASO DE QUE SE HAYA NOTIFICADO A Tripadvisor O A SUS EMPRESAS FILIALES CORPORATIVAS LA POSIBILIDAD DE QUE SE PRODUZCAN.</p>
+
+<p>Si las Empresas de Tripadvisor resultaran ser responsables de alguna p&eacute;rdida o da&ntilde;o derivado del uso que usted haga de los Servicios, en ning&uacute;n caso la responsabilidad global de las Empresas de Tripadvisor superar&aacute; la mayor de las sumas siguientes: (a) los costes abonados a las Empresas de Tripadvisor en concepto de las transacciones realizadas en los Servicios o a trav&eacute;s de ellos que hayan dado lugar a la reclamaci&oacute;n o bien (b) cien d&oacute;lares (100&nbsp;USD).</p>
+
+<p>La limitaci&oacute;n de responsabilidad refleja la asignaci&oacute;n de riesgo entre las partes. Las limitaciones que se especifican en esta secci&oacute;n permanecer&aacute;n vigentes y se aplicar&aacute;n incluso si alguno de los recursos limitados indicados en las presentes condiciones se considera fallido en su prop&oacute;sito esencial. Las limitaciones de responsabilidad que se proporcionan en estas condiciones redundar&aacute;n en beneficio de las Empresas de Tripadvisor.</p>
+
+<p>LOS PRESENTES T&Eacute;RMINOS Y CONDICIONES, AS&Iacute; COMO LA RENUNCIA DE RESPONSABILIDAD ANTERIOR NO AFECTAN A LOS DERECHOS LEGALES OBLIGATORIOS QUE NO PUEDEN EXCLUIRSE EN VIRTUD DE LA LEGISLACI&Oacute;N APLICABLE, POR EJEMPLO, LAS LEYES DE PROTECCI&Oacute;N DE LOS CONSUMIDORES VIGENTES EN CIERTOS PA&Iacute;SES.</p>
+
+<p>SI LA LAY DEL PA&Iacute;S EN EL QUE VIVE NO CONTEMPLA NINGUNA LIMITACI&Oacute;N EN PARTICULAR NI NINGUNA EXCLUSI&Oacute;N DE RESPONSABILIDAD EN ESTA CL&Aacute;USULA, NO SE APLICAR&Aacute; LA LIMITACI&Oacute;N. LA RENUNCIA DE RESPONSABILIDAD SE APLICAR&Aacute; EN LA M&Aacute;XIMA MEDIDA PERMITIDA POR LA LEGISLACI&Oacute;N LOCAL.</p>
+
+<p><a id="INDEMNIZACIÓN" name="INDEMNIZACIÓN"><strong>INDEMNIZACI&Oacute;N</strong></a></p>
+
+<p>Acepta defender e indemnizar a las Empresas de Tripadvisor, as&iacute; como a cualquiera de sus funcionarios, directivos, empleados y agentes con respecto a cualquier reclamaci&oacute;n, acci&oacute;n jurisdiccional, demanda, recuperaci&oacute;n, p&eacute;rdida, da&ntilde;o, multa o sanci&oacute;n, u otros costes o gastos de cualquier tipo y naturaleza, incluidos, entre otros, los costes jur&iacute;dicos y financieros razonables de terceros que se deriven de las situaciones siguientes:</p>
+
+<ul>
+	<li>(i) incumplimiento por su parte del presente Acuerdo o de los documentos a los que se hace referencia en &eacute;l</li>
+	<li>(ii) infracci&oacute;n por su parte de cualquier ley o cualquier derecho de terceros o</li>
+	<li>(iii) uso que haga de los Servicios, incluidos los Sitios web de las Empresas de Tripadvisor</li>
+</ul>
+
+<p><a id="ENLACES A SITIOS WEB DE TERCEROS" name="ENLACES A SITIOS WEB DE TERCEROS"><strong>ENLACES A SITIOS WEB DE TERCEROS</strong></a></p>
+
+<p>Los Servicios pueden contener hiperenlaces a sitios web gestionados por terceros distintos de las Empresas de Tripadvisor. Dichos hiperenlaces se proporcionan solo para su referencia. Las Empresas de Tripadvisor no controlan tales sitios web ni son responsables de su contenido ni de las pr&aacute;cticas de privacidad o de otro tipo. Adem&aacute;s, le corresponde a usted adoptar las precauciones necesarias para garantizar que los enlaces que seleccione o el software que descargue (tanto de este como de otros sitios web) est&eacute;n libres de elementos de naturaleza destructiva, tales como virus, gusanos, troyanos o defectos, entre otros. El hecho de que las Empresas de Tripadvisor incluyan hiperenlaces a dichos sitios web no implica que suscribamos el material que se encuentra en estos o en aplicaciones, ni ninguna asociaci&oacute;n con sus operadores.</p>
+
+<p>En algunos casos, es posible que un sitio o una aplicaci&oacute;n de un tercero le solicite enlazar el perfil de su cuenta de Tripadvisor a un perfil de otro sitio de un tercero. La elecci&oacute;n es totalmente opcional y la decisi&oacute;n de permitir que esta informaci&oacute;n quede enlazada puede inhabilitarse (a trav&eacute;s del sitio o aplicaci&oacute;n del tercero) en cualquier momento. Si decide enlazar su cuenta de Tripadvisor al sitio web o a la aplicaci&oacute;n de un tercero, dicho sitio o aplicaci&oacute;n podr&aacute; acceder a la informaci&oacute;n que haya almacenado en su cuenta de Tripadvisor, incluidos los datos de otros usuarios con los que comparte informaci&oacute;n. Deber&aacute; leer los t&eacute;rminos y condiciones y la pol&iacute;tica de privacidad de los sitios y aplicaciones de terceros que visite, ya que incluyen normas y permisos sobre c&oacute;mo utilizan su informaci&oacute;n y que pueden diferir de aquellos de los Servicios, incluidos nuestros Sitios web. Le recomendamos que revise dichos sitios y aplicaciones de terceros; el uso que haga de ellos queda bajo su responsabilidad.</p>
+
+<p><a id="SOFTWARE COMO PARTE DE LOS SERVICIOS; LICENCIAS DE MÓVILES ADICIONALES" name="SOFTWARE COMO PARTE DE LOS SERVICIOS; LICENCIAS DE MÓVILES ADICIONALES"><strong>SOFTWARE COMO PARTE DE LOS SERVICIOS; LICENCIAS DE M&Oacute;VILES ADICIONALES</strong></a></p>
+
+<p>El software de los Servicios tambi&eacute;n est&aacute; sujeto a los controles de exportaci&oacute;n de Estados Unidos. Queda prohibido descargar, exportar o reexportar de alg&uacute;n modo la totalidad o parte del software de los Servicios (a) a Cuba, Iraq, Sud&aacute;n, Corea del Norte, Ir&aacute;n, Siria ni ning&uacute;n otro pa&iacute;s sometido a un embargo comercial de Estados Unidos, as&iacute; como a los ciudadanos o residentes de dichos pa&iacute;ses, y (b) a ninguna persona o entidad que figure en la lista de ciudadanos especialmente designados publicada por el Departamento del Tesoro de Estados Unidos o en la tabla de personas sometidas a &oacute;rdenes de denegaci&oacute;n del Departamento de Comercio de Estados Unidos. Al utilizar los Servicios, usted manifiesta y garantiza que no est&aacute; ubicado en ninguno de dichos pa&iacute;ses, no es ciudadano ni residente de ellos ni se encuentra bajo su control, y que no figura en ninguna de las listas anteriores.</p>
+
+<p>Seg&uacute;n se especifica anteriormente, los Servicios incluyen software que, en ocasiones, podr&aacute; denominarse &ldquo;aplicaciones&rdquo;. Cualquier software que est&eacute; disponible para su descarga en los Servicios (el &ldquo;Software&rdquo;) es una obra sujeta a copyright de Tripadvisor o de otros terceros, seg&uacute;n se indique en cada caso. El uso que haga de dicho Software se rige por las condiciones del acuerdo de licencia de usuario final, si lo hubiera, que se adjunta o se incluye con el Software. No puede instalar ni utilizar ning&uacute;n tipo de Software que adjunte o incluya un acuerdo de licencia, a no ser que acepte primero las condiciones de dicho acuerdo. En caso de que el Software disponible para su descarga en los Servicios no incluya un acuerdo de licencia, por el presente documento le otorgamos a usted, el usuario, una licencia limitada, personal e intransferible para utilizar dicho Software, con el fin de que visualice y utilice de cualquier otro modo los Servicios de conformidad con los t&eacute;rminos y condiciones del presente Acuerdo (incluidas las pol&iacute;ticas a las que en &eacute;l se hace referencia). Dicha licencia limitada no tendr&aacute; ning&uacute;n otro prop&oacute;sito.</p>
+
+<p>Tenga en cuenta que el Software (incluidos, entre otros, todo el c&oacute;digo Java, HTML, XML y los controles Active X que contienen los Servicios) es propiedad de Tripadvisor o esta empresa dispone de la correspondiente licencia, y que est&aacute; protegido por las disposiciones de los tratados internacionales y las leyes de derechos de autor. Cualquier reproducci&oacute;n o redistribuci&oacute;n del Software queda expl&iacute;citamente prohibida y puede comportar graves sanciones civiles y penales. Se procesar&aacute; a los infractores con la mayor severidad posible.</p>
+
+<p>Es posible que en algunas partes del software para m&oacute;viles de Tripadvisor se utilice material con derechos de autor, el uso del cual est&aacute; reconocido por Tripadvisor. Adem&aacute;s, existen condiciones espec&iacute;ficas que rigen el uso de determinadas aplicaciones para m&oacute;viles de Tripadvisor. Visite la p&aacute;gina&nbsp;<a href="https://tripadvisor.mediaroom.com/ES-mobile-licenses">Licencias de m&oacute;viles</a>&nbsp;para conocer los avisos espec&iacute;ficos sobre las aplicaciones para m&oacute;viles de Tripadvisor.</p>
+
+<p>SIN PERJUICIO DE LO ESPECIFICADO ANTERIORMENTE, QUEDA EXPL&Iacute;CITAMENTE PROHIBIDA LA COPIA O LA REPRODUCCI&Oacute;N DEL SOFTWARE EN CUALQUIER OTRO TIPO DE SERVIDOR O UBICACI&Oacute;N PARA SU REPRODUCCI&Oacute;N O REDISTRIBUCI&Oacute;N POSTERIOR. SI EXISTE ALGUNA GARANT&Iacute;A RELATIVA AL SOFTWARE, SOLO SER&Aacute; DE CONFORMIDAD CON LAS CONDICIONES DEL ACUERDO DE LICENCIA O DEL PRESENTE ACUERDO, SEG&Uacute;N CORRESPONDA.</p>
+
+<p><a id="AVISOS SOBRE DERECHOS DE AUTOR Y MARCAS COMERCIALES" name="AVISOS SOBRE DERECHOS DE AUTOR Y MARCAS COMERCIALES"><strong>AVISOS SOBRE DERECHOS DE AUTOR Y MARCAS COMERCIALES</strong></a></p>
+
+<p>Tripadvisor, el logotipo del b&uacute;ho, los globos de puntuaciones y todos los dem&aacute;s lemas o nombres de servicios y productos que se muestran en los Servicios son marcas comerciales seg&uacute;n el Derecho anglosaj&oacute;n o registradas de Tripadvisor LLC o de sus proveedores o licenciantes, y no se podr&aacute;n copiar, imitar ni utilizar, en su totalidad o en parte, sin el permiso previo por escrito de Tripadvisor o del titular de la correspondiente marca comercial. Adem&aacute;s, el aspecto y el estilo de los Servicios, incluidos nuestros Sitios web, los encabezados, los gr&aacute;ficos personalizados, los iconos de botones y las secuencias de comandos de todas las p&aacute;ginas conforman la marca de servicio, la marca comercial o la imagen comercial de Tripadvisor, y no se pueden copiar, imitar ni utilizar, en su totalidad o en parte, sin el permiso previo por escrito de Tripadvisor. El resto de las marcas comerciales, marcas comerciales registradas, nombres de productos y nombres o logotipos de empresas que se mencionan en los Servicios pertenecen a sus respectivos propietarios. A menos que se estipule lo contrario en alguna de las disposiciones de este Acuerdo, las referencias a cualquier producto, servicio, proceso u otra informaci&oacute;n, realizadas mediante el nombre comercial, la marca comercial, el fabricante, el proveedor o de cualquier otro modo, no constituyen ni implican su aprobaci&oacute;n, patrocinio o recomendaci&oacute;n por parte de Tripadvisor.</p>
+
+<p>Todos los derechos reservados. Tripadvisor no es responsable del contenido disponible en los sitios web gestionados por terceros distintos a Tripadvisor.</p>
+
+<p><a id="Política de notificación y retirada de contenido ilegal" name="Política de notificación y retirada de contenido ilegal"><strong>Pol&iacute;tica de notificaci&oacute;n y retirada de contenido ilegal</strong></a></p>
+
+<p>Tripadvisor funciona seg&uacute;n un procedimiento de &ldquo;notificaci&oacute;n y retirada&rdquo; de contenido. Si tiene alguna objeci&oacute;n o queja con respecto al Contenido, incluidos los mensajes de los usuarios publicados en los Servicios, o si cree que el material o el contenido publicados en los Servicios vulneran alg&uacute;n derecho de autor del cual es titular, p&oacute;ngase en contacto con nosotros inmediatamente; para ello, siga nuestro procedimiento de notificaci&oacute;n y retirada de contenido.&nbsp;<a href="https://www.tripadvisor.es/pages/noticetakedown.html"><strong>Haga clic en este enlace para consultar dicho procedimiento y la pol&iacute;tica de derechos de autor</strong></a>. Una vez que se haya completado el procedimiento, Tripadvisor responder&aacute; a las quejas v&aacute;lidas y fundamentadas llevando a cabo todos los pasos pertinentes para retirar el contenido ilegal, en un plazo razonable de tiempo.</p>
+
+<p><a id="MODIFICACIONES DE LOS SERVICIOS; RESCISIÓN" name="MODIFICACIONES DE LOS SERVICIOS; RESCISIÓN"><strong>MODIFICACIONES DE LOS SERVICIOS; RESCISI&Oacute;N</strong></a></p>
+
+<p>Tripadvisor puede modificar, a&ntilde;adir o eliminar los t&eacute;rminos y condiciones del presente Acuerdo o cualquiera de sus partes cuando lo estime oportuno y a su entera discreci&oacute;n, si as&iacute; lo considera necesario, por causas legales, con fines t&eacute;cnicos o normativos en general, o debido a cambios en los Servicios proporcionados o en la naturaleza o la disposici&oacute;n de los Servicios. A partir de entonces, usted acepta expl&iacute;citamente estar sujeto a tales t&eacute;rminos y condiciones con sus enmiendas.</p>
+
+<p>Las Empresas de Tripadvisor pueden modificar, suspender o interrumpir cualquier aspecto de los Servicios en cualquier momento, incluidos la disponibilidad de cualquier funci&oacute;n, la base de datos o el Contenido. Las Empresas de Tripadvisor tambi&eacute;n pueden imponer l&iacute;mites o restringir de alg&uacute;n otro modo su acceso a los Servicios, en su totalidad o en parte, sin previo aviso ni obligaci&oacute;n alguna, por motivos t&eacute;cnicos o de seguridad, para evitar el acceso no autorizado, la p&eacute;rdida o la destrucci&oacute;n de datos, o si Tripadvisor o sus empresas afiliadas corporativas consideran, a su entera discreci&oacute;n, que ha incumplido alguna de las disposiciones de este Acuerdo o de alguna ley o regulaci&oacute;n aplicable, y si esto implica interrumpir la prestaci&oacute;n de los Servicios.</p>
+
+<p>EL USO CONTINUADO QUE USTED HAGA DE LOS SERVICIOS AHORA, O TRAS LA PUBLICACI&Oacute;N DE CUALQUIER AVISO SOBRE LA INTRODUCCI&Oacute;N DE MODIFICACIONES, INDICAR&Aacute; LA ACEPTACI&Oacute;N DE DICHAS MODIFICACIONES.</p>
+
+<p>Tripadvisor puede rescindir el presente Acuerdo ante usted en cualquier momento, sin previo aviso, si cree de buena fe que ha incumplido sus disposiciones o si considera por cualquier otro motivo que es razonablemente necesario rescindirlo para preservar los derechos de las Empresas de Tripadvisor o de otros usuarios de los Servicios. En consecuencia, dejar&iacute;amos de proporcionarle dichos Servicios.</p>
+
+<p><a id="JURISDICCIÓN Y LEGISLACIÓN VIGENTE" name="JURISDICCIÓN Y LEGISLACIÓN VIGENTE"><strong>JURISDICCI&Oacute;N Y LEGISLACI&Oacute;N VIGENTE</strong></a></p>
+
+<p>Tripadvisor LLC, una empresa con responsabilidad limitada ubicada en Estados Unidos, es propietaria de este sitio web y es quien tambi&eacute;n lo controla. El presente Acuerdo y cualquier disputa o reclamaci&oacute;n (incluidos disputas o reclamaciones no contractuales) derivados o relacionados con &eacute;l, su objeto o creaci&oacute;n, se regir&aacute;n e interpretar&aacute;n seg&uacute;n la legislaci&oacute;n de la mancomunidad de Massachusetts (EE.&nbsp;UU.). Por la presente, usted acepta la jurisdicci&oacute;n y el distrito de los tribunales de Massachusetts, EE.&nbsp;UU., en exclusiva, y estipula la equidad y la conveniencia de resolver los procesos judiciales en dichos tribunales para todos los litigios, ya sean contractuales o no contractuales, derivados o relacionados con el uso que usted u otros terceros hagan de los Servicios. Asimismo, acepta que todas las reclamaciones que pueda presentar contra Tripadvisor LLC derivadas o relacionadas con los Servicios deben o&iacute;rse y resolverse en el tribunal de una jurisdicci&oacute;n competente en la materia y ubicado en la mancomunidad de Massachusetts. El uso de los Servicios no est&aacute; autorizado en ninguna jurisdicci&oacute;n en la que no tengan efecto todas las disposiciones de los presentes t&eacute;rminos y condiciones, lo que incluye, sin que sirva de limitaci&oacute;n, este p&aacute;rrafo. Esta cl&aacute;usula no limita el derecho de Tripadvisor LLC a emprender acciones contra usted en otros tribunales competentes. Lo especificado anteriormente no se aplicar&aacute; en la medida en que la legislaci&oacute;n aplicable de su pa&iacute;s de residencia requiera la aplicaci&oacute;n de otra ley o jurisdicci&oacute;n &mdash;en particular, si utiliza los Servicios como consumidor&mdash; y no se puede excluir por contrato ni regirse por la Convenci&oacute;n de las Naciones Unidas sobre los Contratos de Compraventa Internacional de Mercader&iacute;as, si fuera aplicable por cualquier otro motivo. Si utiliza los Servicios como consumidor y no como empresa o Representante legal de una empresa, estar&aacute; autorizado a presentar reclamaciones contra Tripadvisor en los tribunales de su pa&iacute;s de residencia. Esta cl&aacute;usula se aplicar&aacute; en la m&aacute;xima medida permitida por la legislaci&oacute;n de su pa&iacute;s de residencia.</p>
+
+<p><a id="CONVERSOR DE DIVISAS" name="CONVERSOR DE DIVISAS"><strong>CONVERSOR DE DIVISAS</strong></a></p>
+
+<p>Los tipos de cambio de divisas se basan en varias fuentes disponibles p&uacute;blicamente y deben utilizarse solo a modo de gu&iacute;a. Los tipos de cambio no se verifican con precisi&oacute;n, por lo que los tipos de cambio reales pueden variar. Es posible que las cotizaciones de divisas no se actualicen diariamente. La informaci&oacute;n sobre divisas que se proporciona se supone exacta, pero las Empresas de Tripadvisor no garantizan que lo sea. Cuando utilice esta informaci&oacute;n con un objetivo financiero, le recomendamos que se ponga en contacto con un profesional cualificado para comprobar la precisi&oacute;n de los tipos de cambio de divisas. No autorizamos el uso de esta informaci&oacute;n para ning&uacute;n prop&oacute;sito que no sea para su uso personal y se le proh&iacute;be expl&iacute;citamente revender, redistribuir y utilizar esta informaci&oacute;n para fines comerciales.</p>
+
+<p><a id="DISPOSICIONES GENERALES" name="DISPOSICIONES GENERALES"><strong>DISPOSICIONES GENERALES</strong></a></p>
+
+<p>Nos reservamos el derecho de reclamar nombres de usuario, nombres de cuenta, apodos, usuarios o cualquier otro identificador de usuario por cualquier motivo sin contraer por ello ninguna responsabilidad con usted.</p>
+
+<p>Por el presente documento, acepta que no existe ninguna relaci&oacute;n de empresa conjunta, agencia, sociedad ni empleo entre usted y Tripadvisor o sus afiliados como resultado del presente Acuerdo o del uso de los Servicios.</p>
+
+<p>Nuestro cumplimiento del presente Acuerdo est&aacute; sujeto a las leyes y los decretos existentes, y ninguna disposici&oacute;n que el presente Acuerdo contenga puede limitar nuestro derecho a exigir el cumplimiento de las solicitudes de imposici&oacute;n legal u otras solicitudes gubernamentales o judiciales, o los requisitos relativos al uso que haga de los Servicios o de la informaci&oacute;n proporcionada o recopilada por nosotros con respecto a dicho uso. En la medida permitida por la legislaci&oacute;n aplicable, usted acepta interponer cualquier reclamaci&oacute;n o acci&oacute;n jurisdiccional derivada de su acceso o su uso de los Servicios o relacionada con &eacute;l antes de dos (2) a&ntilde;os a partir de la fecha en la que tal reclamaci&oacute;n o acci&oacute;n se present&oacute; o se deveng&oacute;, en ausencia de lo cual dicha reclamaci&oacute;n o acci&oacute;n jurisdiccional se desestimar&aacute; irrevocablemente.</p>
+
+<p>Si cualquiera de las partes del presente Acuerdo se considerara no v&aacute;lida o sin efecto seg&uacute;n la legislaci&oacute;n aplicable, incluidas, entre otras, las exclusiones de responsabilidad en cuanto a garant&iacute;as y las limitaciones de responsabilidad descritas anteriormente, entonces la disposici&oacute;n considerada no v&aacute;lida o sin efecto ser&aacute; reemplazada por una disposici&oacute;n v&aacute;lida y con efecto cuyo significado se asemeje lo m&aacute;ximo posible a la disposici&oacute;n original, y todas las disposiciones restantes de este Acuerdo continuar&aacute;n en vigor.</p>
+
+<p>El presente Acuerdo (y cualquier t&eacute;rmino y condici&oacute;n a los que se haga referencia en el presente documento) constituye el acuerdo completo entre usted y Tripadvisor con respecto a los Servicios, y reemplaza a todas las comunicaciones y propuestas anteriores o contempor&aacute;neas, ya est&eacute;n en formato electr&oacute;nico, oral o escrito, formalizadas entre usted y Tripadvisor con respecto a los Servicios. En los procedimientos judiciales o administrativos basados o relacionados con el presente Acuerdo se admitir&aacute; una versi&oacute;n impresa del mismo y de cualquier notificaci&oacute;n que exista en formato electr&oacute;nico, en la misma medida y en virtud de las mismas condiciones que otros documentos y registros comerciales, originalmente generados y conservados en formato impreso.</p>
+
+<p>Las secciones que se incluyen a continuaci&oacute;n seguir&aacute;n vigentes tras la rescisi&oacute;n de este Acuerdo:</p>
+
+<ul>
+	<li><a href="#OLE_LINK3">Productos adicionales</a></li>
+	<li><a href="#OLE_LINK4">Actividades prohibidas</a></li>
+	<li><a href="#OLE_LINK6">Opiniones, comentarios y uso de otras &Aacute;reas interactivas; Concesi&oacute;n de licencias</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK7">Restricci&oacute;n de los derechos de licencia de Tripadvisor</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK12">Destinos tur&iacute;sticos</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK13">Viajes internacionales</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK14">Renuncia de responsabilidad</a></li>
+	<li><a href="#OLE_LINK15">Indemnizaci&oacute;n</a></li>
+	<li><a href="#OLE_LINK17">Software como parte de los Servicios; Licencias de m&oacute;viles adicionales</a></li>
+	<li><a href="#OLE_LINK18">Avisos sobre derechos de autor y marcas comerciales</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK19">Pol&iacute;tica de notificaci&oacute;n y retirada de contenido ilegal</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK20">Modificaciones de los Servicios; Rescisi&oacute;n</a></li>
+	<li><a href="#OLE_LINK21">Jurisdicci&oacute;n y legislaci&oacute;n vigente</a></li>
+	<li><a href="#OLE_LINK23">Disposiciones generales</a></li>
+	<li><a href="#OLE_LINK24">Servicio de ayuda</a></li>
+</ul>
+
+<p>Los t&eacute;rminos y condiciones de este Acuerdo est&aacute;n disponibles en el idioma de los Sitios web o aplicaciones de Tripadvisor desde los que se puede acceder a los Servicios.</p>
+
+<p>Es posible que los Sitios web o aplicaciones desde los que se puede acceder a los Servicios no siempre se actualicen de manera regular y peri&oacute;dica y, en consecuencia, no es necesario registrarlos como un producto editorial bajo la legislaci&oacute;n pertinente.</p>
+
+<p>Los nombres ficticios de empresas, productos, personas, personajes o datos mencionados en los Servicios o a trav&eacute;s de ellos no pretenden representar ning&uacute;n tipo de persona, empresa, producto o acontecimiento real.</p>
+
+<p>En ning&uacute;n caso se considerar&aacute; que las disposiciones expuestas en este Acuerdo otorgan a alg&uacute;n tercero derechos o beneficios, salvo si se considera expl&iacute;citamente que las empresas filiales corporativas de Tripadvisor son terceras beneficiarias del presente Acuerdo.</p>
+
+<p>Queda prohibido transferir cualesquiera de sus derechos u obligaciones en virtud de este Acuerdo a otras personas sin nuestro consentimiento.</p>
+
+<p>Se reservan todos los derechos que no se otorguen expl&iacute;citamente en el presente documento.</p>
+
+<p><a id="SERVICIO DE AYUDA" name="SERVICIO DE AYUDA"><strong>SERVICIO DE AYUDA</strong></a></p>
+
+<p>Si tiene alguna duda o desea ponerse en contacto con nosotros, visite nuestro&nbsp;<a href="https://www.tripadvisorsupport.com/hc/es/">Centro de ayuda</a>. Tambi&eacute;n puede escribirnos a la siguiente direcci&oacute;n:</p>
+
+<p style="margin-left:21.0pt;">Tripadvisor, LLC<br />
+400 1st Avenue<br />
+Needham, MA 02494, USA</p>
+
+<p>Tenga en cuenta que Tripadvisor LLC &uacute;nicamente acepta avisos legales y notificaciones de decretos en formato impreso en la direcci&oacute;n postal anterior. Para evitar cualquier g&eacute;nero de dudas y sin que sirva de limitaci&oacute;n, no aceptamos avisos ni notificaciones legales que se entreguen a nuestras empresas filiales o subsidiarias.</p>
+
+<p>&copy;2022 Tripadvisor LLC. Todos los derechos reservados.</p>
+
+<p>&Uacute;ltima actualizaci&oacute;n 15 diciembre de 2022</p>
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D20310%26item%3D32187" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D20310%26item%3D32187" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D20310%26item%3D32187" target="_blank" title="Twitter Share" style="background-color:#1DA1F2;">
+                    <span class="fa fa-twitter"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=ES%20Press%20Center%20%7C%20Resources&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-facebooklike"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D20310%26item%3D32187&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=105&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:105px; height:20px;" allowTransparency="true" title="Facebook Like"></iframe></li></ul></div>
+</div>
+</div>	</div><!--/content-->
+
+</div><!--/contentArea-->
+
+<div style="clear:both;">&nbsp;</div>
+<div class="footer">
+	<div class="widthLimit">
+	<div class="mobile-language">
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=34281">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34297">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34301">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=34289">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34305">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34309">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34313">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34317">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34321">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34325">Venezuela</a></li>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=34282">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=34286">Italia</a></li>
+			<li class="flag_item active"><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=34287">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=34449">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=34285">France</a></li>
+			<li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34341">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34345">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34349">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34353">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34357">Ireland</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34365">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34369">Ελλάδα</a></li>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34381">Norge</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34389">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=34288">Россия</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34401">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34405">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34409">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34413">Belgique</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34417">België</a></li>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=34291">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=34292">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34423">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=34290">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=34283">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34294">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=34284">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34425">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34293">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34295">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34429">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34296">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34433">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34437">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34441">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34445">香港</a></li>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34578">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34329">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34333">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34337">ישראל</a></li>
+		</ul>
+	</div>
+
+	<div class="footerLogo-wrapper"><img src="images/Tripadvisor_lockup_horizontal_registered.png" alt="" title="" border="0" style="max-width: 200px;"></div>
+	<div class="flagMenu-wrapper">
+		<div class="flagMenu-input">
+			<a href="#" class="flagMenu" data-jq-dropdown="#flagMenu" data-horizontal-offset="10" data-vertical-offset="-500"> 
+			<div class="flag"></div> España 
+			<i class="fa fa-chevron-down"></i></a>
+		</div>
+	</div>
+	<div class="wd_featureboxes_footer wd_featureboxes-vertical">
+<div id="wd_featurebox-standard_3530" class="wd_featurebox_container wd_featurebox-standard"><div class="wd_featurebox_title"></div><div class="wd_featurebox"><div><a href="https://www.tripadvisor.es/SiteIndex" target="_blank">Mapa del sitio</a>&nbsp;|&nbsp;<a href="http://info.evidon.com/pub_info/1200?v=1&amp;nt=0" target="_blank">Aceptaci&oacute;n de cookies</a>&nbsp;|&nbsp;<span data-modal="help_center" data-options="autoReposition closeOnDocClick closeOnEscape" data-url="/uvpages/helpCenterOverlay.html" data-windowshade=""><a href="https://www.tripadvisorsupport.com/hc/es" target="_blank">Centro&nbsp;de&nbsp;ayuda</a>&nbsp;<img alt="" height="10" id="lazyload_-212900614_0" src="https://static.tacdn.com/img2/icons/bell.png" style="border:0px;vertical-align:text-top;" width="14" /></span></div>
+
+<div>
+<div>&copy; 2023 Tripadvisor LLC Todos los derechos reservados.&nbsp;<a href="https://www.tripadvisor.es/pages/terms.html" target="_blank">Condiciones de uso</a>,&nbsp;<a href="https://www.tripadvisor.es/pages/privacy.html" target="_blank">pol&iacute;tica de privacidad</a>&nbsp;y&nbsp;<a href="https://www.tripadvisor.es/CookiePolicy" target="_blank">pol&iacute;tica de cookies</a>&nbsp;de Tripadvisor.</div>
+
+<div>&nbsp;</div>
+
+<div id="PDISCLAIMER">
+<p>Tripadvisor LLC no es una agencia de reservas y no cobra honorarios por sus servicios a los usuarios del sitio. Nuestros socios (compa&ntilde;&iacute;as a&eacute;reas y agentes de viajes y reservas) est&aacute;n obligados a incluir todas las tasas y recargos en los precios de los vuelos, visitas guiadas y paquetes vacacionales que ofrecen en Tripadvisor. Algunos ejemplos son la tasa federal de seguridad del 11 de septiembre, las tasas por llegadas y salidas internacionales, o los impuestos especiales de EE.&nbsp;UU. y otras tasas y recargos por servicios, tramitaci&oacute;n, etc. Cuando reserves con uno de nuestros socios, aseg&uacute;rate de examinar su sitio web para obtener informaci&oacute;n de todas las tasas aplicables seg&uacute;n el Departamento de Transporte de EE. UU. Las tarifas a&eacute;reas se suelen calcular por persona en USD a menos que se especifique lo contrario.</p>
+
+<p>Para tu comodidad, Tripadvisor LLC calcula el precio medio de cada hotel en funci&oacute;n de las tarifas de las habitaciones disponibles obtenidas gracias a nuestros socios de reservas. En el caso de visitas guiadas y atracciones, el precio que se muestra suele ser el m&aacute;s bajo disponible para adultos. Tripadvisor LLC no garantiza ninguna de las tarifas ni los precios espec&iacute;ficos de las ofertas o los paquetes de viajes anunciados. Adem&aacute;s, los precios medios de los hoteles se actualizan todas las noches y se muestran en la divisa que desees utilizando los tipos de conversi&oacute;n de divisa vigentes. Dado que estos precios convertidos son estimaciones, comprueba en el sitio de reservas el importe exacto y la divisa.</p>
+
+<p>Adem&aacute;s, Tripadvisor LLC no garantiza la efectiva disponibilidad de los precios publicitados en nuestro sitio web. Las tarifas oficiales de precios pueden estar sujetas a una duraci&oacute;n espec&iacute;fica o estar acompa&ntilde;adas de restricciones en las fechas, requisitos espec&iacute;ficos u otras restricciones.</p>
+</div>
+
+<div>Tripadvisor LLC no se responsabiliza del contenido de sitios web externos. Impuestos y tasas no incluidos en las ofertas.</div>
+</div>
+</div></div></div>
+	</div>
+</div><!--/footer-->
+
+
+<div id="searchMenu" class="jq-dropdown jq-dropdown-tip jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+	<div class="wd_search_form_container"><form name="basic_search" method="get" action="https://tripadvisor.mediaroom.com/index.php?s=20322" class="wd_search_form wd_search_form_basic"><input type="hidden" name="s" value="search_results" /><input type="text" name="query" value="" size="32" placeholder="Keywords..." title="Keywords..." /> <input type="submit" name="submit" value="Search"></form>
+</div>	</div>
+</div><!--/searchMenu-->
+<div id="flagMenuResources" class="jq-dropdown jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+		<div class="pad-20">
+<ul id="FLAGS_FLY">
+    <li class="america col region">
+    <div class="flag_heading">The Americas</div>
+    <ul>
+        <li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=20292">United States</a></li>
+        <li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34300">Canada (English)</a></li>
+        <li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34304">Canada (Français)</a></li>
+        <li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=20316">Brasil</a></li>
+        <li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34308">México</a></li>
+        <li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34312">Argentina</a></li>
+        <li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34316">Chile</a></li>
+        <li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34320">Colombia</a></li>
+        <li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34324">Perú</a></li>
+        <li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34328">Venezuela</a></li>
+    </ul>
+    </li>
+    <li class="europe col region">
+    <div class="flag_heading">Europe</div>
+    <ul>
+        <li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=20288">United Kingdom</a></li>
+        <li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=20309">Italia</a></li>
+        <li class="flag_item active"><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=20310">España</a></li>
+        <li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=20328">Deutschland</a></li>
+        <li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=20307">France</a></li>
+        <li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34344">Sverige</a></li>
+        <li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34348">Nederland</a></li>
+        <li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34352">Türkiye</a></li>
+        <li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34356">Danmark</a></li>
+        <li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34360">Ireland</a></li>
+        <li class="flag_item "><a id="flag_cz_fly" class="flag_link flag_cz" hreflang="cs" title="Czech Republic" href="index.php?s=34364">Česká republika</a></li>
+        <li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34368">Österreich</a></li>
+        <li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34372">Ελλάδα</a></li>
+        <li class="flag_item "><a id="flag_fi_fly" class="flag_link flag_fi" hreflang="fi" title="Finland" href="index.php?s=34376">Suomi</a></li>
+    </ul>
+    </li>
+    <li class="europe col1 region">
+    <div class="flag_heading empty">&nbsp;</div>
+    <ul>
+        <li class="flag_item "><a id="flag_hu_fly" class="flag_link flag_hu" hreflang="hu" title="Hungary" href="index.php?s=34380">Magyarország</a></li>
+        <li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34384">Norge</a></li>
+        <li class="flag_item "><a id="flag_pl_fly" class="flag_link flag_pl" hreflang="pl" title="Poland" href="index.php?s=34388">Polska</a></li>
+        <li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34392">Portugal</a></li>
+        <li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=20314">Россия</a></li>
+        <li class="flag_item "><a id="flag_sk_fly" class="flag_link flag_sk" hreflang="sk" title="Slovakia" href="index.php?s=34396">Slovensko</a></li>
+        <li class="flag_item "><a id="flag_rs_fly" class="flag_link flag_rs" hreflang="sr" title="Serbia" href="index.php?s=34400">Srbija</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34404">Schweiz</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34408">Suisse</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34412">Svizzera</a></li>
+        <li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34416">Belgique</a></li>
+        <li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34420">België</a></li>
+    </ul>
+    </li>
+    <li class="apac col region">
+    <div class="flag_heading">Asia Pacific</div>
+    <ul>
+        <li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=20318">日本</a></li>
+        <li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=20305">中国</a></li>
+        <li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34424">中文国际版</a></li>
+        <li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=20315">India</a></li>
+        <li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=20301">Australia</a></li>
+        <li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34147">Malaysia</a></li>
+        <li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=20296">New Zealand</a></li>
+        <li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34428">Philippines</a></li>
+        <li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34143">Singapore</a></li>
+        <li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34148">Indonesia</a></li>
+        <li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34432">대한민국</a></li>
+        <li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34151">ไทย</a></li>
+        <li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34436">Việt Nam</a></li>
+        <li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34440">台灣</a></li>
+        <li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34444">Hong Kong</a></li>
+        <li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34448">香港</a></li>
+    </ul>
+    </li>
+    <li class="africa col region">
+    <div class="flag_heading">Africa &amp; the Middle East</div>
+    <ul>
+        <li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34580">العربية‬</a></li>
+        <li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34332">مصر</a></li>
+        <li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34336">South Africa</a></li>
+        <li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34698">ישראל</a></li>
+    </ul>
+    </li>
+</ul>
+</div>
+</div>
+</div>
+<div id="flagMenu" class="jq-dropdown jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+		<div class="pad-20">
+		<ul id="FLAGS_FLY">
+		<li class="america col region">
+		<div class="flag_heading">The Americas</div>
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=34281">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34297">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34301">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=34289">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34305">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34309">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34313">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34317">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34321">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34325">Venezuela</a></li>
+		</ul>
+		</li>
+		<li class="europe col region">
+		<div class="flag_heading">Europe</div>
+		<ul>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=34282">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=34286">Italia</a></li>
+			<li class="flag_item active"><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=34287">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=34449">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=34285">France</a></li>
+			<li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34341">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34345">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34349">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34353">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34357">Ireland</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34365">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34369">Ελλάδα</a></li>
+		</ul>
+		</li>
+		<li class="europe col1 region">
+		<div class="flag_heading empty">&nbsp;</div>
+		<ul>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34381">Norge</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34389">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=34288">Россия</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34401">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34405">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34409">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34413">Belgique</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34417">België</a></li>
+		</ul>
+		</li>
+		<li class="apac col region">
+		<div class="flag_heading">Asia Pacific</div>
+		<ul>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=34291">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=34292">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34423">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=34290">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=34283">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34294">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=34284">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34425">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34293">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34295">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34429">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34296">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34433">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34437">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34441">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34445">香港</a></li>
+		</ul>
+		</li>
+		<li class="africa col region">
+		<div class="flag_heading">Africa &amp; the Middle East</div>
+		<ul>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34578">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34329">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34333">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34337">ישראל</a></li>
+		</ul>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div><!--/flagMenu-->
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.wd_featureboxes_middle .wd_featurebox p.more').each(function(){
+		$(this).parent().parent().prepend(this);
+	});
+	$('.wd_newsfeed_releases-teaser .item').each(function(){
+		$(this).children('.wd_date').insertAfter($(this).children('.wd_title'));
+	});
+	$('.clickdrop').click(function(){
+		$('.nav.pad-20').slideToggle();
+	});
+	$('i.fa.fa-bars').click(function(){
+		$('.mainnav').slideToggle();
+	});
+	$('.flagMenu-input').not('#wd_mobile_contacts_flag_toggle').not("#wd_mobile_resources_flag_toggle").click(function(){
+		$('.footer .mobile-language').toggleClass('active');
+	});
+
+	//Removing Img from table in Featurebox left
+
+	$('.wd_featureboxes_left .wd_featurebox').prepend($('.wd_featureboxes_left .wd_featurebox').find('table img'));
+	$('.wd_featureboxes_left .wd_featurebox table').remove();
+});
+</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var flagMenuWrapper = '<div class="flagMenu-wrapper">' +
+				'<div class="flagMenu-input" id="wd_mobile_resources_flag_toggle">' +
+					'<a href="#" class="flagMenu" data-jq-dropdown="#flagMenuResources" data-horizontal-offset="10" data-vertical-offset="-500">' +
+					'<div class="flag"></div> España' +
+					'<i class="fa fa-chevron-down"></i></a>' +
+				'</div>' +
+			'</div>';
+			$(flagMenuWrapper).prependTo('.content');
+			$('#wd_mobile_resources_flag_toggle').click(function(){
+				$('#mobile-resources-page-menu').toggleClass('active');
+			});
+		});
+</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//$('.flagMenu-wrapper').clone().prependTo('.content');
+			//$('.content .flagMenu-wrapper .flagMenu-input').attr('id','wd_mobile_flag_toggle');
+			//$('.mobile-language').clone().insertAfter($('.content .flagMenu-wrapper'));
+			
+		});
+	</script>
+
+
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "Standard", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "ES Resources", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4086]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4086&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){var js = "window['__CF$cv$params']={r:'7dd4689dcaf0374c',m:'PODGKd2Yyr4LXcA2DnngKxEKxA7GPR46vghvh.CHykE-1687771587-0-AbauAUTtIdSrcIDRCXk2JTjFHr60+uuVml7h2564xuvk'};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>

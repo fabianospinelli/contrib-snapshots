@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<style type="text/css" wd_script_id="toolbar_style" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<style type="text/css" wd_script_id="featureboxes_style" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA==">
+		.wd_featurebox_icon {
+			display: inline;
+		}
+		.wd_featurebox_icon img {
+			vertical-align: middle;
+		}
+		div.wd_featurebox_group div.wd_tabs_wrapper {
+			border: none;
+			border-bottom: 1px solid #E1E1E1;
+			padding: 0 0 5px 0;
+		}
+		div.wd_featurebox_group div.wd_featurebox {
+			border: none;
+			padding: 8px 0 0 0;
+		}
+		div.wd_featurebox_group li.wd_tab {
+			float: none;
+			color: #666666;
+		}
+		div.wd_featurebox_group li.wd_tab-active {
+			border: none;
+			background-color: transparent;
+			color: #000000;
+			font-weight: bold;
+		}
+		div.wd_featurebox_group li.wd_tab-inactive {
+			cursor: auto;
+		}
+	</style>
+<style type="text/css" wd_script_id="search_form_style" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA==">
+		.wd_search_form .wd_input_datepicker {
+			margin-right: 2px;
+		}
+		.wd_search_type_checkbox {
+			margin-left: 20px;
+		}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA=="></script>
+<script type="text/javascript" wd_script_id="search_form_script" nonce="ZGY1ZDg3YmEwNTI2ZmNkMTMwOTAzNmI3MDU5NTlkZGFlNGI2ZTFmOA==">
+			function wd_toggle_search_form(link, advanced) {
+				var $ = webDriver.jQuery;
+				var $container = $(link).closest(".wd_search_form_container");
+				var basic_form = $container.find(".wd_search_form_basic");
+				var basic_query = basic_form.find('input[name="query"]');
+				var advanced_form = $container.find(".wd_search_form_advanced");
+				var advanced_query = advanced_form.find('input[name="query"]');
+
+				if (advanced) {
+					advanced_query.val(basic_query.val());
+					advanced_form.show();
+					basic_form.hide();
+				} else {
+					basic_query.val(advanced_query.val());
+					basic_form.show();
+					advanced_form.hide();
+				}
+			}
+
+			function wd_toggle_search_type_checkboxes(radio) {
+				var $ = webDriver.jQuery;
+				var $radio = $(radio);
+				var all = $radio.val() == "All" ? $radio.is(":checked") : !$radio.is(":checked");
+				var $checkboxes = $radio.closest(".wd_form_field").find(".wd_search_type_checkbox");
+				$checkboxes.find('input[type="checkbox"]').prop("disabled", all);
+				$checkboxes.toggle(!all);
+			}
+
+			webDriver.jQuery(function ($) {
+				$('.wd_search_type_radio input[type="radio"]').each(function() {wd_toggle_search_type_checkboxes(this);});
+			});
+		</script>
+
+<!-- end spin_special_output(head_start) -->
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>BE DU Media Center | Resources</title>
+	
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Algemene voorwaarden en kennisgevingen van de Tripadvisor-website" />
+ <meta name="twitter:description" content="&lt;p&gt;Welkom bij de Tripadvisor-websites en mobiele eigendommen die gevestigd zijn op&amp;nbsp;&lt;a href=&quot;http://www.tripadvisor.be/&quot;&gt;www.tripadvisor.be&lt;/a&gt;&amp;nbsp;en van toepassing zijnde landelijke topleveldomeinen (waaronder de bijbehorende subdomeinen), bijbehorende softwareapplicaties (soms ook wel &amp;lsquo;apps&amp;rsquo; genoemd), gegevens, sms-berichten, API&amp;rsquo;s, e-mails, chat- en telefoongesprekken, knoppen, widgets en advertenties (naar deze items tezamen wordt hierin verwezen met de &amp;lsquo;Diensten&amp;rsquo;. In algemenere zin wordt hierin naar de Tripadvisor-website en mobiele eigendommen verwezen met &amp;lsquo;websites&amp;rsquo;).&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;BEDU-terms-of-use&quot;&gt;Beleid bekijken &amp;gt;&lt;/a&gt;&lt;/p&gt; " />
+ <meta property="og:site_name" content="MediaRoom" />
+ <meta property="og:url" content="https://tripadvisor.mediaroom.com/BEDU-terms-of-use" />
+ <meta property="og:title" content="Algemene voorwaarden en kennisgevingen van de Tripadvisor-website" />
+ <meta property="og:description" content="&lt;p&gt;Welkom bij de Tripadvisor-websites en mobiele eigendommen die gevestigd zijn op&amp;nbsp;&lt;a href=&quot;http://www.tripadvisor.be/&quot;&gt;www.tripadvisor.be&lt;/a&gt;&amp;nbsp;en van toepassing zijnde landelijke topleveldomeinen (waaronder de bijbehorende subdomeinen), bijbehorende softwareapplicaties (soms ook wel &amp;lsquo;apps&amp;rsquo; genoemd), gegevens, sms-berichten, API&amp;rsquo;s, e-mails, chat- en telefoongesprekken, knoppen, widgets en advertenties (naar deze items tezamen wordt hierin verwezen met de &amp;lsquo;Diensten&amp;rsquo;. In algemenere zin wordt hierin naar de Tripadvisor-website en mobiele eigendommen verwezen met &amp;lsquo;websites&amp;rsquo;).&amp;nbsp;&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;BEDU-terms-of-use&quot;&gt;Beleid bekijken &amp;gt;&lt;/a&gt;&lt;/p&gt; " />
+	
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<link type="text/css" rel="stylesheet" href="css/jquery.dropdown.min.css">
+	<link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.dropdown.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+	<link rel="alternate" href="https://tripadvisor.mediaroom.com/press-releases?pagetemplate=rss" type="application/rss+xml" title="MediaRoom">	<style>.flag{background-position: 0px -754px;}</style>
+
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://tripadvisor.mediaroom.com/BEDU-terms-of-use" />
+<!-- end spin_special_output(head_end) -->
+</head>
+
+	<body class="wd_pageid_34420 wd_item_page wd_item_32414 ">
+
+<div class="topbar">
+	<div class=" widthLimit">
+
+		<i class="fa fa-bars" aria-hidden="true"></i>
+
+		<a class="wd_logo_main" href="https://www.tripadvisor.be/"><img src="images/Tripadvisor_Logo_circle-green_horizontal-lockup_registered_RGB.svg" alt="Reviews of Hotels, Flights and Vacation Rentals" class="mastheadLogoImage"></a>
+		<div class="headerRight">
+		<a href="https://www.tripadvisor.be/" class="homelink">Ga terug naar Tripadvisor</a>
+		<a href="#" class="searchMenu fa fa-search" data-jq-dropdown="#searchMenu" data-horizontal-offset="8" data-vertical-offset="14"> </a>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="header"></div> -->
+
+<div class="heroimage">
+
+	<div class=" widthLimit">
+			<div class="herotext">Media Center</div>
+	</div>
+</div>
+<div class="mainnav widthLimit">
+	<ul>
+		<li class="mannav-about"><a target="_blank" href="US-about-us">Over Tripadvisor</a></li>
+		<li class="mannav-investor"><a href="http://ir.tripadvisor.com/" target="_blank">Investeerdersrelaties</a></li>
+		<li class="mannav-resources"><a href="index.php?s=34420">Hulpmiddelen</a></li>
+		<li class="mannav-contact"><a href="index.php?s=34632">Contact</a></li>
+	</ul>
+</div>
+<div class="widthLimit"><!-- <img src="images/shadow-mainnav.png" width="1090" height="21"> --></div>
+
+<div class="contentArea widthLimit">
+
+	
+	
+	
+	<div class="leftNav pad-20">
+	<p class="clickdrop">Newsroom</p>
+	<div class="nav pad-20">
+<p><a href="DE-press-releases?l=5&year=&keywords=" target="_self">Persberichten</a></p>
+<p><a href="https://www.purpose.tripadvisor.com/diversity" target="_blank">Equity, Diversity + Inclusion</a></p>
+<p><a href="https://www.purpose.tripadvisor.com/social-impact" target="_blank">Social Impact</a></p>
+<p><a href="logo-guidelines" target="_self">Ons merk</a></p>
+</div><!--/nav-->
+		</div><!--/leftNav-->
+
+		<div class="content" ><div class="mobile-language" id="mobile-resources-page-menu">
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=20292">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34300">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34304">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=20316">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34308">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34312">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34316">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34320">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34324">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34328">Venezuela</a></li>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=20288">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=20309">Italia</a></li>
+			<li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=20310">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=20328">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=20307">France</a></li>
+			<li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34344">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34348">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34352">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34356">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34360">Ireland</a></li>
+			<li class="flag_item "><a id="flag_cz_fly" class="flag_link flag_cz" hreflang="cs" title="Czech Republic" href="index.php?s=34364">Česká republika</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34368">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34372">Ελλάδα</a></li>
+			<li class="flag_item "><a id="flag_fi_fly" class="flag_link flag_fi" hreflang="fi" title="Finland" href="index.php?s=34376">Suomi</a></li>
+			<li class="flag_item "><a id="flag_hu_fly" class="flag_link flag_hu" hreflang="hu" title="Hungary" href="index.php?s=34380">Magyarország</a></li>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34384">Norge</a></li>
+			<li class="flag_item "><a id="flag_pl_fly" class="flag_link flag_pl" hreflang="pl" title="Poland" href="index.php?s=34388">Polska</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34392">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=20314">Россия</a></li>
+			<li class="flag_item "><a id="flag_sk_fly" class="flag_link flag_sk" hreflang="sk" title="Slovakia" href="index.php?s=34396">Slovensko</a></li>
+			<li class="flag_item "><a id="flag_rs_fly" class="flag_link flag_rs" hreflang="sr" title="Serbia" href="index.php?s=34400">Srbija</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34404">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34408">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34412">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34416">Belgique</a></li>
+			<li class="flag_item active"><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34420">België</a></li>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=20318">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=20305">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34424">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=20315">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=20301">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34147">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=20296">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34428">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34143">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34148">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34432">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34151">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34436">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34440">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34444">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34448">香港</a></li>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34580">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34332">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34336">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34698">ישראל</a></li>
+		</ul>
+	</div><div id="wd_printable_content">
+<div class="wd_standard-detail">
+<h1 class="detail_header">Algemene voorwaarden en kennisgevingen van de Tripadvisor-website</h1>
+<p><a href="#OLE_LINK2"><strong>GEBRUIK VAN DE DIENSTEN</strong></a></p>
+
+<p><strong><u><a href="#OLE_LINK3">AANVULLENDE PRODUCTEN </a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK4">VERBODEN ACTIVITEITEN</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK5">PRIVACYBELEID EN OPENBARINGEN</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK6">BEOORDELINGEN, REACTIES EN GEBRUIK VAN ANDERE INTERACTIEVE ZONES; LICENTIEVERLENING</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#OLE_LINK7">Licentierechten van Tripadvisor beperken</a></u></strong></li>
+</ul>
+
+<p><strong><u><a href="#OLE_LINK8">VIA Tripadvisor BIJ DERDE LEVERANCIERS BOEKEN</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#OLE_LINK9">Gebruik van de boekingsdiensten van Tripadvisor</a></u></strong><br />
+	&nbsp;</li>
+	<li><strong><u><a href="#OLE_LINK10">Derde leveranciers</a></u></strong><br />
+	&nbsp;</li>
+	<li><a href="#OLE_LINK11"><strong>Vakantiewoningen, restaurantreserveringen en ervaringen boeken bij derde leveranciers die zijn vermeld op de websites van partnerbedrijven</strong></a><br />
+	&nbsp;</li>
+</ul>
+
+<p><a href="#OLE_LINK12"><strong>REISBESTEMMINGEN</strong></a><br />
+&nbsp;</p>
+
+<ul>
+	<li><a href="#OLE_LINK13"><strong>Internationale reizen</strong></a></li>
+</ul>
+
+<p><strong><u><a href="#OLE_LINK14">AFWIJZING VAN AANSPRAKELIJKHEID</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK15">SCHADELOOSSTELLING</a></u></strong></p>
+
+<p><a href="#OLE_LINK16"><strong>LINKS NAAR WEBSITES VAN DERDEN</strong></a></p>
+
+<p><strong><u><a href="#OLE_LINK17">SOFTWARE ALS ONDERDEEL VAN DE DIENSTEN; BIJKOMENDE MOBIELE LICENTIES</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK18">VERMELDINGEN AUTEURSRECHT EN HANDELSMERK</a></u></strong></p>
+
+<ul>
+	<li><strong><u><a href="#OLE_LINK19">Beleid voor de melding en verwijdering van illegale inhoud</a></u></strong></li>
+</ul>
+
+<p><strong><u><a href="#OLE_LINK20">AANPASSINGEN AAN DE DIENSTEN; BE&Euml;INDIGING</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK21">RECHTSGEBIED EN TOEPASSELIJK RECHT</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK22">VALUTA-OMREKENMACHINE</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK23">ALGEMENE BEPALINGEN</a></u></strong></p>
+
+<p><strong><u><a href="#OLE_LINK24">HULP BIJ DIENSTEN</a></u></strong></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Welkom bij de Tripadvisor-websites en mobiele eigendommen die gevestigd zijn op <a href="http://www.tripadvisor.nl/">www.Tripadvisor.</a><a href="https://www.tripadvisor.be/">be</a>&nbsp;en van toepassing zijnde landelijke topleveldomeinen (waaronder de bijbehorende subdomeinen), bijbehorende softwareapplicaties (soms ook wel &lsquo;apps&rsquo; genoemd), gegevens, sms-berichten, API&rsquo;s, e-mails, chat- en telefoongesprekken, knoppen, widgets en advertenties (naar deze items tezamen wordt hierin verwezen met de &lsquo;Diensten&rsquo;. In algemenere zin wordt hierin naar de Tripadvisor-website en mobiele eigendommen verwezen met &lsquo;websites&rsquo;). De Diensten worden u aangeboden op voorwaarde van uw acceptatie van de voorwaarden en kennisgevingen die hieronder worden vermeld (samen, deze &#39;Overeenkomst&#39;). Door de Diensten te bezoeken of te gebruiken, aanvaardt u gebonden te zijn aan deze Overeenkomst en verklaart u dat u de voorwaarden hiervan heeft gelezen en begrepen. Lees deze Overeenkomst aandachtig door. Deze bevat informatie over uw wettelijke rechten en de beperkingen daarop, aangevuld met een sectie over het toepasselijke recht en het rechtsgebied voor geschillen. Als u niet akkoord gaat met al deze voorwaarden, mag u de Diensten niet gebruiken. Als u een Tripadvisor-account heeft en deze Overeenkomst wilt be&euml;indigen, dan kun u dat op elk moment doen door uw account te sluiten en de Diensten niet langer te bezoeken of gebruiken. (Een beschrijving van hoe u dit doet, kunt u <a href="https://www.tripadvisorsupport.com/hc/nl/articles/200615117-How-do-I-close-my-member-account-" title="To terminate your account, sign into your account.  Click on your profile, then select &quot;Account Info&quot;.  Select &quot;Close Your Account&quot;. Choose your reason. Click in the box and enter your password, after that click the blue &quot;Close My Account&quot; button. "><strong>hier</strong></a> vinden.)</p>
+
+<p>Alle informatie, tekst, links, afbeeldingen, foto&#39;s, audio, video&rsquo;s, gegevens, code of andere materialen of sets materialen die u bekijkt, opent of anderszins gebruikt via de Diensten wordt hierin &lsquo;Inhoud&rsquo; genoemd. De termen &lsquo;wij&rsquo;, &lsquo;ons&rsquo;, &lsquo;onze&rsquo; en &lsquo;Tripadvisor&rsquo; verwijzen naar Tripadvisor LLC, een naamloze vennootschap in Delaware, gevestigd in de Verenigde Staten van Amerika (&lsquo;Tripadvisor&rsquo;). &lsquo;Diensten&rsquo;, zoals hierboven gedefinieerd, verwijst naar de diensten geleverd door Tripadvisor of onze partnerbedrijven (Tripadvisor en deze entiteiten, als er naar &eacute;&eacute;n of meer worden verwezen, worden tezamen de &lsquo;Bedrijven van Tripadvisor&rsquo; genoemd). Ter voorkoming van enige twijfel: de websites zijn alle eigendom van en worden beheerd door Tripadvisor.&nbsp; Echter, sommige specifieke Diensten die via de websites beschikbaar worden gesteld, kunnen het eigendom zijn en beheer worden door partnerbedrijven van Tripadvisor, bijvoorbeeld Diensten voor <a href="#OLE_LINK11"><strong>het boeken van vakantiewoningen, restaurantreserveringen en ervaringen bij derde leveranciers</strong></a> (zie hieronder).&nbsp;Als onderdeel van onze services kunnen wij u meldingen sturen over speciale aanbiedingen, producten of andere services die bij ons, de aan ons gelieerde ondernemingen of onze partners beschikbaar zijn en die mogelijk interessant voor u zijn. Dergelijke meldingen worden over het algemeen via de nieuwbrief en marketingberichten gestuurd en vertegenwoordigen onze inspanningen om meer inzicht te krijgen in u en uw voorkeuren op het gebied van onze services en die van onze gelieerde ondernemingen. Dit zorgt er op zijn beurt voor dat de services aan die voorkeuren kunnen worden aangepast.</p>
+
+<p>De term &lsquo;u&rsquo; verwijst naar de persoon, het bedrijf, de organisatie of overige rechtspersoon die de Diensten gebruikt en/of er Inhoud aan verstrekt. De Inhoud die u bijdraagt, verzendt, verstrekt en/of plaatst op, aan of via de Diensten wordt hierin genoemd &lsquo;uw Inhoud&rsquo;, &lsquo;Inhoud die u verstrekt&rsquo; en/of &lsquo;door u verstrekte Inhoud&rsquo;.</p>
+
+<p>De Diensten worden uitsluitend geleverd om:</p>
+
+<ol style="list-style-type:upper-alpha;">
+	<li>klanten te helpen bij het verzamelen van reisinformatie, plaatsen van Inhoud en zoeken naar en boeken van reisdiensten en reserveringen; en</li>
+	<li>reis-, toerisme- en horecabedrijven te helpen bij het contact leggen met klanten en potenti&euml;le klanten via gratis en/of betaalde diensten aangeboden door of via Bedrijven van Tripadvisor.</li>
+</ol>
+
+<p>Wij kunnen deze Overeenkomst in de toekomst wijzigen of anderszins aanpassen in overeenstemming met de hierin vastgelegde voorwaarden en u begrijpt en aanvaardt dat de voortzetting van uw toegang tot of gebruik van de Diensten na een wijziging betekent dat u akkoord gaat met de bijgewerkte of gewijzigde Overeenkomst. Wij zullen de datum van de laatste revisies van deze Overeenkomst onderaan deze Overeenkomst vermelden en elke revisie zal vanaf haar publicatie van kracht zijn. Wij zullen geregistreerde gebruikers van onze Diensten (deze geregistreerde gebruikers worden &lsquo;Accounthouders&rsquo; genoemd) informeren over materi&euml;le wijzigingen van deze voorwaarden ofwel door een kennisgeving te sturen naar het e-mailadres dat gekoppeld is aan het profiel van de Accounthouder, ofwel door een kennisgeving op onze websites te plaatsen. Bezoek deze pagina regelmatig om de nieuwste versie van deze Overeenkomst te raadplegen.</p>
+
+<p><a name="OLE_LINK2"><strong>GEBRUIK VAN DE DIENSTEN</strong></a></p>
+
+<p>Als voorwaarde voor uw gebruik van de Diensten verklaart u dat (i) alle informatie die u via de Diensten aan de Bedrijven van Tripadvisor verschaft waar, accuraat, actueel en volledig is, (ii) u, als u een Accounthouder bent, de informatie over uw account zult beschermen en toezicht zult houden op en volledig verantwoordelijk zult zijn voor elk gebruik van uw account door derden, (iii) u 13 jaar of ouder bent (in sommige rechtsgebieden kan de lokale wetgeving een hogere leeftijd hanteren) als u een account registreert, de Diensten gebruikt en bijdraagt aan onze websites en (iv) u wettelijk bevoegd bent om deze Overeenkomst aan te gaan en dat u de Diensten, waaronder onze websites, zult gebruiken in overeenstemming met alle voorwaarden van deze Overeenkomst. De Bedrijven van Tripadvisor verzamelen niet doelbewust informatie van personen onder de 13 jaar. Wij behouden het recht voor om, naar eigen goeddunken, personen toegang tot de Diensten te weigeren, op welk moment dan ook en ongeacht de reden, waaronder, maar niet beperkt tot, schending van deze Overeenkomst. Door gebruik te maken van de Diensten, waaronder producten en diensten die het delen van Inhoud van of naar websites van derden mogelijk maken, verklaart u te begrijpen dat u volledig aansprakelijk bent voor alle informatie die u deelt met de Bedrijven van Tripadvisor. U mag de Diensten uitsluitend zoals bedoeld gebruiken via de aangeboden functies van de Diensten en zoals toegestaan krachtens deze Overeenkomst.</p>
+
+<p>Kopi&euml;ren, overdragen, reproduceren, repliceren, plaatsen of opnieuw verspreiden van (a) Inhoud of enig deel daarvan en/of (b) de Diensten in het algemeen is ten strengste verboden zonder voorafgaande schriftelijke toestemming van de Bedrijven van Tripadvisor. Om toestemming te vragen, richt u uw verzoek aan:</p>
+
+<p>Director, Partnerships and Business Development</p>
+
+<p>Tripadvisor LLC</p>
+
+<p>400 1st Avenue</p>
+
+<p>Needham, MA 02494, Verenigde Staten</p>
+
+<p>Om toegang te verkrijgen tot bepaalde onderdelen van de Diensten dient u een Accounthouder te worden door een account aan te maken. Als u een account aanmaakt dient u volledige en juiste informatie te verstrekken. U bent volledig verantwoordelijk voor de activiteit die middels uw account plaatsvindt, waaronder uw interactie en communicatie met anderen, en u dient uw account veilig te houden. Hiervoor komt u, als u een Accounthouder bent, overeen om uw contactgegevens up-to-date te houden.&nbsp;&nbsp;</p>
+
+<p>Als u een Tripadvisor-account aanmaakt met commerci&euml;le doeleinden en u deze Overeenkomst aanvaardt namens een bedrijf, organisatie of andere rechtspersoon, verklaart en garandeert u dat u bevoegd bent om dit te doen en dat u de bevoegdheid heeft om de entiteit te binden aan deze Overeenkomst, in welk geval de woorden &lsquo;u&rsquo; en &lsquo;uw&rsquo; zoals gebruikt in deze Overeenkomst verwijzen naar de entiteit, en de persoon die namens het bedrijf handelt de &lsquo;Bedrijfsvertegenwoordiger&rsquo; wordt genoemd.</p>
+
+<p>In uw gebruik van de Diensten kunt u links naar websites en apps van derden tegenkomen of kunt u in contact komen met websites en apps van derden. Hieronder kan vallen de mogelijkheid om Inhoud van de Diensten te delen, waaronder uw Inhoud, met websites en apps van derden. Houd er rekening mee dat websites en apps van derden deze gedeelde Inhoud publiekelijk kunnen weergeven. Deze derde partijen kunnen een vergoeding in rekening brengen voor het gebruik van bepaalde inhoud of diensten die op of via hun websites worden aangeboden. U moet daarom elk onderzoek uitvoeren dat u nodig of gepast acht om te weten of er kosten in rekening gebracht zullen worden als u transacties uitvoert met een derde partij. Indien de Bedrijven van Tripadvisor informatie verstrekken over kosten of bedragen voor dergelijke inhoud of diensten van derde leveranciers, wordt deze informatie uitsluitend verstrekt met als doel te informeren en het gemak te dienen. Alle interacties met websites en apps van derden gebeuren op uw eigen risico. U erkent en komt uitdrukkelijk overeen dat de Bedrijven van Tripadvisor op geen enkele wijze verantwoordelijk of aansprakelijk zijn voor deze websites of apps van derden.</p>
+
+<p>Sommige Inhoud die u ziet of anderszins tegenkomt op of via de Diensten wordt gebruikt voor commerci&euml;le doeleinden. U begrijpt en komt overeen dat de Bedrijven van Tripadvisor advertenties en promoties kunnen plaatsen op de Diensten, naast, nabij, langs of anderszins in de buurt van uw Inhoud en de Inhoud van anderen (waaronder, voor video- of ander dynamisch materiaal, voor, tijdens of na de weergave daarvan).</p>
+
+<p><a name="OLE_LINK3"><strong>AANVULLENDE PRODUCTEN </strong></a></p>
+
+<p>De Bedrijven van Tripadvisor kunnen, van tijd tot tijd, besluiten om bepaalde producten en de functies van bepaalde Diensten te wijzigen, bij te werken, of stop te zetten. U begrijpt en gaat ermee akkoord dat de Bedrijven van Tripadvisor niet verplicht zijn om uw Inhoud of andere informatie die u verstrekt op te slaan of te behouden, behalve in hoeverre dit door toepasselijke wetgeving is vereist.</p>
+
+<p>We leveren tevens andere diensten waarop aanvullende voorwaarden of overeenkomsten van toepassing kunnen zijn. Als u deze andere diensten gebruikt, worden de aanvullende voorwaarden kenbaar gemaakt aan u en worden deze voorwaarden onderdeel van deze Overeenkomst, tenzij deze aanvullende voorwaarden deze Overeenkomst uitdrukkelijk uitsluiten of vervangen. Bijvoorbeeld, als u aanvullende diensten gebruikt of aanschaft voor commerci&euml;le of zakelijke doeleinden dient u akkoord te gaan met de van toepassing zijnde aanvullende voorwaarden. Voor zover andere voorwaarden in strijd zijn met de voorwaarden van deze Overeenkomst, genieten de aanvullende voorwaarden voorrang in de mate van het conflict ten aanzien van deze specifieke diensten.</p>
+
+<p><a name="OLE_LINK4"><strong>VERBODEN ACTIVITEITEN</strong></a></p>
+
+<p>De Inhoud en informatie die beschikbaar is op en via de Diensten (waaronder, maar niet beperkt tot, berichten, gegevens, informatie, tekst, muziek, geluid, foto&#39;s, beeldmateriaal, video&#39;s, kaarten, pictogrammen, software, code of ander materiaal) alsmede de infrastructuur die wordt gebruikt om de Inhoud en informatie aan te bieden, zijn het eigendom van de Bedrijven van Tripadvisor of in licentie gegeven aan de Bedrijven van Tripadvisor door derden. Voor alle Inhoud anders dan uw eigen Inhoud, verklaart u dat u informatie, inhoud, software, producten of diensten die u uit of via de Diensten heeft verkregen niet zult wijzigen, kopi&euml;ren, distribueren, verzenden, vertonen, uitvoeren, reproduceren, publiceren, in licentie geven, gebruiken om afgeleide werken te cre&euml;ren, overdragen, kopen of wederverkopen. Daarnaast komt u overeen om:</p>
+
+<ul>
+	<li>(i) de Diensten of Inhoud niet te gebruiken voor commerci&euml;le doeleinden buiten de reikwijdte van de commerci&euml;le doeleinden die uitdrukkelijk zijn toegestaan krachtens deze Overeenkomst en de bijbehorende richtlijnen zoals door de Bedrijven van Tripadvisor beschikbaar gemaakt.</li>
+	<li>(ii) enige Inhoud van de Diensten waaronder, maar niet beperkt tot, gebruikersprofielen en foto&#39;s niet te openen, monitoren, reproduceren, distribueren, verzenden, uitzenden, vertonen, verkopen, in licentie geven, kopi&euml;ren of op andere wijze te exploiteren door middel van robots, spiders, scrapers of andere geautomatiseerde processen of enig handmatig proces voor doeleinden die niet in overeenstemming zijn met deze Overeenkomst of zonder onze uitdrukkelijke schriftelijke toestemming;</li>
+	<li>(iii) de beperkingen in robotuitsluitingsmeldingen in de Diensten niet te schenden en geen andere maatregelen te omzeilen of te ontwijken die zijn ingesteld om toegang tot de Diensten te voorkomen of beperken;</li>
+	<li>(iv) geen handelingen te verrichten die naar onze mening onze infrastructuur onredelijk of buiten verhouding zouden belasten;</li>
+	<li>(v) geen diepe links aan te brengen naar een deel van deze Diensten, met om het even welk doel, zonder onze uitdrukkelijke schriftelijke toestemming;</li>
+	<li>(vi) geen deel van de Diensten middels een &#39;frame&#39;, &#39;mirror&#39; of anderszins op te nemen in een andere website of dienst zonder onze uitdrukkelijke schriftelijke toestemming;</li>
+	<li>(vii) niet te trachten softwareprogramma&#39;s die de Bedrijven van Tripadvisor in verband met de Diensten gebruiken te wijzigen, te vertalen, aan te passen, te bewerken, te decompileren, te disassembleren of te reverse engineeren;</li>
+	<li>(viii) de beveiligingsfuncties van de Diensten of de functies die het gebruik of kopi&euml;ren van Inhoud voorkomen of beperken niet te omzeilen, uit te schakelen of anderszins te belemmeren; en</li>
+	<li>(ix) geen Inhoud te downloaden tenzij het uitdrukkelijk beschikbaar wordt gemaakt om te downloaden door de Bedrijven van Tripadvisor.</li>
+</ul>
+
+<p><a name="OLE_LINK5"><strong>PRIVACYBELEID EN OPENBARINGEN</strong></a></p>
+
+<p>Alle persoonlijke informatie die u publiceert of anderszins verzendt in verband met de Diensten, zal gebruikt worden in overeenstemming met ons Privacybeleid. Klik <a href="https://tripadvisor.mediaroom.com/NL-privacy-policy">hier</a>&nbsp;om ons <a href="https://tripadvisor.mediaroom.com/NL-privacy-policy">Privacybeleid</a> te bekijken.</p>
+
+<p><a name="OLE_LINK6"><strong>BEOORDELINGEN, REACTIES EN GEBRUIK VAN ANDERE INTERACTIEVE ZONES; LICENTIEVERLENING</strong></a></p>
+
+<p>Wij horen graag van u. Let op: door uw Inhoud aan of via de Diensten te verstrekken, hetzij via e-mail, hetzij via een synchronisatieproduct van Tripadvisor, de diensten en applicaties van anderen of anderszins, met inbegrip van enig gedeelte van de Inhoud dat via een product of dienst van een van de Bedrijven van Tripadvisor naar uw Tripadvisor-account is verzonden, beoordelingen, vragen, foto&#39;s en video&#39;s, reacties, suggesties, idee&euml;n en soortgelijke informatie in uw Inhoud, verleent u de Bedrijven van Tripadvisor een niet-exclusief, royaltyvrij, eeuwigdurend, overdraagbaar, onherroepelijk en volledig sublicentieerbaar recht om (a) wereldwijd en in elke nu bestaande of in de toekomst ontwikkelde media Inhoud te hosten, gebruiken, reproduceren, wijzigen, beheren, aanpassen, vertalen, verspreiden, publiceren, afgeleide werken daarvan te cre&euml;ren en openbaar te tonen en uit te voeren; (b) uw Inhoud beschikbaar te maken voor de rest van de wereld en anderen in staat te stellen om hetzelfde te doen; (c) de Diensten te leveren, promoten en verbeteren en uw Inhoud die via de Diensten wordt gedeeld beschikbaar te maken voor andere bedrijven, organisaties of personen voor het uitzenden, verspreiden, promoten, publiceren of via een syndicaat leveren van dergelijke Inhoud aan andere media en diensten die vallen onder ons Privacybeleid en deze Overeenkomst; en (d) de naam en/of het handelsmerk te gebruiken die u in verband met de Inhoud verstrekt. U bevestigt dat Tripadvisor naar eigen goeddunken uw naam bij uw Inhoud mag vermelden. U verleent de Bedrijven van Tripadvisor bovendien het recht om elke persoon of entiteit die uw rechten of de rechten van de Bedrijven van Tripadvisor met betrekking tot uw Inhoud schendt door het overtreden van deze Overeenkomst, gerechtelijk te vervolgen. U bevestigt en gaat ermee akkoord dat de Inhoud niet vertrouwelijk en niet uw eigendom is. U bevestigt, verklaart en garandeert dat u de nodige licenties, rechten (waaronder auteursrecht en andere intellectuele eigendomsrechten), toestemmingen en vergunningen bezit of heeft om uw Inhoud te publiceren of anderszins te gebruiken (en uw Inhoud door de Bedrijven van Tripadvisor te laten publiceren en anderszins te gebruiken) zoals uit hoofde van deze Overeenkomst is toegestaan.</p>
+
+<p>Indien wordt vastgesteld dat u morele rechten (waaronder het recht van naamsvermelding of integriteit) ten aanzien van uw Inhoud bezit, verklaart u hierbij, voor zover de wet dit toestaat, dat (a) u niet eist dat er persoonlijk identificeerbare informatie wordt vermeld bij de Inhoud of afgeleide werken, upgrades of updates van de Inhoud; (b) u geen bezwaar heeft tegen de publicatie, het gebruik, de aanpassing, de verwijdering en de exploitatie van de Inhoud door de Bedrijven van Tripadvisor of hun licentiehouders, opvolgers en rechtverkrijgenden; (c) u definitief afstand doet van en verklaart geen aanspraak te maken op de morele auteursrechten op enig gedeelte van uw Inhoud; en (d) u de Bedrijven van Tripadvisor, hun licentiehouders, opvolgers en rechtverkrijgenden definitief vrijwaart van alle eisen die u anders tegen de Bedrijven van Tripadvisor zou kunnen instellen op grond van dergelijke morele rechten.</p>
+
+<p>Houd er rekening mee dat alle feedback en andere suggesties die u geeft te allen tijde mogen worden gebruikt en dat wij niet verplicht zijn deze geheim te houden.</p>
+
+<p>De Diensten kunnen discussieforums, bulletinboards, beoordelingsdiensten en reisoverzichten bevatten of andere forums waar u uw Inhoud, zoals reiservaringen, berichten, materiaal of andere zaken (&#39;Interactieve Zones&#39;) kunt publiceren. Indien Tripadvisor dergelijke Interactieve Zones op de websites tot uw beschikking stelt, bent u als enige verantwoordelijk voor uw gebruik van de Interactieve Zones en gebruikt u ze op eigen risico. De Bedrijven van Tripadvisor garanderen niet de vertrouwelijkheid van enig gedeelte van uw Inhoud die u aan de Diensten of in een Interactieve zone verstrekt.&nbsp; Voor zover een entiteit die een van de Bedrijven van Tripadvisor is een vorm van een priv&eacute;communicatiekanaal tussen Accounthouders aanbiedt, gaat u ermee akkoord dat deze entiteit(en) de inhoud van dergelijke communicatie mag controleren om onze community en de Diensten te beschermen. U begrijpt dat de Bedrijven van Tripadvisor geen redactie uitvoeren op en geen controle uitoefenen over de gebruikersberichten die via de Diensten, waaronder via chatrooms, bulletinboards of andere communicatieforums, worden gepubliceerd of verspreid en dat zij in geen geval verantwoordelijk of aansprakelijk zijn voor dergelijke berichten.&nbsp; Tripadvisor voert met name geen redactie uit op en oefent geen controle uit over de Inhoud van gebruikers die op de websites wordt weergegeven.&nbsp; De Bedrijven van Tripadvisor behouden zich echter het recht voor om dergelijke berichten of andere Inhoud van de Diensten zonder nadere kennisgeving te verwijderen indien zij oprecht denken dat dergelijke Inhoud in strijd is met deze Overeenkomst of anderszins van mening zijn dat de verwijdering redelijkerwijs noodzakelijk is om de rechten van de Bedrijven van Tripadvisor en/of andere gebruikers van de Diensten te beschermen. Mocht u het niet eens zijn met de verwijdering van uw Inhoud van de websites,dan kunt u contact opnemen met Tripadvisor via het <a href="https://www.tripadvisorsupport.com/hc/nl"><strong>Helpcentrum</strong></a> om uw bezwaren kenbaar te maken.&nbsp; Door Interactieve Zones te gebruiken, verklaart u uitdrukkelijk dat u alleen Inhoud zult verzenden die overeenkomt met de gepubliceerde Tripadvisor-richtlijnen zoals die gelden op het moment dat u de Inhoud verzendt en ter beschikking zijn gesteld door Tripadvisor.&nbsp; U verklaart uitdrukkelijk dat u zich zult onthouden van het publiceren, uploaden, verzenden, verspreiden, opslaan, aanmaken of anderszins publiceren van enige Inhoud via de Diensten die:</p>
+
+<ol style="list-style-type:lower-alpha;">
+	<li>vals, onwettig, misleidend, lasterlijk, smadelijk, obsceen, pornografisch, onzedig, schunnig, of suggestief is of waarmee andere personen gepest worden of pesten wordt aangemoedigd, die bedreigend is, inbreuk maakt op privacy- of publiciteitsrechten, beledigend is, opruiend is of bedrieglijk of anderszins bezwaarlijk is;</li>
+	<li>duidelijk kwetsend is voor de online community, zoals inhoud die racisme, onverdraagzaamheid, haat of fysieke agressie tegen welke groep of individu dan ook aanmoedigt;</li>
+	<li>die een illegale activiteit of een misdrijf zou vormen, aanmoedigen, bevorderen of er instructies voor zou geven, die burgerlijke aansprakelijkheid zou scheppen, die de rechten van om het even wie in om het even welk land zou schenden of die aansprakelijkheid zou scheppen volgens of een schending zou zijn van een plaatselijke, nationale of internationale wet, waaronder, maar niet beperkt tot, de reglementen van de U.S. Securities and Exchange Commission (SEC) of de regels van om het even welke beurs, met inbegrip van maar niet beperkt tot de New York Stock Exchange (NYSE), de NASDAQ of de London Stock Exchange;</li>
+	<li>instructies bevat voor illegale activiteiten zoals het maken of kopen van illegale wapens, het schenden van iemands privacy of het leveren of maken van computervirussen;</li>
+	<li>inbreuk kan maken op patenten, handelsmerken, handelsgeheimen, auteursrechten of andere intellectuele eigendomsrechten van om het even welke partij; in het bijzonder, het maken van illegale of ongeoorloofde kopie&euml;n van het auteursrechtelijk beschermd werk van een ander aanmoedigt, zoals het verstrekken van illegale computerprogramma&#39;s of links ernaar, het verschaffen van informatie om door een fabrikant ge&iuml;nstalleerde systemen voor kopieerbeveiliging te omzeilen, of het verstrekken van illegale muziek of links naar illegale muziekbestanden;</li>
+	<li>een massamailing of &#39;spam&#39;, &#39;junkmail&#39;, &#39;kettingbrief&#39; of &#39;pyramidesysteem&#39; is;</li>
+	<li>afkomstig lijkt te zijn van een andere persoon of entiteit of die anderszins een verkeerde voorstelling geeft van uw banden met een persoon of entiteit, met inbegrip van de Bedrijven van Tripadvisor;</li>
+	<li>bestaat uit de priv&eacute;gegevens van een derde, waaronder, maar niet beperkt tot, adressen, telefoonnummers, e-mailadressen, burgerservicenummers en creditcardnummers.&nbsp; Let op: het is mogelijk dat iemands achternaam op onze websites wordt gepubliceerd. Dit gebeurt echter uitsluitend wanneer hiervoor op voorhand uitdrukkelijke toestemming van de ge&iuml;dentificeerde persoon is verkregen;</li>
+	<li>pagina&#39;s bevat die beperkt of alleen met een wachtwoord toegankelijk zijn, of verborgen pagina&rsquo;s of afbeeldingen (die niet gekoppeld zijn aan een andere, toegankelijke pagina);</li>
+	<li>virussen, corrupte gegevens of andere schadelijke, verstorende of destructieve bestanden bevat of bedoeld is om deze te verspreiden;</li>
+	<li>geen verband houdt met het onderwerp van de Interactieve Zone(s) waar zij wordt gepubliceerd; of</li>
+	<li>die volgens het uitsluitende inzicht van Tripadvisor (a) de bovenstaande subsecties schendt, (b) de bijbehorende richtlijnen van Tripadvisor schendt zoals deze door Tripadvisor aan u beschikbaar zijn gesteld, (c) bezwaarlijk is, (d) de mogelijkheden van een andere persoon om de Interactieve Zones of een ander deel van de Diensten te gebruiken of te benutten, beperkt of belet, of (e) de Bedrijven van Tripadvisor of hun gebruikers kan blootstellen aan enige vorm van schade of aansprakelijkheid.</li>
+</ol>
+
+<p>De Bedrijven van Tripadvisor zijn niet verantwoordelijk of aansprakelijk voor enige Inhoud die is geplaatst, opgeslagen, verzonden of ge&uuml;pload door u (in het geval van uw Inhoud) of door een derde partij (in het geval van alle Inhoud van algemenere aard), of voor enig verlies van of schade aan dergelijke Inhoud. De Bedrijven van Tripadvisor zijn evenmin verantwoordelijk voor vergissingen, eerroof, laster, smaad, omissies, onwaarheden, obsceniteiten, pornografie of godslastering waarmee u mogelijk wordt geconfronteerd. Tripadvisor is als leverancier van interactieve diensten niet verantwoordelijk voor enige verklaringen, garanties of andere Inhoud die door haar gebruikers (waaronder u ten aanzien van uw Inhoud) op de websites of een ander forum worden geplaatst. Hoewel Tripadvisor niet verplicht is tot de screening, bewerking of controle van Inhoud die is geplaatst of gedistribueerd via een Interactieve Zone, behoudt Tripadvisor zich het recht voor om zonder kennisgeving en naar eigen goeddunken Inhoud die op om het even welk ogenblik en wegens om het even welke reden op de Diensten is gepubliceerd of opgeslagen, te verwijderen, te screenen of te bewerken, of dit door derde partijen in opdracht van Tripadvisor te laten doen. U bent als enige, en op uw eigen kosten, verantwoordelijk voor het maken van reservekopie&euml;n en het terugplaatsen van Inhoud die u plaatst of anderszins naar ons verzendt of op de Diensten bewaart.</p>
+
+<p>Elk gebruik van de Interactieve Zones of andere delen van de Diensten in strijd met de bovenstaande voorwaarden vormt een schending van deze Overeenkomst en kan onder meer aanleiding geven tot de be&euml;indiging of opschorting van uw rechten om de Interactieve Zones en/of de Diensten in het algemeen te gebruiken.</p>
+
+<p><a name="OLE_LINK7"><strong><u>Licentierechten van Tripadvisor beperken</u></strong></a><strong>.</strong> U kunt ervoor kiezen om het gebruik van uw Inhoud door de Bedrijven van Tripadvisor uit hoofde van deze Overeenkomst in de toekomst te beperken (zoals hierboven beschreven) door ervoor te kiezen om de Bedrijven van Tripadvisor een beperktere licentie te verlenen zoals hieronder nader is beschreven (dergelijke beperkte licentie wordt hierna een &#39;Beperkte licentie&#39; genoemd).&nbsp; U kunt deze keuze maken door <a href="https://www.tripadvisor.nl/Settings-cs"><strong>hier</strong></a> een Beperkte licentieverlening te selecteren (om dit te doen moet u zijn uitgelogd). Als u deze keuze maakt, zullen de rechten die u ten aanzien van uw Inhoud en volgens de hierboven beschreven licentievoorwaarden (hierna de &#39;Standaardlicentie&#39; genoemd) aan de Bedrijven van Tripadvisor verleent, op bepaalde belangrijke manieren worden beperkt, zoals beschreven in de leden 1 tot en met 6 hier direct onder, waardoor de Bedrijven van Tripadvisor niet langer een Standaardlicentie hebben ten aanzien van uw Inhoud anders dan de tekstuele beoordelen en bijbehorende bollenwaarderingen die u plaatst (waarvoor de Bedrijven van Tripadvisor nog altijd een Standaardlicentie hebben), maar een &#39;Beperkte licentie&#39; ten aanzien van uw Inhoud, zoals hieronder beschreven:&nbsp;</p>
+
+<ol>
+	<li>Wanneer u uw Inhoud op de Diensten plaatst, zal de licentie die u ten aanzien van uw Inhoud aan de Bedrijven van Tripadvisor verleent worden beperkt tot een niet-exclusieve, royaltyvrije, overdraagbare, sublicentieerbare en wereldwijde licentie voor het hosten, gebruiken, verspreiden, aanpassen, beheren, reproduceren, in het openbaar vertonen of uitvoeren, vertalen en het cre&euml;ren van afgeleide werken van uw Inhoud met het doel om deze Inhoud op de Diensten te tonen en uw naam en/of handelsmerk in verband met deze Inhoud te gebruiken. Behoudens het bepaalde in onderstaand artikel 6 is de Beperkte licentie van toepassing op al uw Inhoud (nogmaals, anders dan tekstuele beoordelingen en de bijbehorende bollenwaarderingen) die u of die een ander namens u (d.w.z. een derde die een bijdrage levert aan of anderszins uw account beheert) beschikbaar stelt op of in verband met de Diensten.<br />
+	&nbsp;</li>
+	<li>Voor elk individueel onderdeel van uw Inhoud dat onder de Beperkte licentie valt, kunt u de licentierechten van de Bedrijven van Tripadvisor uit hoofde van deze licentie be&euml;indigen door een dergelijke post van de Diensten te verwijderen.&nbsp; Evenzo kunt u de licentierechten van de Bedrijven van Tripadvisor ten aanzien van al uw Inhoud die onder de Beperkte licentie valt be&euml;indigen door uw account te be&euml;indigen (een beschrijving van hoe u dit doet, kunt u <a href="https://www.tripadvisorsupport.com/hc/nl/articles/200615117-How-do-I-close-my-member-account-"><strong>hier</strong></a> vinden).&nbsp; Onverminderd andersluidende bepalingen, kan uw Inhoud (a) op de Diensten blijven staan mits u deze met anderen heeft gedeeld en zij de Inhoud hebben gekopieerd voordat u deze heeft verwijderd of uw account heeft be&euml;indigd, (b) gedurende een redelijke termijn nadat u de Inhoud verwijdert of uw account be&euml;indigt op de Diensten blijven staan totdat wij kans zien om deze definitief te verwijderen, en/of (c) bepaalde tijd om technische, reglementaire of wettelijke redenen of om fraude te voorkomen in een reservekopie worden bewaard (maar niet openbaar worden getoond).<br />
+	&nbsp;</li>
+	<li>De Bedrijven van Tripadvisor zullen uw Inhoud niet gebruiken in advertenties voor de producten en diensten van derden aan anderen zonder uw afzonderlijke toestemming daarvoor (inclusief gesponsorde Inhoud), ondanks dat u begrijpt en ermee akkoord gaat dat de Bedrijven van Tripadvisor advertenties en aanbiedingen kunnen plaatsen op de Diensten, naast, nabij, langs of anderszins in de buurt van uw Inhoud en de Inhoud van anderen (waaronder, voor video- of ander dynamisch materiaal, voor, tijdens of na de weergave daarvan).&nbsp; In alle gevallen waarin uw Inhoud op de Diensten wordt getoond zullen wij de naam en/of handelsmerk gebruiken die u in verband met uw Inhoud heeft opgegeven.&nbsp;&nbsp;&nbsp;<br />
+	&nbsp;</li>
+	<li>De Bedrijven van Tripadvisor zullen derden niet het recht geven om uw Inhoud buiten de Diensten te publiceren. Wanneer u uw Inhoud echter op de Diensten deelt (behalve voor onze &#39;Trips&#39;-functie die priv&eacute; kan worden gemaakt), wordt uw Inhoud &#39;<em>openbaar</em>&#39;. Wij zullen een functie inschakelen waarmee andere gebruikers dergelijke Inhoud (behalve, zoals reeds genoemd, als u Trips zodanig instelt dat deze priv&eacute; is) kunnen delen (door deze openbare post op te nemen in hun eigen bericht of anders) op diensten van derden en wij zullen zoekmachines in staat stellen om dergelijke openbare Inhoud vindbaar te maken via hun diensten.&nbsp;<br />
+	&nbsp;</li>
+	<li>Tenzij anders in de leden 1 tot en met 10 van dit artikel van deze Overeenkomst anders is bepaald, vallen uw en onze rechten en plichten onder de voorwaarden van deze Overeenkomst. De licentie die u aan de Bedrijven van Tripadvisor verleent, zoals gewijzigd door onderhavige leden 1 tot en met 6, wordt hierna een &#39;Beperkte licentie&#39; genoemd.<br />
+	&nbsp;</li>
+	<li>Voor alle duidelijkheid: de Inhoud die u in verband met andere diensten of programma&#39;s van de Bedrijven van Tripadvisor naar de Diensten verzendt, valt niet onder de Beperkte licentie maar onder de voorwaarden van de desbetreffende dienst of programma van Tripadvisor.</li>
+</ol>
+
+<p><a name="OLE_LINK8"><strong>VIA Tripadvisor BIJ DERDE LEVERANCIERS BOEKEN</strong></a></p>
+
+<p><a name="OLE_LINK9"><strong>Gebruik van de boekingsdiensten van Tripadvisor.</strong></a> De Bedrijven van Tripadvisor bieden u de mogelijkheid om reisreserveringen te zoeken, te selecteren en te boeken bij derde leveranciers, zonder de Diensten te verlaten. Door reisreserveringen te boeken via de websites, wordt u een Accounthouder als u dat nog niet was.</p>
+
+<p>Door te boeken via de websites erkent u dat u akkoord gaat met de praktijken die worden beschreven in ons&nbsp;<a href="https://tripadvisor.mediaroom.com/NL-privacy-policy">Privacybeleid</a>&nbsp;en deze Overeenkomst. U verklaart bovendien op persoonlijke titel of in de hoedanigheid van Bedrijfsvertegenwoordiger dat u 18 jaar of ouder bent, dat u wettelijk bevoegd bent om deze Overeenkomst aan te gaan en de Diensten (inclusief de boekingsdiensten van de Bedrijven van Tripadvisor) te gebruiken overeenkomstig deze Overeenkomst en dat alle informatie die u verstrekt waar en correct is. U aanvaardt bovendien dat u de boekingsdiensten van de Bedrijven van Tripadvisor uitsluitend zult gebruiken om legitieme reserveringen te maken voor u of anderen namens wie u wettelijk bevoegd bent op te treden. Valse of bedrieglijke reserveringen zijn verboden en de account van elke gebruiker die een dergelijke reservering tracht te maken, kan worden be&euml;indigd.</p>
+
+<p>ALS GEBRUIKER VAN DE DIENSTEN, WAARONDER DE BOEKINGSDIENSTEN VAN DE BEDRIJVEN VAN Tripadvisor BEGRIJPT EN AANVAARDT U DAT: (1) DE BEDRIJVEN VAN Tripadvisor NIET AANSPRAKELIJK ZIJN JEGENS U OF ANDEREN VOOR ONGEOORLOOFDE TRANSACTIES DIE MET UW WACHTWOORD OF ACCOUNT WORDEN UITGEVOERD; EN (2) DAT U AANSPRAKELIJK GESTELD KUNT WORDEN VOOR HET ONGEOORLOOFDE GEBRUIK VAN UW WACHTWOORD OF ACCOUNT JEGENS ZOWEL Tripadvisor ALS AAN HAAR GELIEERDE BEDRIJVEN EN/OF ANDEREN.</p>
+
+<p>Wanneer u via de Bedrijven van Tripadvisor een reservering maakt, worden uw betalingsgegevens verzameld en doorgestuurd naar de leverancier om de transactie te voltooien, zoals beschreven in ons <a href="https://tripadvisor.mediaroom.com/NL-privacy-policy">Privacybeleid</a>. Let op: niet de Bedrijven van Tripadvisor maar de leverancier is verantwoordelijk voor de verwerking van uw betaling en het uitvoeren van uw reservering.</p>
+
+<p>De Bedrijven van Tripadvisor zullen zich niet zomaar in reserveringen mengen, maar zij behouden zich het recht voor om boekingsdiensten stop te zetten wegens bepaalde verzachtende omstandigheden, bijvoorbeeld wanneer een reservering niet langer beschikbaar is of wij reden hebben om aan te nemen dat een reserveringsverzoek bedrieglijk is. De Bedrijven van Tripadvisor behouden zich ook het recht voor om uw identiteit te verifi&euml;ren om uw reserveringsverzoek te verwerken.</p>
+
+<p>In het onwaarschijnlijke geval dat een reservering beschikbaar is wanneer u deze maakt, maar niet meer beschikbaar is voorafgaand aan het inchecken, is uw enige verhaalsmogelijkheid contact op te nemen met de leverancier om andere regelingen te treffen of uw reservering te annuleren.</p>
+
+<p><a name="OLE_LINK10"><strong>Derde Leveranciers.</strong></a>&nbsp;De Bedrijven van Tripadvisor zijn geen reisbureaus. Zij verzorgen en bezitten geen eigen vervoersdiensten, accommodaties, restaurants, tours, activiteiten of andere ervaringen. Hoewel de Bedrijven van Tripadvisor informatie geven over gelegenheden van derde leveranciers en reserveringen mogelijk maken bij bepaalde leveranciers op of via de websites van de Bedrijven van Tripadvisor, impliceren, suggereren of vormen deze zaken in geen enkel opzicht een sponsorschap of goedkeuring van de Bedrijven van Tripadvisor ten opzichte van deze derde leveranciers, noch dat er banden bestaan tussen de Bedrijven van Tripadvisor en derde leveranciers. Hoewel Accounthouders bepaalde vervoersdiensten, accommodaties, restaurants, tours, activiteiten of ervaringen kunnen evalueren en bespreken op basis van hun eigen ervaringen, onderschrijven de Bedrijven van Tripadvisor de producten of diensten van derde leveranciers niet en bevelen zij ze ook niet aan, behalve dat Tripadvisor bepaalde awards uitreikt die zijn gebaseerd op de beoordelingen die door Accounthouders zijn geplaatst. De Bedrijven van Tripadvisor onderschrijven geen enkele door een gebruiker of bedrijf geplaatste, verzonden of anderszins verstrekte Inhoud of mening, aanbeveling of advies die daarin wordt gegeven en de Bedrijven van Tripadvisor wijzen uitdrukkelijk alle aansprakelijkheid in verband met dergelijke Inhoud af. U aanvaardt dat de Bedrijven van Tripadvisor niet verantwoordelijk zijn voor de juistheid of volledigheid van de informatie die het van derde leveranciers ontvangt en op de Diensten toont.</p>
+
+<p>Als u bij een derde leverancier reserveert dan gaat u er, naast deze Overeenkomst, mee akkoord de verkoopvoorwaarden en de gebruiksvoorwaarden voor de website van de leverancier, het privacybeleid en andere voorschriften of beleidsregels gerelateerd aan de site of gelegenheid van de leverancier te lezen en als bindend te aanvaarden. Uw interacties met derde leveranciers gebeuren op uw eigen risico. De Bedrijven van Tripadvisor zijn niet aansprakelijk voor de handelingen, het verzuim, de fouten, voorstellingen, garanties, inbreuken of nalatigheden van derde leveranciers, en evenmin voor persoonlijke letsel, overlijden, schade aan eigendom of andere schade of kosten die voortvloeien uit uw interacties met derde leveranciers.</p>
+
+<p>De Diensten kunnen links bevatten naar sites van leveranciers of andere sites die Tripadvisor niet beheert of controleert. Raadpleeg voor meer informatie de onderstaande sectie &lsquo;Links naar websites van derden&rsquo;.</p>
+
+<p><a name="OLE_LINK11"><strong>Vakantiewoningen, restaurantreserveringen en ervaringen boeken bij derde leveranciers die zijn vermeld op de websites van partnerbedrijven.</strong></a>&nbsp;Sommige van de aan Tripadvisor gelieerde bedrijven treden op als marktplaatsen om het reizigers gemakkelijker te maken om (1) een overeenkomst voor de huur van een vakantiewoning aan te gaan met eigenaars en beheerders van gelegenheden (&#39;Vakantiewoningen&#39;), (2) reserveringen te plaatsen bij restaurants (&#39;Restaurants&#39;) en/of (3) reserveringen te boeken voor tours, activiteiten en attracties (&#39;Ervaringen&#39;) bij derde leveranciers van dergelijke Ervaringen (elke leverancier van een vakantiewoning en/of Ervaring wordt hierna een &#39;Adverteerder&#39; genoemd). Deze aan Tripadvisor gelieerde bedrijven verspreiden hun advertenties via andere entiteiten binnen de groep Bedrijven van Tripadvisor en daarom ziet u ze op de websites van de Bedrijven van Tripadvisor.&nbsp; Als gebruiker bent u verantwoordelijk voor uw gebruik van de Diensten (waaronder met name de websites van de Bedrijven van Tripadvisor) en alle transacties rond het reserveren van Vakantiewoningen, Restaurants of Ervaringen die door de aan Tripadvisor gelieerde bedrijven mogelijk worden gemaakt. Wij bezitten, beheren en verzorgen geen boekingen voor de Vakantiewoningen, Restaurants of Ervaringen die op de Diensten zijn vermeld.</p>
+
+<p>Omdat Tripadvisor en haar partners geen partij zijn in transacties tussen reizigers en Adverteerders in verband met de huur van Vakantiewoningen, het boeken van een Ervaring of het plaatsen van een reservering bij een Restaurant, is elke gebruiker volledig verantwoordelijk voor elk geschil of elke betwisting in verband met een feitelijke of mogelijke transactie tussen u en een Adverteerder, met inbegrip van de kwaliteit, de toestand, de veiligheid of de wettelijkheid van een vermelde Vakantiewoning, Restaurant of Ervaring, de nauwkeurigheid van de Inhoud van de vermelding, het vermogen van de Adverteerder om een vakantiewoning te verhuren, een reservering te boeken, een maaltijd of andere dienst bij een Restaurant te verzorgen of een Ervaring te leveren, uw vermogen om de huur van een vakantiewoning, een maaltijd of dienst in een Restaurant of een Ervaring te betalen.</p>
+
+<p>Een van de aan Tripadvisor gelieerde bedrijven kan optreden als beperkte agent van een Adverteerder, uitsluitend om uw betaling door te geven aan de Adverteerder. U gaat ermee akkoord een Adverteerder of een aan Tripadvisor gelieerd bedrijf dat in opdracht van een Adverteerder handelt de vermelde kosten te betalen die door de Adverteerder worden berekend voor de huur van een Vakantiewoning of het boeken van een Ervaring.</p>
+
+<p>Raadpleeg de voorwaarden van onze partners voor meer informatie over vergoedingen voor de huur van Vakantiewoningen, de betaling van een borgsom, de kosten voor Ervaringen, de verwerking van betalingen, terugbetalingen en dergelijke (ga naar <a href="https://www.viatorcom.nl/support/termsAndConditions"><strong>Viator</strong></a> voor Ervaringen; &nbsp;bezoek <strong><a href="https://www.thefork.be/nl">T</a></strong><a href="https://www.thefork.be/nl"><strong>heFork</strong></a>&nbsp;voor Restaurants; ga naar <a href="https://rentals.tripadvisor.com/nl_NL/termsandconditions/traveler"><strong>Vakantiewoningen van de Bedrijven van Tripadvisor</strong><strong> voor het huren van een vakantiewoning).</strong></a> Door een Vakantiewoning te huren, een reservering te plaatsen bij een Restaurant of een Ervaring te boeken via een onze partners dient u akkoord te gaan met de voorwaarden en het privacybeleid van de desbetreffende partner.</p>
+
+<p>Indien u een geschil heeft met een Adverteerder uit de EU, dan zijn er hier online alternatieve methoden voor het beslechten van het geschil beschikbaar: <a href="http://ec.europa.eu/consumers/odr/">http://ec.europa.eu/consumers/odr/</a>.</p>
+
+<p><a name="OLE_LINK12"><strong>REISBESTEMMINGEN</strong></a></p>
+
+<p><a name="OLE_LINK13"><strong>Internationale reizen.</strong></a> Wanneer u bij een derde leveranciers reserveringen voor internationale reizen boekt of met behulp van de Diensten internationale reizen plant, bent u verantwoordelijk om ervoor te zorgen dat u aan alle vereisten voldoet om toegang te krijgen tot het betreffende land en dat uw reisdocumenten, met inbegrip van paspoorten en visa, in orde zijn.</p>
+
+<p>Raadpleeg voor informatie over paspoort- en visumvereisten de ambassade of het consulaat van het land dat u wilt bezoeken. Aangezien de vereisten op elk ogenblik kunnen veranderen, moet u actuele informatie raadplegen voor u boekt en vertrekt. De Bedrijven van Tripadvisor zijn niet aansprakelijk voor reizigers die niet op een vlucht of in een land worden toegelaten omdat zij niet de reisdocumenten bezitten die worden ge&euml;ist door een luchtvaartmaatschappij, een overheid of een land, met inbegrip van landen die de reiziger alleen passeert op weg naar zijn of haar bestemming.</p>
+
+<p>Het is ook uw verantwoordelijkheid uw arts te raadplegen over de huidige aanbevelingen voor inentingen voor u internationaal reist, en ervoor te zorgen dat u aan alle gezondheidsvoorwaarden voor de toegang voldoet en alle medische richtlijnen in verband met uw reis naleeft.</p>
+
+<p>Hoewel de meeste reizen (ook naar internationale bestemmingen) zonder incidenten verlopen, kan aan het reizen naar bepaalde bestemmingen meer risico verbonden zijn dan aan andere bestemmingen. Tripadvisor raadt reizigers dringend aan om kennis te nemen van de verboden, waarschuwingen, aankondigingen en adviezen die door hun eigen overheid en het land van bestemming worden verstrekt alvorens reizen naar internationale bestemmingen te boeken. Zo wordt er door de Amerikaanse overheid informatie over de omstandigheden in diverse landen en de risico&#39;s van reizen naar bepaalde internationale bestemmingen verstrekt op <a href="http://www.state.gov/" target="_blank">www.state.gov</a>,&nbsp;<a href="http://www.tsa.gov/" target="_blank">www.tsa.gov</a>,<a href="http://www.dot.gov/" target="_blank">www.dot.gov</a>,&nbsp;<a href="http://www.faa.gov/" target="_blank">www.faa.gov</a>,&nbsp;<a href="http://www.cdc.gov/" target="_blank">www.cdc.gov</a>,&nbsp;<a href="http://www.treas.gov/ofac" target="_blank">www.treas.gov/ofac</a>&nbsp;en&nbsp;<a href="http://www.customs.gov/" target="_blank">www.customs.gov</a>.</p>
+
+<p>DOOR INFORMATIE OVER REIZEN NAAR BEPAALDE INTERNATIONALE BESTEMMINGEN TE VERSCHAFFEN, VERKLAREN OF GARANDEREN DE BEDRIJVEN VAN Tripadvisor NIET DAT REIZEN NAAR DERGELIJKE BESTEMMINGEN AAN TE RADEN OF ZONDER RISICO IS, EN Tripadvisor IS NIET AANSPRAKELIJK VOOR SCHADE OF VERLIES VOORTVLOEIEND UIT HET REIZEN NAAR DERGELIJKE BESTEMMINGEN.</p>
+
+<p><a name="OLE_LINK14"><strong>AFWIJZING VAN AANSPRAKELIJKHEID</strong></a></p>
+
+<p>LEES DEZE SECTIE AANDACHTIG DOOR. DEZE SECTIE BEPERKT DE AANSPRAKELIJKHEID VAN DE BEDRIJVEN VAN Tripadvisor JEGENS U VOOR ZAKEN DIE KUNNEN VOORTVLOEIEN UIT UW GEBRUIK VAN DE DIENSTEN. ALS U DE VOORWAARDEN IN DEZE SECTIE OF ELDERS IN DEZE OVEREENKOMST NIET BEGRIJPT, MOET U EEN ADVOCAAT RAADPLEGEN OM DUIDELIJKHEID TE KRIJGEN VOOR U DE DIENSTEN OPENT OF GEBRUIKT.</p>
+
+<p>DE INFORMATIE, SOFTWARE, PRODUCTEN EN DIENSTEN DIE OP OF ANDERSZINS VIA DE DIENSTEN WORDEN GEPUBLICEERD OF VERSTREKT, KUNNEN ONNAUWKEURIGHEDEN OF FOUTEN BEVATTEN, OOK TEN AANZIEN VAN PRIJSINFORMATIE EN DE BESCHIKBAARHEID VAN RESERVERINGEN. DE BEDRIJVEN VAN Tripadvisor GEVEN GEEN GARANTIES VOOR DE NAUWKEURIGHEID VAN, EN WIJZEN ELKE AANSPRAKELIJKHEID AF VOOR FOUTEN OF ANDERE ONNAUWKEURIGHEDEN IN VERBAND MET DE INFORMATIE OVER EN BESCHRIJVING VAN DE ACCOMMODATIE, ERVARINGEN, VLIEGREIS, CRUISE, RESTAURANT OF ELK ANDER REISPRODUCT DAT OP DE DIENSTEN WORDT GETOOND (WAARONDER, MAAR NIET BEPERKT TOT, DE PRIJZEN, BESCHIKBAARHEID, FOTO&#39;S, LIJSTEN VAN ACCOMMODATIES, ERVARINGEN, VLIEGREIZEN, CRUISES, RESTAURANTS OF ANDERE REISPRODUCTENVOORZIENINGEN, ALGEMENE PRODUCTBESCHRIJVINGEN, BEOORDELINGEN EN WAARDERINGEN, ENZ.). BOVENDIEN BEHOUDEN DE BEDRIJVEN VAN Tripadvisor ZICH NADRUKKELIJK HET RECHT VOOR OM EVENTUELE FOUTEN IN INFORMATIE OVER BESCHIKBAARHEID EN PRIJZEN OP DE DIENSTEN EN/OF MET BETREKKING TOT MET EEN VERKEERDE PRIJS GEMAAKTE RESERVERINGEN TE CORRIGEREN.</p>
+
+<p>Tripadvisor GEEFT GEEN ENKELE VERKLARING AF TEN AANZIEN VAN DE GESCHIKTHEID VAN DE DIENSTEN, DE INFORMATIE OP HAAR WEBSITES, OF ENIG GEDEELTE DAARVAN, VOOR OM HET EVEN WELK DOEL, EN DE OPNAME VAN AANBIEDINGEN VAN PRODUCTEN OF DIENSTEN OP HAAR WEBSITES OF DE DIENSTEN VORMT GEEN ONDERSCHRIJVING OF AANBEVELING VAN DEZE AANBIEDINGEN VAN PRODUCTEN OF DIENSTEN DOOR Tripadvisor, MET UITZONDERING VAN AWARDS DIE ZIJN UITGEREIKT OP BASIS VAN BEOORDELINGEN VAN GEBRUIKERS. DERGELIJKE INFORMATIE, SOFTWARE, PRODUCTEN EN DIENSTEN DIE DOOR OF VIA DE DIENSTEN BESCHIKBAAR WORDEN GESTELD, WORDEN VERMELD &#39;ZOALS ZE ZIJN&#39;, ZONDER ENIGE GARANTIE. Tripadvisor WIJST ALLE GARANTIES, BEPALINGEN EN VOORWAARDEN AF WAARUIT ZOU BLIJKEN DAT DE DIENSTEN, HAAR SERVERS OF GEGEVENS (WAARONDER E-MAILS) DIE DOOR Tripadvisor WORDEN VERZONDEN VRIJ ZIJN VAN VIRUSSEN OF ANDERE SCHADELIJKE ONDERDELEN. Tripadvisor DOET HIERBIJ IN DE RUIMSTE MATE DIE DE TOEPASSELIJKE WETGEVING TOELAAT AFSTAND VAN ALLE WAARBORGEN EN CONDITIES MET BETREKKING TOT DEZE INFORMATIE, SOFTWARE, PRODUCTEN EN DE DIENSTEN, INCLUSIEF ALLE IMPLICIETE GARANTIES EN BEPALINGEN OF VOORWAARDEN VAN OM HET EVEN WELKE AARD MET BETREKKING TOT DE VERKOOPBAARHEID, GESCHIKTHEID VOOR EEN BEPAALD DOEL, AANSPRAAK, STIL-BEZIT EN NIET-SCHENDING.</p>
+
+<p>DE BEDRIJVEN VAN Tripadvisor WIJZEN OOK UITDRUKKELIJK ALLE GARANTIES, VERKLARINGEN OF ANDERE VOORWAARDEN AF MET BETREKKING TOT DE NAUWKEURIGHEID OF HET EIGENDOMSKARAKTER VAN DE INHOUD DIE DOOR EN VIA DE DIENSTEN BESCHIKBAAR WORDT GEMAAKT.</p>
+
+<p>DE DERDE LEVERANCIERS DIE ACCOMMODATIES, VLIEGREIZEN, VERHUUR, ERVARINGEN, RESTAURANTS OF CRUISES, INFORMATIE, REIZEN OF ANDERE DIENSTEN OP OF VIA DE DIENSTEN AANBIEDEN, ZIJN ONAFHANKELIJKE AANNEMERS EN GEEN VERTEGENWOORDIGERS OF WERKNEMERS VAN DE BEDRIJVEN VAN Tripadvisor. DE BEDRIJVEN VAN Tripadvisor ZIJN NIET AANSPRAKELIJK VOOR DE HANDELINGEN, FOUTEN, WEGLATINGEN, VOORSTELLINGEN, GARANTIES, SCHENDINGEN OF NALATIGHEID VAN DERGELIJKE LEVERANCIERS OF VOOR PERSOONLIJK LETSEL, OVERLIJDEN, SCHADE AAN EIGENDOMMEN OF ANDERE SCHADE OF ONKOSTEN DIE HIERUIT VOORTVLOEIEN. Tripadvisor IS NIET AANSPRAKELIJK EN ZAL GEEN RESTITUTIE BETALEN BIJ VERTRAGING, ANNULERING, TE VOL BOEKEN, STAKINGEN, OVERMACHT OF ANDERE OORZAKEN BUITEN HAAR RECHTSTREEKSE INVLOED, EN ZIJ IS NIET VERANTWOORDELIJK VOOR EXTRA ONKOSTEN, WEGLATINGEN, VERTRAGINGEN, ROUTEWIJZIGINGEN OF HANDELINGEN VAN EEN OVERHEID OF AUTORITEIT.</p>
+
+<p>VOLGENS DE BOVENSTAANDE VOORWAARDEN GEBRUIKT U DE DIENSTEN OP EIGEN RISICO. DE BEDRIJVEN VAN Tripadvisor (OF HUN DIRECTEUREN, BESTUURDERS EN/OF MEDEWERKERS) ZIJN IN GEEN GEVAL AANSPRAKELIJK VOOR DIRECTE OF INDIRECTE SCHADE, STRAFSCHADE, INCIDENTELE, BIJZONDERE OF GEVOLGSCHADE OF VERLIEZEN, OF ELK VERLIES VAN INKOMSTEN, BATEN, GOODWILL, GEGEVENS, CONTRACTEN, GEBRUIK VAN GELD, OF VERLIEZEN OF SCHADE DIE VOORTVLOEIEN UIT OF OP ENIGE WIJZE VERBAND HOUDEN MET DE VERSTORING VAN BEDRIJFSACTIVITEITEN VAN OM HET EVEN WELKE AARD DIE VOORTVLOEIT UIT OF OP ENIGE WIJZE VERBAND HOUDT MET UW BEZOEK, WEERGAVE OF GEBRUIK VAN DE DIENSTEN OF MET DE VERTRAGING OF HET ONVERMOGEN OM DE DIENSTEN TE BEZOEKEN, WEER TE GEVEN OF TE GEBRUIKEN (MET INBEGRIP VAN MAAR NIET BEPERKT TOT UW VERTROUWEN OP BEOORDELINGEN EN MENINGEN DIE OP OF VIA DE DIENSTEN WORDEN WEERGEGEVEN; VIRUSSEN, BUGS, TROJAANSE PAARDEN, INFORMATIE, SOFTWARE, GELINKTE SITES, PRODUCTEN EN DIENSTEN DIE VIA DE DIENSTEN WORDEN VERKREGEN (MET INBEGRIP VAN MAAR NIET BEPERKT TOT EEN SYNCHRONISATIEPRODUCT VAN EEN VAN DE BEDRIJVEN VAN Tripadvisor); PERSOONLIJK LETSEL OF SCHADE AAN EIGENDOMMEN, VAN WELKE AARD DAN OOK, VOORTVLOEIENDE UIT UW GEBRUIK VAN DE SERVERS VAN DE DIENSTEN EN/OF DE DAARIN OPGESLAGEN PERSOONSGEGEVENS EN/OF FINANCI&Euml;LE INFORMATIE; FOUTEN OF OMISSIES IN INHOUD, OF VERLIES OF SCHADE VAN WELKE AARD DAN OOK ALS GEVOLG VAN HET GEBRUIK VAN INHOUD; OF DIE OP ANDERE WIJZE VOORTVLOEIEN UIT HET BEZOEK, DE WEERGAVE OF HET GEBRUIK VAN DE DIENSTEN), HETZIJ OP BASIS VAN EEN THEORIE VAN NALATIGHEID, CONTRACTRECHT, ONRECHTMATIGE DAAD, STRIKTE AANSPRAKELIJKHEID OF ANDERSZINS, ZELFS INDIEN Tripadvisor OF DE AAN HAAR GELIEERDE BEDRIJVEN ZIJN INGELICHT OVER DE MOGELIJKHEID VAN DERGELIJKE SCHADE.</p>
+
+<p>Indien de Bedrijven van Tripadvisor aansprakelijk worden gesteld voor verlies of schade die voortvloeit uit of op enige wijze verband houdt met uw gebruik van de Diensten, dan zal de aansprakelijkheid van de Bedrijven van Tripadvisor in geen geval groter zijn dan het totaal van (a) de aan de Bedrijven van Tripadvisor betaalde vergoedingen voor de transactie(s) op of via de Diensten die aanleiding hebben gegeven tot uw eis, of (b) honderd dollar (USD 100,00).</p>
+
+<p>De beperking van de aansprakelijkheid weerspiegelt de verdeling van het risico tussen de partijen. De beperkingen die in dit artikel zijn vermeld, overleven en zijn zelfs van toepassing indien een beperkte oplossing zoals opgegeven in deze voorwaarden haar doel niet blijkt te hebben bereikt. De beperkingen van de aansprakelijkheid die in deze voorwaarden worden vermeld, komen ten goede aan de Bedrijven van Tripadvisor.</p>
+
+<p>DEZE ALGEMENE VOORWAARDEN EN DE BOVENSTAANDE AFWIJZING VAN AANSPRAKELIJKHEID HEBBEN GEEN INVLOED OP VERPLICHTE WETTELIJKE RECHTEN DIE VOLGENS DE TOEPASSELIJK WET NIET MOGEN WORDEN UITGESLOTEN, ZOALS UIT HOOFDE VAN NATIONALE WETGEVING INZAKE CONSUMENTENBESCHERMING DIE IN BEPAALDE LANDEN VAN TOEPASSING IS.</p>
+
+<p>INDIEN DE WETGEVING VAN HET LAND WAARIN U WOONT EEN BEPAALDE BEPERKING OF UITSLUITING VAN DE AANSPRAKELIJKHEID ZOALS BEDOELD IN DIT ARTIKEL NIET TOESTAAT, DAN IS DEZE BEPERKING NIET VAN TOEPASSING. DE AFWIJZING VAN AANSPRAKELIJKHEID IS VAN TOEPASSING IN DE MATE DIE MAXIMAAL UIT HOOFDE VAN UW LOKALE WETGEVING IS TOEGESTAAN.</p>
+
+<p><a name="OLE_LINK15"><strong>SCHADELOOSSTELLING</strong></a></p>
+
+<p>U gaat ermee akkoord om de Bedrijven van Tripadvisor en hun directeuren, bestuurders, werknemers en vertegenwoordigers te verdedigen tegen en te vrijwaren voor alle claims, processen, eisen, terugwinningen, verliezen, schadevergoedingen, boetes, straffen of andere uitgaven van elke aard, met inbegrip van maar niet beperkt tot redelijke juridische en boekhoudkosten die door derden in rekening worden gebracht wegens:</p>
+
+<ul>
+	<li>(i) uw schending van deze Overeenkomst of van de documenten waarnaar hierin wordt verwezen;</li>
+	<li>(ii) uw overtreding van een wet of van de rechten van een derde partij, of:</li>
+	<li>(iii) uw gebruik van de Diensten, waaronder de websites van de Bedrijven van Tripadvisor.</li>
+</ul>
+
+<p><a name="OLE_LINK16"><strong>LINKS NAAR WEBSITES VAN DERDEN</strong></a></p>
+
+<p>De Diensten kunnen hyperlinks bevatten naar websites die door andere partijen dan de Bedrijven van Tripadvisor worden ge&euml;xploiteerd. Dergelijke hyperlinks zijn alleen bedoeld als verwijzingen. De Bedrijven van Tripadvisor hebben geen invloed op deze websites en zijn niet verantwoordelijk voor hun inhoud of voor de privacyregels en andere praktijken van deze website. Bovendien dient u voorzorgsmaatregelen te nemen om te garanderen dat links die u volgt of software die u downloadt (hetzij vanaf deze website, hetzij vanaf een andere website) vrij zijn van onder meer virussen, wormen, Trojaanse paarden, defecten en andere schadelijke zaken. Het feit dat de Bedrijven van Tripadvisor hyperlinks naar dergelijke websites opnemen, betekent niet dat zij het materiaal op de websites of apps van derden onderschrijven of dat zij enige relatie hebben met de uitbaters van deze websites.</p>
+
+<p>In sommige gevallen kan een site of app van een derde partij u vragen uw profiel in uw Tripadvisor-account te koppelen aan een profiel op een site van een derde partij. U bent verantwoordelijk voor de beslissing of u dit wilt doen. U bent het absoluut niet verplicht en u kunt op elk gewenst moment terugkomen op uw beslissing om toe te laten dat deze informatie wordt gekoppeld (aan de website of app van de derde partij). Als u ervoor kiest om uw Tripadvisor-account te koppelen aan een site of app van een derde partij, dan zal de site of app van deze derde partij toegang hebben tot de informatie die u in uw Tripadvisor-account hebt opgeslagen, inclusief tot informatie over andere gebruikers waarmee u informatie deelt. U dient de voorwaarden en het privacybeleid van de sites en apps van derden die u bezoekt te lezen, aangezien daarin staat vermeld hoe zij uw informatie mogen gebruiken. Deze kunnen afwijken van die van de Diensten, waaronder onze websites. Wij raden u aan om deze sites en apps van derden eerst goed te beoordelen. Het gebruik daarvan is op uw eigen risico.</p>
+
+<p><a name="OLE_LINK17"><strong>SOFTWARE ALS ONDERDEEL VAN DE DIENSTEN; BIJKOMENDE MOBIELE LICENTIES</strong></a></p>
+
+<p>De software van de Diensten is onderworpen aan de exportcontroles van de Verenigde Staten. Software van de Diensten mag niet worden gedownload of anderszins ge&euml;xporteerd of geherexporteerd (a) in (of naar een burger of inwoner van) Cuba, Irak, Soedan, Noord-Korea, Iran, Syri&euml; of enig ander land dat het voorwerp is van een goederenembargo van de VS of (b) naar personen op de lijst van Specially Designated Nationals van het U.S. Treasury Department of de Table of Deny Orders van het U.S. Commerce Department. Door de Diensten te gebruiken, verklaart en waarborgt u dat u zich niet bevindt in of onder het bewind staat van of een burger of inwoner bent van een van deze landen, en dat u niet voorkomt op een van deze lijsten.</p>
+
+<p>Zoals hierboven reeds is genoemd, bevatten de Diensten software. Deze software wordt soms aangeduide met &#39;apps&#39;.&nbsp; Alle software die op via de Diensten beschikbaar wordt gesteld om te worden gedownload (&#39;Software) is auteursrechtelijk beschermd materiaal van Tripadvisor of andere ge&iuml;dentificeerde derde partijen. Op uw gebruik van dergelijke Software gelden de voorwaarden van de licentieovereenkomst voor eindgebruikers (indien van toepassing) die geleverd wordt bij, of is opgenomen in, de Software. U mag Software die door een licentieovereenkomst wordt vergezeld of die een licentieovereenkomst bevat, pas installeren of gebruiken nadat u akkoord bent gegaan met de voorwaarden van de licentieovereenkomst. Voor Software die op de Diensten beschikbaar wordt gemaakt om te worden gedownload en die niet door een licentieovereenkomst wordt vergezeld, verlenen wij aan u, de gebruiker, hierbij een beperkte, persoonlijke, niet-overdraagbare licentie om de Software te gebruiken voor het bekijken en anderszins gebruiken van de Diensten volgens de algemene voorwaarden van deze Overeenkomst (en de hierin genoemde beleidsregels), en voor geen enkel ander doel.</p>
+
+<p>Let op: alle software, waaronder, maar niet beperkt tot alle HTML-, XML-, Java-codes en Active X-besturingselementen die de Diensten bevatten, is eigendom van of wordt gelicentieerd door Tripadvisor en wordt beschermd door auteursrechten en bepalingen uit internationale verdragen. Het reproduceren of opnieuw verspreiden van de Software is uitdrukkelijk verboden en kan leiden tot civiele en strafrechtelijke vervolging. Overtreders zullen met alle rechtsmiddelen worden vervolgd.</p>
+
+<p>Delen van de mobiele software van Tripadvisor kunnen auteursrechtelijk beschermd materiaal gebruiken. Tripadvisor erkent dit gebruik. Bovendien gelden voor het gebruik van bepaalde mobiele toepassingen van Tripadvisor specifieke voorwaarden. Bezoek de pagina <a href="https://tripadvisor.mediaroom.com/NL-mobile-licenses">Mobiele licenties</a>&nbsp;voor specifieke kennisgevingen voor de mobiele toepassingen van Tripadvisor.</p>
+
+<p>ZONDER BEPERKING VAN HET VOORGAANDE GELDT DAT HET KOPI&Euml;REN OF REPRODUCEREN VAN DE SOFTWARE NAAR EEN ANDERE SERVER OF LOCATIE VOOR VERDERE REPRODUCTIE OF VERSPREIDING UITDRUKKELIJK VERBODEN IS. EVENTUELE GARANTIES VAN DE SOFTWARE ZIJN AFHANKELIJK VAN DE VOORWAARDEN VAN DE LICENTIEOVEREENKOMST OF DEZE OVEREENKOMST (ZOALS VAN TOEPASSING).</p>
+
+<p><a name="OLE_LINK18"><strong>VERMELDINGEN AUTEURSRECHT EN HANDELSMERK</strong></a></p>
+
+<p>Tripadvisor, het uil-logo, de waarderingsbollen en alle andere namen van diensten of producten of slagzinnen die op de Diensten worden getoond, zijn geregistreerde handelsmerken en/of handelsmerken op grond van het gewoonterecht van Tripadvisor LLC en/of haar leveranciers of licentiegevers, en mogen niet worden gekopieerd, nagebootst of gebruikt, geheel of gedeeltelijk, zonder de voorafgaande schriftelijke toestemming van Tripadvisor of de relevante eigenaar van het handelsmerk. Bovendien is de vormgeving van de Diensten, met inbegrip van onze websites en alle paginaheaders, grafische illustraties, knoppictogrammen en gerelateerde scripts, het dienstmerk, handelsmerk en/of de handelsvorm van Tripadvisor en mag deze niet worden gekopieerd, nagebootst of gebruikt, geheel of gedeeltelijk, zonder de voorafgaande schriftelijke toestemming van Tripadvisor. Alle andere handelsmerken, geregistreerde handelsmerken, productnamen en bedrijfsnamen of logo&#39;s die op de Diensten worden vermeld, zijn eigendom van de respectieve eigenaren. De verwijzing naar producten, diensten, procedures of andere informatie met handelsnaam, handelsmerk, fabrikant, leveranciers of anderszins, betekent of impliceert niet dat Tripadvisor ze goedkeurt, sponsort of aanbeveelt, behalve in hoeverre anders in deze Overeenkomst wordt genoemd.</p>
+
+<p>Alle rechten voorbehouden. Tripadvisor is niet verantwoordelijk voor inhoud op websites die door andere partijen dan Tripadvisor worden uitgebaat.</p>
+
+<p><a name="OLE_LINK19"><strong>Beleid voor de melding en verwijdering van illegale inhoud</strong></a></p>
+
+<p>Tripadvisor werkt op basis van &#39;melding en verwijdering&#39;. Als u klachten of bezwaren heeft over de Inhoud, met inbegrip van gebruikersberichten die op de Diensten worden geplaatst, of als u meent dat materiaal of inhoud die op de Diensten zijn geplaatst inbreuk maakt op een auteursrecht of handelsmerk in uw bezit, verzoeken wij u om ons onmiddellijk te waarschuwen door onze procedure &lsquo;melding en verwijdering&rsquo; te volgen.&nbsp;<a href="https://www.tripadvisor.be/pages/noticetakedown.html"><strong>Klik hier om het beleid en de procedure inzake auteursrecht te bekijken</strong></a>. Als u deze procedure volgt, zal Tripadvisor op geldige en goed onderbouwde klachten reageren door alle redelijke maatregelen te nemen om illegale inhoud binnen een redelijke termijn te verwijderen.</p>
+
+<p><a name="OLE_LINK20"><strong>AANPASSINGEN AAN DE DIENSTEN; BE&Euml;INDIGING</strong></a></p>
+
+<p>Tripadvisor kan naar eigen goeddunken de algemene voorwaarden van deze Overeenkomst of elk gedeelte ervan van tijd tot tijd wijzigen, aanvullen of verwijderen wanneer zij meent dat dit om wettelijke, algemeen reglementaire en technische redenen nodig is, of omdat de geleverde Diensten of de aard of indeling van de Diensten zijn gewijzigd. Daarna aanvaardt u gewijzigde algemene voorwaarden van deze Overeenkomst uitdrukkelijk als bindend.</p>
+
+<p>De Bedrijven van Tripadvisor kunnen te allen tijde elk aspect van de Diensten, met inbegrip van de beschikbaarheid van een functie, database of Inhoud van de Diensten wijzigen, opschorten of stopzetten. De Bedrijven van Tripadvisor kunnen om technische of veiligheidsredenen ook beperkingen opleggen of anderszins uw toegang tot alle of een deel van de Diensten beperken zonder kennisgeving of aansprakelijkheid om ongeoorloofde toegang, het verlies of de vernietiging van gegevens te voorkomen of wanneer Tripadvisor en/of de aan haar gelieerde bedrijven naar eigen goeddunken menen dat u een bepaling van deze Overeenkomst of van een wet of reglement overtreedt en wanneer Tripadvisor en/of de aan haar gelieerde bedrijven besluiten om een deel van de Diensten stop te zetten.</p>
+
+<p>UW BLIJVENDE GEBRUIK VAN DE DIENSTEN, NU OF NA DE PUBLICATIE VAN EEN KENNISGEVING OVER WIJZIGINGEN, BETEKENT DAT U DE WIJZIGINGEN AANVAARDT.</p>
+
+<p>Tripadvisor kan deze Overeenkomst met u te allen tijde zonder voorafgaande kennisgeving be&euml;indiging wanneer zij oprecht denkt dat u deze Overeenkomst heeft geschonden of anderszins van mening is dat be&euml;indiging redelijkerwijs noodzakelijk is om de rechten van de Bedrijven van Tripadvisor en/of andere gebruikers van de Diensten te beschermen. Dit houdt in dat wij kunnen stoppen met het leveren van Diensten aan u.</p>
+
+<p><a name="OLE_LINK21"><strong>RECHTSGEBIED EN TOEPASSELIJK RECHT</strong></a></p>
+
+<p>Deze website is het eigendom van en wordt beheerd door Tripadvisor LLC, een naamloze vennootschap naar Amerikaans recht. Deze Overeenkomst en alle geschillen of claims (waaronder niet-contractuele geschillen of claims) die daaruit voortvloeien of daarmee verband houden of voortvloeien of verband houden met het voorwerp of de bepalingen van deze Overeenkomst zullen worden afgehandeld door en ge&iuml;nterpreteerd in overeenstemming met de wetgeving van de Commonwealth van Massachusetts, Verenigde Staten. U aanvaardt hierbij de exclusieve jurisdictie en de gerechtshoven in Massachusetts, VS, en de billijkheid en de geschiktheid van procedures in deze rechtbanken voor alle contractuele en niet-contractuele geschillen die uit of in verband met het gebruik van de Diensten door u of een derde partij ontstaan. U aanvaardt dat alle eisen die u tegen Tripadvisor LLC zou hebben als gevolg van of in verband met de Diensten, moeten worden gehoord en beoordeeld door een bevoegde rechtbank van de Commonwealth of Massachusetts. Het gebruik van de Diensten is niet toegestaan in een rechtsgebied dat geen volledige geldigheid geeft aan al deze algemene voorwaarden, met inbegrip van, maar niet beperkt tot, deze paragraaf. Niets in deze bepaling beperkt het recht van Tripadvisor LLC om een procedure tegen u aanhangig te maken in een andere rechtbank of rechtbanken binnen het bevoegde rechtsgebied. Het voornoemde is niet van toepassing voor zover geldende wetgeving in het land waarin u woont de toepassing van een ander recht en/of rechtsgebied vereist &ndash; met name wanneer u als consument gebruik maakt van de Diensten &ndash; en dit niet contractueel kan worden uitgesloten en dit niet onder het Verdrag der Verenigde Naties inzake internationale koopovereenkomsten betreffende roerende zaken valt, indien anders van toepassing.&nbsp; Indien u de Diensten gebruikt als consument en niet als bedrijf of Bedrijfsvertegenwoordiger, dan kunt u het recht hebben om vorderingen op Tripadvisor aanhangig te maken bij de rechtbanken in het land waar u woont. Deze bepaling is van toepassing voor zover dit in uw land van herkomst of land van verblijf is toegestaan.</p>
+
+<p><a name="OLE_LINK22"><strong>VALUTA-OMREKENMACHINE</strong></a></p>
+
+<p>De wisselkoersen zijn gebaseerd op verschillende openbaar beschikbare bronnen en dienen uitsluitend als richtlijn. De koersen zijn niet als accuraat geverifieerd en de daadwerkelijke koersen kunnen vari&euml;ren. De wisselkoersen worden mogelijk niet elke dag bijgewerkt. De verstrekte informatie wordt als correct beschouwd, maar de Bedrijven van Tripadvisor geven geen garanties of beloftes af ten aanzien van de juistheid van deze informatie. Als deze informatie voor financi&euml;le doeleinden wordt gebruikt, adviseren we u om een ter zake deskundige te raadplegen om de nauwkeurigheid van de wisselkoersen te verifi&euml;ren. Wij geven geen toestemming voor het gebruik van deze informatie voor een ander dan persoonlijk doel. Het wederverkopen, verder verspreiden en gebruiken van deze informatie voor commerci&euml;le doeleinden is uitdrukkelijk verboden.</p>
+
+<p><a name="OLE_LINK23"><strong>ALGEMENE BEPALINGEN</strong></a></p>
+
+<p>Wij behouden ons het recht voor om een gebruikersnaam, accountnaam, nickname, alias of andere identificaties van gebruikers om welke reden dan ook in te trekken zonder dat wij hiervoor jegens u aansprakelijk zijn.</p>
+
+<p>U aanvaardt dat als gevolg van deze Overeenkomst of het gebruik van de Diensten geen joint venture, vennootschap of arbeidsbetrekking bestaat tussen u en Tripadvisor en/of de aan haar gelieerde bedrijven.</p>
+
+<p>Onze uitvoering van deze Overeenkomst is onderworpen aan de bestaande wetten en juridische processen en niets in deze Overeenkomst doet afbreuk aan ons recht om ons te houden aan verzoeken of eisen van gerechtelijke instanties of de overheid of aan andere wettelijke eisen met betrekking tot uw gebruik van de Diensten of informatie die door ons wordt verzameld met betrekking tot dergelijk gebruik. Voor zover de toepasselijke wet het toelaat, aanvaardt u dat u elke claim of handelingsgrond die voortvloeit uit of verband houdt met uw gebruik van de Diensten zult inbrengen binnen twee (2) jaar vanaf de datum waarop een dergelijke claim of grond is ontstaan, en dat u in het andere geval onherroepelijk afstand doet van de claim of handelingsgrond.</p>
+
+<p>Indien zou worden vastgesteld dat een deel van deze overeenkomst ongeldig of niet-afdwingbaar is volgens de toepasselijke wet, met inbegrip van ,maar niet beperkt tot, de bovenvermelde afwijzingen en beperkingen van aansprakelijkheid, zal ervan worden uitgegaan dat de ongeldige of niet-afdwingbare bepaling wordt vervangen door een geldige, afdwingbare bepaling die de geest van de oorspronkelijke bepaling en de rest van de Overeenkomst zo dicht mogelijk benadert, en zullen de andere bepalingen van deze Overeenkomst geldig blijven.</p>
+
+<p>Deze Overeenkomst (samen met andere algemene voorwaarden waarnaar ze verwijst) vormt de volledige overeenkomst tussen u en Tripadvisor met betrekking tot de Diensten en vervangt alle eerdere of gelijktijdige berichten en voorstellen, hetzij elektronisch, mondeling of schriftelijk, tussen u en Tripadvisor met betrekking tot de Diensten. Een gedrukte versie van deze Overeenkomst en alle mededelingen die in elektronische vorm worden verstrekt, zijn toelaatbaar in juridische of bestuursrechtelijke procedures die gebaseerd zijn op of verband houden met deze Overeenkomst, in dezelfde mate en volgens dezelfde voorwaarden als andere bedrijfsdocumenten en bestanden die oorspronkelijk in schriftelijke vorm zijn aangemaakt en bijgehouden.</p>
+
+<p>De volgende onderdelen blijven na be&euml;indiging van deze Overeenkomst van kracht:</p>
+
+<ul>
+	<li><a href="#OLE_LINK3">Aanvullende producten</a></li>
+	<li><a href="#OLE_LINK4">Verboden activiteiten</a></li>
+	<li><a href="#OLE_LINK6">Beoordelingen, Reacties en Gebruik van Andere Interactieve Zones; Licentieverlening</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK7">Licentierechten van Tripadvisor beperken</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK12">Reisbestemmingen</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK13">Internationale reizen</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK14">Afwijzing van aansprakelijkheid</a></li>
+	<li><a href="#OLE_LINK15">Schadeloosstelling</a></li>
+	<li><a href="#OLE_LINK17">Software als onderdeel van de Diensten; Bijkomende Mobiele licenties</a></li>
+	<li><a href="#OLE_LINK18">Vermeldingen auteursrecht en handelsmerk</a>
+	<ul style="list-style-type:circle;">
+		<li><a href="#OLE_LINK19">Beleid voor de melding en verwijdering van illegale inhoud</a></li>
+	</ul>
+	</li>
+	<li><a href="#OLE_LINK20">Aanpassingen aan de diensten; Be&euml;indiging</a></li>
+	<li><a href="#OLE_LINK21">Rechtsgebied en toepasselijk recht</a></li>
+	<li><a href="#OLE_LINK23">Algemene bepalingen</a></li>
+	<li><a href="#OLE_LINK24">Hulp bij Diensten</a></li>
+</ul>
+
+<p>De voorwaarden van deze Overeenkomst zijn beschikbaar in de taal van de websites en/of apps van Tripadvisor die toegang geven tot de Diensten.</p>
+
+<p>Het is mogelijk dat de websites en/of apps die toegang geven tot de diensten niet altijd periodiek of regelmatig worden ge&uuml;pdatet en derhalve niet uit hoofde van enige toepasselijke wetgeving als redactioneel product hoeven te worden geregistreerd.</p>
+
+<p>Fictieve namen van bedrijven, producten, personen, figuren en/of gegevens die in of via de Diensten worden genoemd, zijn niet bedoeld als verwijzingen naar bestaande personen, bedrijven, producten of gebeurtenissen.</p>
+
+<p>Niets in deze Overeenkomst kent rechten of voordelen aan derden toe, behalve aan Tripadvisor gelieerde ondernemingen die uitdrukkelijk als derden-begunstigden van deze Overeenkomst worden beschouwd.</p>
+
+<p>Het is u niet toegestaan om uw rechten of plichten uit hoofde van deze Overeenkomst aan iemand anders over te dragen zonder onze toestemming.</p>
+
+<p>Rechten die hierin niet nadrukkelijk zijn verleend, worden voorbehouden.</p>
+
+<p><a name="OLE_LINK24"><strong>HULP BIJ DIENSTEN</strong></a></p>
+
+<p>Bezoek ons&nbsp;<a href="https://www.tripadvisorsupport.com/hc/nl">Helpcentrum</a> voor antwoorden op vragen of om contact met ons op te nemen. U kunt ook schrijven naar:</p>
+
+<p style="margin-left:21.0pt;">Tripadvisor LLC<br />
+400 1st Avenue<br />
+Needham, MA 02494, Verenigde Staten</p>
+
+<p>Let op: Tripadvisor LLC aanvaardt geen juridische kennisgevingen of betekening van dagvaardingen op andere wijze dan via de post, afgeleverd op bovenstaand adres.&nbsp; Ter voorkoming van twijfel en zonder uitzonderingen: wij aanvaarden derhalve geen kennisgevingen of dagvaardingen die worden afgegeven bij een van onze partners of dochterondernemingen.</p>
+
+<p>&copy;2022 Tripadvisor LLC. Alle rechten voorbehouden.</p>
+
+<p>Laatst bijgewerkt op 15 december 2022.</p>
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34420%26item%3D32414" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34420%26item%3D32414" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34420%26item%3D32414" target="_blank" title="Twitter Share" style="background-color:#1DA1F2;">
+                    <span class="fa fa-twitter"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=BE%20DU%20Media%20Center%20%7C%20Resources&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-facebooklike"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ftripadvisor.mediaroom.com%2Findex.php%3Fs%3D34420%26item%3D32414&amp;layout=button_count&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;width=105&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:105px; height:20px;" allowTransparency="true" title="Facebook Like"></iframe></li></ul></div>
+</div>
+</div>	</div><!--/content-->
+
+</div><!--/contentArea-->
+
+<div style="clear:both;">&nbsp;</div>
+<div class="footer">
+	<div class="widthLimit">
+	<div class="mobile-language">
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=34281">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34297">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34301">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=34289">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34305">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34309">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34313">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34317">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34321">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34325">Venezuela</a></li>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=34282">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=34286">Italia</a></li>
+			<li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=34287">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=34449">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=34285">France</a></li>
+			<li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34341">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34345">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34349">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34353">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34357">Ireland</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34365">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34369">Ελλάδα</a></li>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34381">Norge</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34389">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=34288">Россия</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34401">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34405">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34409">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34413">Belgique</a></li>
+			<li class="flag_item active"><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34417">België</a></li>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=34291">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=34292">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34423">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=34290">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=34283">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34294">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=34284">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34425">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34293">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34295">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34429">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34296">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34433">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34437">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34441">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34445">香港</a></li>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34578">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34329">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34333">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34337">ישראל</a></li>
+		</ul>
+	</div>
+
+	<div class="footerLogo-wrapper"><img src="images/Tripadvisor_lockup_horizontal_registered.png" alt="" title="" border="0" style="max-width: 200px;"></div>
+	<div class="flagMenu-wrapper">
+		<div class="flagMenu-input">
+			<a href="#" class="flagMenu" data-jq-dropdown="#flagMenu" data-horizontal-offset="10" data-vertical-offset="-500"> 
+			<div class="flag"></div> België 
+			<i class="fa fa-chevron-down"></i></a>
+		</div>
+	</div>
+	<div class="wd_featureboxes_footer wd_featureboxes-vertical">
+<div id="wd_featurebox-standard_3553" class="wd_featurebox_container wd_featurebox-standard"><div class="wd_featurebox_title"></div><div class="wd_featurebox"><div><a href="https://www.tripadvisor.be/SiteIndex">Sitemap</a>&nbsp;|&nbsp;Cookietoestemming&nbsp;|&nbsp;<span data-modal="help_center" data-options="autoReposition closeOnDocClick closeOnEscape" data-url="/uvpages/helpCenterOverlay.html" data-windowshade="">Hulpcentrum&nbsp;<img alt="" height="10" id="lazyload_1258491398_0" src="https://static.tacdn.com/img2/icons/bell.png" style="border:0px;vertical-align:text-top;" width="14" /></span></div>
+
+<div>
+<div>&copy; 2023 Tripadvisor LLC Alle rechten voorbehouden. Tripadvisor&nbsp;<a href="BEDU-terms-of-use">Gebruiksvoorwaarden</a>,&nbsp;<a href="BEDU-privacy-policy">Privacybeleid</a>&nbsp;en&nbsp;<a href="https://www.tripadvisor.be/CookiePolicy">Cookiebeleid</a>.</div>
+
+<div>&nbsp;</div>
+
+<div id="PDISCLAIMER">
+<p>Tripadvisor LLC is geen boekingsagentschap of touroperator en onze dienstverlening aan de gebruikers van deze website is kosteloos. Onze partners (luchtvaartmaatschappijen, reisaanbieders en boekingsagentschappen) die vluchttarieven, tours en reispakketten vermelden op Tripadvisor, zijn verplicht alle kosten en toeslagen in hun prijzen op te nemen. Voorbeelden hiervan zijn de federale September 11th Security Fee, internationale vertrek- en aankomstbelastingen en -kosten, federale accijnzen en andere service-, verwerkings- en gemengde kosten en toeslagen. Als je boekt bij een van onze partners, moet je de betreffende partnerwebsite controleren om na te gaan welke kosten van toepassing en verplicht zijn door het Amerikaanse Department of Transportation. Vluchttarieven worden over het algemeen vermeld per persoon in Amerikaanse dollars (USD), tenzij anders aangegeven.</p>
+
+<p>Tripadvisor LLC berekent een gemiddelde prijs voor elk hotel, op basis van de tarieven van beschikbare kamers verkregen van onze boekingspartners. Voor tours en attracties is de weergegeven prijs meestal de laagste beschikbare prijs per volwassene. Tripadvisor LLC geeft geen garanties voor specifieke tarieven of prijzen voor vermelde vakantiepakketten of aanbiedingen. Daarnaast worden de gemiddelde hotelprijzen elke nacht bijgewerkt en weergegeven in de door jou gekozen valuta met gangbare omrekeningskoersen. Omdat deze omgerekende prijzen een schatting zijn, moet je bij de boekingswebsite het exacte bedrag en de valuta controleren.</p>
+
+<p>Verder geeft Tripadvisor LLC geen garantie voor de beschikbaarheid van de prijzen die op onze website vermeld zijn. Voor de vermelde prijzen kan een verblijf van een bepaalde lengte verplicht zijn. Mogelijk kunnen bepaalde data niet worden gekozen of is er sprake van beperkingen en restricties.</p>
+</div>
+
+<div>Tripadvisor LLC is niet aansprakelijk voor de inhoud op externe websites. Belastingen en toeslagen zijn niet inbegrepen bij aanbiedingen.</div>
+</div>
+</div></div></div>
+	</div>
+</div><!--/footer-->
+
+
+<div id="searchMenu" class="jq-dropdown jq-dropdown-tip jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+	<div class="wd_search_form_container"><form name="basic_search" method="get" action="https://tripadvisor.mediaroom.com/index.php?s=20322" class="wd_search_form wd_search_form_basic"><input type="hidden" name="s" value="search_results" /><input type="text" name="query" value="" size="32" placeholder="Keywords..." title="Keywords..." /> <input type="submit" name="submit" value="Search"></form>
+</div>	</div>
+</div><!--/searchMenu-->
+<div id="flagMenuResources" class="jq-dropdown jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+		<div class="pad-20">
+<ul id="FLAGS_FLY">
+    <li class="america col region">
+    <div class="flag_heading">The Americas</div>
+    <ul>
+        <li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=20292">United States</a></li>
+        <li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34300">Canada (English)</a></li>
+        <li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34304">Canada (Français)</a></li>
+        <li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=20316">Brasil</a></li>
+        <li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34308">México</a></li>
+        <li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34312">Argentina</a></li>
+        <li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34316">Chile</a></li>
+        <li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34320">Colombia</a></li>
+        <li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34324">Perú</a></li>
+        <li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34328">Venezuela</a></li>
+    </ul>
+    </li>
+    <li class="europe col region">
+    <div class="flag_heading">Europe</div>
+    <ul>
+        <li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=20288">United Kingdom</a></li>
+        <li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=20309">Italia</a></li>
+        <li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=20310">España</a></li>
+        <li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=20328">Deutschland</a></li>
+        <li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=20307">France</a></li>
+        <li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34344">Sverige</a></li>
+        <li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34348">Nederland</a></li>
+        <li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34352">Türkiye</a></li>
+        <li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34356">Danmark</a></li>
+        <li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34360">Ireland</a></li>
+        <li class="flag_item "><a id="flag_cz_fly" class="flag_link flag_cz" hreflang="cs" title="Czech Republic" href="index.php?s=34364">Česká republika</a></li>
+        <li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34368">Österreich</a></li>
+        <li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34372">Ελλάδα</a></li>
+        <li class="flag_item "><a id="flag_fi_fly" class="flag_link flag_fi" hreflang="fi" title="Finland" href="index.php?s=34376">Suomi</a></li>
+    </ul>
+    </li>
+    <li class="europe col1 region">
+    <div class="flag_heading empty">&nbsp;</div>
+    <ul>
+        <li class="flag_item "><a id="flag_hu_fly" class="flag_link flag_hu" hreflang="hu" title="Hungary" href="index.php?s=34380">Magyarország</a></li>
+        <li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34384">Norge</a></li>
+        <li class="flag_item "><a id="flag_pl_fly" class="flag_link flag_pl" hreflang="pl" title="Poland" href="index.php?s=34388">Polska</a></li>
+        <li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34392">Portugal</a></li>
+        <li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=20314">Россия</a></li>
+        <li class="flag_item "><a id="flag_sk_fly" class="flag_link flag_sk" hreflang="sk" title="Slovakia" href="index.php?s=34396">Slovensko</a></li>
+        <li class="flag_item "><a id="flag_rs_fly" class="flag_link flag_rs" hreflang="sr" title="Serbia" href="index.php?s=34400">Srbija</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34404">Schweiz</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34408">Suisse</a></li>
+        <li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34412">Svizzera</a></li>
+        <li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34416">Belgique</a></li>
+        <li class="flag_item active"><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34420">België</a></li>
+    </ul>
+    </li>
+    <li class="apac col region">
+    <div class="flag_heading">Asia Pacific</div>
+    <ul>
+        <li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=20318">日本</a></li>
+        <li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=20305">中国</a></li>
+        <li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34424">中文国际版</a></li>
+        <li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=20315">India</a></li>
+        <li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=20301">Australia</a></li>
+        <li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34147">Malaysia</a></li>
+        <li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=20296">New Zealand</a></li>
+        <li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34428">Philippines</a></li>
+        <li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34143">Singapore</a></li>
+        <li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34148">Indonesia</a></li>
+        <li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34432">대한민국</a></li>
+        <li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34151">ไทย</a></li>
+        <li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34436">Việt Nam</a></li>
+        <li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34440">台灣</a></li>
+        <li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34444">Hong Kong</a></li>
+        <li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34448">香港</a></li>
+    </ul>
+    </li>
+    <li class="africa col region">
+    <div class="flag_heading">Africa &amp; the Middle East</div>
+    <ul>
+        <li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34580">العربية‬</a></li>
+        <li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34332">مصر</a></li>
+        <li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34336">South Africa</a></li>
+        <li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34698">ישראל</a></li>
+    </ul>
+    </li>
+</ul>
+</div>
+</div>
+</div>
+<div id="flagMenu" class="jq-dropdown jq-dropdown-anchor-right">
+	<div class="jq-dropdown-panel">
+		<div class="pad-20">
+		<ul id="FLAGS_FLY">
+		<li class="america col region">
+		<div class="flag_heading">The Americas</div>
+		<ul>
+			<li class="flag_item "><a id="flag_us_fly" class="flag_link flag_us" hreflang="en" title="United States" href="index.php?s=34281">United States</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="en-CA" title="Canada (English)" href="index.php?s=34297">Canada (English)</a></li>
+			<li class="flag_item "><a id="flag_ca_fly" class="flag_link flag_ca" hreflang="fr-CA" title="Canada (French)" href="index.php?s=34301">Canada (Français)</a></li>
+			<li class="flag_item "><a id="flag_br_fly" class="flag_link flag_br" hreflang="pt" title="Brazil" href="index.php?s=34289">Brasil</a></li>
+			<li class="flag_item "><a id="flag_mx_fly" class="flag_link flag_mx" hreflang="es-MX" title="Mexico" href="index.php?s=34305">México</a></li>
+			<li class="flag_item "><a id="flag_ar_fly" class="flag_link flag_ar" hreflang="es-AR" title="Argentina" href="index.php?s=34309">Argentina</a></li>
+			<li class="flag_item "><a id="flag_cl_fly" class="flag_link flag_cl" hreflang="es-CL" title="Chile" href="index.php?s=34313">Chile</a></li>
+			<li class="flag_item "><a id="flag_co_fly" class="flag_link flag_co" hreflang="es-CO" title="Colombia" href="index.php?s=34317">Colombia</a></li>
+			<li class="flag_item "><a id="flag_pe_fly" class="flag_link flag_pe" hreflang="es-PE" title="Peru" href="index.php?s=34321">Perú</a></li>
+			<li class="flag_item "><a id="flag_ve_fly" class="flag_link flag_ve" hreflang="es-VE" title="Venezuela" href="index.php?s=34325">Venezuela</a></li>
+		</ul>
+		</li>
+		<li class="europe col region">
+		<div class="flag_heading">Europe</div>
+		<ul>
+			<li class="flag_item "><a id="flag_gb_fly" class="flag_link flag_gb" hreflang="en-GB" title="United Kingdom" href="index.php?s=34282">United Kingdom</a></li>
+			<li class="flag_item "><a id="flag_it_fly" class="flag_link flag_it" hreflang="it" title="Italy" href="index.php?s=34286">Italia</a></li>
+			<li class="flag_item "><a id="flag_es_fly" class="flag_link flag_es" hreflang="es" title="Spain" href="index.php?s=34287">España</a></li>
+			<li class="flag_item "><a id="flag_de_fly" class="flag_link flag_de" hreflang="de" title="Germany" href="index.php?s=34449">Deutschland</a></li>
+			<li class="flag_item "><a id="flag_fr_fly" class="flag_link flag_fr" hreflang="fr" title="France" href="index.php?s=34285">France</a></li>
+			<li class="flag_item "><a id="flag_se_fly" class="flag_link flag_se" hreflang="sv" title="Sweden" href="index.php?s=34341">Sverige</a></li>
+			<li class="flag_item "><a id="flag_nl_fly" class="flag_link flag_nl" hreflang="nl" title="The Netherlands" href="index.php?s=34345">Nederland</a></li>
+			<li class="flag_item "><a id="flag_tr_fly" class="flag_link flag_tr" hreflang="tr" title="Turkey" href="index.php?s=34349">Türkiye</a></li>
+			<li class="flag_item "><a id="flag_dk_fly" class="flag_link flag_dk" hreflang="da" title="Denmark" href="index.php?s=34353">Danmark</a></li>
+			<li class="flag_item "><a id="flag_ie_fly" class="flag_link flag_ie" hreflang="en-IE" title="Ireland" href="index.php?s=34357">Ireland</a></li>
+			<li class="flag_item "><a id="flag_at_fly" class="flag_link flag_at" hreflang="de-AT" title="Austria" href="index.php?s=34365">Österreich</a></li>
+			<li class="flag_item "><a id="flag_gr_fly" class="flag_link flag_gr" hreflang="el" title="Greece" href="index.php?s=34369">Ελλάδα</a></li>
+		</ul>
+		</li>
+		<li class="europe col1 region">
+		<div class="flag_heading empty">&nbsp;</div>
+		<ul>
+			<li class="flag_item "><a id="flag_no_fly" class="flag_link flag_no" hreflang="nb" title="Norway" href="index.php?s=34381">Norge</a></li>
+			<li class="flag_item "><a id="flag_pt_fly" class="flag_link flag_pt" hreflang="pt-PT" title="Portugal" href="index.php?s=34389">Portugal</a></li>
+			<li class="flag_item "><a id="flag_ru_fly" class="flag_link flag_ru" hreflang="ru" title="Russia" href="index.php?s=34288">Россия</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="de-CH" title="Switzerland" href="index.php?s=34401">Schweiz</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="fr-CH" title="Switzerland" href="index.php?s=34405">Suisse</a></li>
+			<li class="flag_item "><a id="flag_ch_fly" class="flag_link flag_ch" hreflang="it-CH" title="Switzerland" href="index.php?s=34409">Svizzera</a></li>
+			<li class="flag_item "><a id="flag_be_fly" class="flag_link flag_be" hreflang="fr-BE" title="Belgium" href="index.php?s=34413">Belgique</a></li>
+			<li class="flag_item active"><a id="flag_be_fly" class="flag_link flag_be" hreflang="nl-BE" title="Belgium" href="index.php?s=34417">België</a></li>
+		</ul>
+		</li>
+		<li class="apac col region">
+		<div class="flag_heading">Asia Pacific</div>
+		<ul>
+			<li class="flag_item "><a id="flag_jp_fly" class="flag_link flag_jp" hreflang="ja" title="Japan" href="index.php?s=34291">日本</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="China" href="index.php?s=34292">中国</a></li>
+			<li class="flag_item "><a id="flag_cn_fly" class="flag_link flag_cn" hreflang="zh-Hans" title="Chinese International" href="index.php?s=34423">中文国际版</a></li>
+			<li class="flag_item "><a id="flag_in_fly" class="flag_link flag_in" hreflang="en-IN" title="India" href="index.php?s=34290">India</a></li>
+			<li class="flag_item "><a id="flag_au_fly" class="flag_link flag_au" hreflang="en-AU" title="Australia" href="index.php?s=34283">Australia</a></li>
+			<li class="flag_item "><a id="flag_my_fly" class="flag_link flag_my" hreflang="en-MY" title="Malaysia" href="index.php?s=34294">Malaysia</a></li>
+			<li class="flag_item "><a id="flag_nz_fly" class="flag_link flag_nz" hreflang="en-NZ" title="New Zealand" href="index.php?s=34284">New Zealand</a></li>
+			<li class="flag_item "><a id="flag_ph_fly" class="flag_link flag_ph" hreflang="en-PH" title="Philippines" href="index.php?s=34425">Philippines</a></li>
+			<li class="flag_item "><a id="flag_sg_fly" class="flag_link flag_sg" hreflang="en-SG" title="Singapore" href="index.php?s=34293">Singapore</a></li>
+			<li class="flag_item "><a id="flag_id_fly" class="flag_link flag_id" hreflang="id" title="Indonesia" href="index.php?s=34295">Indonesia</a></li>
+			<li class="flag_item "><a id="flag_kr_fly" class="flag_link flag_kr" hreflang="ko" title="South Korea" href="index.php?s=34429">대한민국</a></li>
+			<li class="flag_item "><a id="flag_th_fly" class="flag_link flag_th" hreflang="th" title="Thailand" href="index.php?s=34296">ไทย</a></li>
+			<li class="flag_item "><a id="flag_vn_fly" class="flag_link flag_vn" hreflang="vi" title="Vietnam" href="index.php?s=34433">Việt Nam</a></li>
+			<li class="flag_item "><a id="flag_tw_fly" class="flag_link flag_tw" hreflang="zh-Hant" title="Taiwan" href="index.php?s=34437">台灣</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="en-HK" title="Hong Kong" href="index.php?s=34441">Hong Kong</a></li>
+			<li class="flag_item "><a id="flag_hk_fly" class="flag_link flag_hk" hreflang="zh-hk" title="Hong Kong" href="index.php?s=34445">香港</a></li>
+		</ul>
+		</li>
+		<li class="africa col region">
+		<div class="flag_heading">Africa &amp; the Middle East</div>
+		<ul>
+			<li class="flag_item "><a id="flag_ar_intl_fly" class="flag_link flag_ar_intl" hreflang="ar" title="Arabic" href="index.php?s=34578">العربية‬</a></li>
+			<li class="flag_item "><a id="flag_eg_fly" class="flag_link flag_eg" hreflang="ar-EG" title="Egypt" href="index.php?s=34329">مصر</a></li>
+			<li class="flag_item "><a id="flag_za_fly" class="flag_link flag_za" hreflang="en-ZA" title="South Africa" href="index.php?s=34333">South Africa</a></li>
+			<li class="flag_item "><a id="flag_il_fly" class="flag_link flag_il" hreflang="he" title="Israel" href="index.php?s=34337">ישראל</a></li>
+		</ul>
+		</li>
+		</ul>
+		</div>
+	</div>
+</div><!--/flagMenu-->
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.wd_featureboxes_middle .wd_featurebox p.more').each(function(){
+		$(this).parent().parent().prepend(this);
+	});
+	$('.wd_newsfeed_releases-teaser .item').each(function(){
+		$(this).children('.wd_date').insertAfter($(this).children('.wd_title'));
+	});
+	$('.clickdrop').click(function(){
+		$('.nav.pad-20').slideToggle();
+	});
+	$('i.fa.fa-bars').click(function(){
+		$('.mainnav').slideToggle();
+	});
+	$('.flagMenu-input').not('#wd_mobile_contacts_flag_toggle').not("#wd_mobile_resources_flag_toggle").click(function(){
+		$('.footer .mobile-language').toggleClass('active');
+	});
+
+	//Removing Img from table in Featurebox left
+
+	$('.wd_featureboxes_left .wd_featurebox').prepend($('.wd_featureboxes_left .wd_featurebox').find('table img'));
+	$('.wd_featureboxes_left .wd_featurebox table').remove();
+});
+</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var flagMenuWrapper = '<div class="flagMenu-wrapper">' +
+				'<div class="flagMenu-input" id="wd_mobile_resources_flag_toggle">' +
+					'<a href="#" class="flagMenu" data-jq-dropdown="#flagMenuResources" data-horizontal-offset="10" data-vertical-offset="-500">' +
+					'<div class="flag"></div> België' +
+					'<i class="fa fa-chevron-down"></i></a>' +
+				'</div>' +
+			'</div>';
+			$(flagMenuWrapper).prependTo('.content');
+			$('#wd_mobile_resources_flag_toggle').click(function(){
+				$('#mobile-resources-page-menu').toggleClass('active');
+			});
+		});
+</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//$('.flagMenu-wrapper').clone().prependTo('.content');
+			//$('.content .flagMenu-wrapper .flagMenu-input').attr('id','wd_mobile_flag_toggle');
+			//$('.mobile-language').clone().insertAfter($('.content .flagMenu-wrapper'));
+			
+		});
+	</script>
+
+
+
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "Standard", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "Resources", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 4086]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=4086&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){var js = "window['__CF$cv$params']={r:'7dd468695d620e4f',m:'EjlesMierQOmL8dm5kOabYXa59VrY2rLq0bq3.cMuWs-1687771578-0-Ab+Q7gyAmWlSdbYu30VCaZq1ROWfyIZJcTuAbVlJhSUF'};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+</html>
